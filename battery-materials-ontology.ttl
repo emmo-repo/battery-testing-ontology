@@ -1,5 +1,7 @@
 @prefix : <http://emmo.info/emmo/application/bmo/> .
+@prefix bmo: <http://emmo.info/emmo/application/bmo/> .
 @prefix emmo: <http://emmo.info/emmo#> .
+@prefix chameo: <http://emmo.info/emmo/domain/chameo/chameo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -15,6 +17,8 @@
 	owl:imports 
 	            <http://emmo.info/emmo/domain/chameo/chameo> ,
 	            <http://emmo.info/emmo/disciplines/metrology> ,
+	            <http://emmo.info/emmo/disciplines/isq> ,
+	            <http://emmo.info/emmo/perspectives/data> ,
 	            <http://emmo.info/emmo/perspectives/semiotics> ;
 	            	            
 	dcterms:abstract "Battery Materials Ontology."@en ;
@@ -46,36 +50,168 @@
 	
 
 ####### EMMO mapping:
+### Data                -> perspectives-data             EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660
 ### MeasurementUnit     -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+
+### ElectricCurrent     -> disciplines-isq               EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
+### Pressure            -> disciplines-isq               EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
+### Time                -> disciplines-isq               EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
+### Voltage             -> disciplines-isq               EMMO_17b031fb_4695_49b6_bb69_189ec63df3ee
+
+### Property            -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 
 ### hasProperty         -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
 
 ####### CHAMEO concepts:
 ### Sample
+### CharacterisationEnvironment
+### CharacterisationMachine
+### MeasurementProcess
 
+bmo:Sample a owl:Class ;
+	rdfs:label "Sample" ;
+	skos:prefLabel "Sample"@en ;
+	rdfs:comment "" ;
+	owl:equivalentClass chameo:Sample .
+
+# Subproperty of emmo:hasProperty	
+bmo:hasCellForm a owl:DatatypeProperty ;
+	rdfs:label "hasCellForm" ;
+	skos:preflabel "hasCellForm" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+
+# Subproperty of emmo:hasProperty
+bmo:hasChemistryType a owl:DatatypeProperty ;
+	rdfs:label "hasChemistryType" ;
+	skos:preflabel "hasChemistryType" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	
+# Subproperty of emmo:hasProperty
+bmo:hasElectrolyteType a owl:DatatypeProperty ;
+	rdfs:label "hasElectrolyteType" ;
+	skos:preflabel "hasElectrolyteType" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+
+# Subproperty of emmo:hasProperty
+bmo:hasPartNumber a owl:DatatypeProperty ;
+	rdfs:label "hasPartNumber" ;
+	skos:preflabel "hasPartNumber" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	
+# Subproperty of emmo:hasProperty
+bmo:hasManufacturerName a owl:DatatypeProperty ;
+	rdfs:label "hasManufacturerName" ;
+	skos:preflabel "hasManufacturerName" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+
+# Subproperty of emmo:hasProperty
+bmo:hasProductionDate a owl:DatatypeProperty ;
+	rdfs:label "hasProductionDate" ;
+	skos:preflabel "hasProductionDate" ;
+	rdfs:domain bmo:Sample ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+
+# ---------------------------------------------------------------------------
+
+# Subclass of emmo:Data
+bmo:TraceData a owl:Class ;
+	rdfs:label "TraceData" ;
+	skos:prefLabel "TraceData"@en ;
+	rdfs:comment "" ;
+	owl:subClassOf emmo:EMMO_1e877c70_3b01_45a8_a8f6_8ce4f6a24660 .
+	
+# Equivalent to emmo:Voltage
+bmo:Voltage a owl:Class ;
+	rdfs:label "Voltage" ;
+	skos:prefLabel "Voltage"@en ;
+	rdfs:comment "" ;
+	owl:subClassOf bmo:TraceData ;
+	owl:equivalentClass emmo:EMMO_17b031fb_4695_49b6_bb69_189ec63df3ee .
+	
+# Equivalent to emmo:ElectricCurrent
+bmo:Current a owl:Class ;
+	rdfs:label "Current" ;
+	skos:prefLabel "Current"@en ;
+	rdfs:comment "" ;
+	owl:subClassOf bmo:TraceData ;
+	owl:equivalentClass emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 .
+
+# Equivalent to emmo:Time		
+bmo:Time a owl:Class ;
+	rdfs:label "Time" ;
+	skos:prefLabel "Time"@en ;
+	rdfs:comment "" ;
+	owl:subClassOf bmo:TraceData ;
+	owl:equivalentClass emmo:EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7 .
+	
+# ---------------------------------------------------------------------------
+
+
+
+bmo:Ambient a owl:Class ;
+	rdfs:label "Ambient" ;
+	skos:prefLabel "Ambient"@en ;
+	skos:altLabel "Environment"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf chameo:CharacterisationEnvironment .
+
+# Equivalent to emmo:Pressure
+# Subclass of emmo:Property
+bmo:Pressure a owl:Class ;
+	rdfs:label "Pressure" ;
+	skos:prefLabel "Pressure"@en ;
+	rdfs:comment "" ;
+	owl:equivalentClass emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 .
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	
+# Subclass of emmo:Property
+bmo:Humidity a owl:Class ;
+	rdfs:label "Humidity" ;
+	skos:prefLabel "Humidity"@en ;
+	rdfs:comment "" ;
+#	owl:equivalentClass 
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	
+# Subclass of emmo:Property
+bmo:Temperature a owl:Class ;
+	rdfs:label "Temperature" ;
+	skos:prefLabel "Temperature"@en ;
+	rdfs:comment "" ;
+#	owl:equivalentClass 
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+
+# Subclass of emmo:MeasurementUnit
 bmo:TemperatureUnit a owl:Class ;
 	rdfs:label "TemperatureUnit" ;
 	skos:prefLabel "TemperatureUnit"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
-	
+
+# Subclass of emmo:MeasurementUnit
 bmo:HumidityUnit a owl:Class ;
 	rdfs:label "HumidityUnit" ;
 	skos:prefLabel "HumidityUnit"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 	
+# Subclass of emmo:MeasurementUnit
 bmo:PressureUnit a owl:Class ;
 	rdfs:label "PressureUnit" ;
 	skos:prefLabel "PressureUnit"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 	
-bmo:Sample a owl:Class ;
-	rdfs:label "Sample" ;
-	skos:prefLabel "Sample"@en ;
-	rdfs:comment "" ;
-	owl:equivalentClass chameo:Sample .
 	
 
 
