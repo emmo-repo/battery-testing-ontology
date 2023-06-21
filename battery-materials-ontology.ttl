@@ -49,15 +49,20 @@
 	
 
 ####### EMMO mapping:
-### MeasurementUnit     -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+### Property                 -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+### hasProperty              -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
+### hasProperPart            -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
+### hasReferenceUnit         -> disciplines-metrology         EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
 
-### Property            -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+### hasInput                 -> multiperspective-persholistic EMMO_36e69413_8c59_4799_946c_10b05d266e22
+### hasOutput                -> multiperspective-persholistic EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
+### hasStage                 -> multiperspective-persholistic EMMO_f22abf74_4538_4f50_ab85_09908cdda707
+### hasTemporaryParticipant  -> multiperspective-persholistic EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
+###
 
-### hasProperty         -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
 
-### hasProperPart       -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
-
-####### CHAMEO concepts:
+####### CHAMEO classes and properties:
 ### CharacterisationData
 ### CharacterisationEnvironment
 ### CharacterisationHardware
@@ -69,6 +74,13 @@
 ### ReferenceSample
 ### Sample
 ### SamplePreparation
+
+### hasCharacterisationHardware?
+### hasCharacterisationEnvironment
+### hasHardwareSpecification?
+### hasMeasurementParameter
+### hasMeasurementSample
+
 
 bmo:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
@@ -305,24 +317,24 @@ bmo:VoltageSource a owl:Class ;
 
 # Subproperty of emmo:hasProperty
 bmo:hasHardwareType a owl:ObjectProperty ;
-	rdfs:label "hasHarwareType" ;
-	skos:preflabel "hasHarwareType" ;
+	rdfs:label "hasHardwareType" ;
+	skos:preflabel "hasHardwareType" ;
 	rdfs:domain bmo:Hardware ;
 	rdfs:range bmo:HardwareType ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
 
 # Subproperty of emmo:hasProperty
 bmo:hasHardwareManufacturerName a owl:ObjectProperty ;
-	rdfs:label "hasHarwareManufacturerName" ;
-	skos:preflabel "hasHarwareManufacturerName" ;
+	rdfs:label "hasHardwareManufacturerName" ;
+	skos:preflabel "hasHardwareManufacturerName" ;
 	rdfs:domain bmo:Hardware ;
 	rdfs:range bmo:HardwareManufacturerName ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
 	
 # Subproperty of emmo:hasProperty
 bmo:hasHardwareModel a owl:ObjectProperty ;
-	rdfs:label "hasHarwareModel" ;
-	skos:preflabel "hasHarwareModel" ;
+	rdfs:label "hasHardwareModel" ;
+	skos:preflabel "hasHardwareModel" ;
 	rdfs:domain bmo:Hardware ;
 	rdfs:range bmo:HardwareModel ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
