@@ -248,31 +248,31 @@ bmo:TraceData a owl:Class ;
 	rdfs:label "TraceData" ;
 	skos:prefLabel "TraceData"@en ;
 	rdfs:comment "" ;
-	owl:subClassOf chameo:CharacterisationData .
+	rdfs:subClassOf chameo:CharacterisationData .
 	
 bmo:VoltageData a owl:Class ;
 	rdfs:label "VoltageData" ;
 	skos:prefLabel "VoltageData"@en ;
 	rdfs:comment "" ;
-	owl:subClassOf bmo:TraceData .
+	rdfs:subClassOf bmo:TraceData .
 	
 bmo:CurrentData a owl:Class ;
 	rdfs:label "CurrentData" ;
 	skos:prefLabel "CurrentData"@en ;
 	rdfs:comment "" ;
-	owl:subClassOf bmo:TraceData .
+	rdfs:subClassOf bmo:TraceData .
 
 bmo:TimeData a owl:Class ;
 	rdfs:label "TimeData" ;
 	skos:prefLabel "TimeData"@en ;
 	rdfs:comment "" ;
-	owl:subClassOf bmo:TraceData .
+	rdfs:subClassOf bmo:TraceData .
 	
 bmo:Hardware a owl:Class ;
 	rdfs:label "Hardware" ;
 	skos:prefLabel "Hardware"@en ;
 	rdfs:comment "" ;
-	owl:subClassOf bmo:CharacterisationHardware .
+	rdfs:subClassOf bmo:CharacterisationHardware .
 
 # Subclass of emmo:Property	
 bmo:HardwareType a owl:Class ;
