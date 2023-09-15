@@ -321,7 +321,8 @@ bmo:CalibrationForBatteryCharacterization a owl:Class ;
 bmo:VoltageSource a owl:Class ;
 	rdfs:label "VoltageSource" ;
 	skos:prefLabel "VoltageSource"@en ;
-	rdfs:comment "" .
+	rdfs:comment "" ;
+	rdfs:subClassOf chameo:ReferenceSample .
 
 # Subproperty of emmo:hasProperty
 bmo:hasHardwareType a owl:ObjectProperty ;
