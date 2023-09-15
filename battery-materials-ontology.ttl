@@ -49,11 +49,16 @@
 	
 
 ####### EMMO mapping:
+### Component                -> multiperspective-persholistic EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 ### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 ### Property                 -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 ### hasProperty              -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
 ### hasProperPart            -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
 ### hasReferenceUnit         -> disciplines-metrology         EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
+
+### hasDataValue                                              EMMO_b6292331_94af_4f00_976b_ea55960c2f1c
+### hasNumericalValue                                         EMMO_faf79f53_749d_40b2_807c_d34244c192f4
+### hasStringValue                                            EMMO_02face50_43a1_40ce_a909_dfe54d5e186b
 
 ### hasInput                 -> multiperspective-persholistic EMMO_36e69413_8c59_4799_946c_10b05d266e22
 ### hasOutput                -> multiperspective-persholistic EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
@@ -201,12 +206,27 @@ bmo:BatterySamplePreparation a owl:Class ;
 bmo:Fixture a owl:Class ;
 	rdfs:label "Fixture" ;
 	skos:prefLabel "Fixture"@en ;
-	rdfs:comment "" .
+	rdfs:comment "" ;
+	rdfs:subClassOf bmo:BatteryHolder .
+
+bmo:BatteryConnector a owl:Class ;
+	rdfs:label "BatteryConnector" ;
+	skos:prefLabel "BatteryConnector"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
 
 bmo:Cable a owl:Class ;
 	rdfs:label "Cable" ;
 	skos:prefLabel "Cable"@en ;
-	rdfs:comment "" .
+	rdfs:comment "" ;
+	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	
+bmo:AlligatorClamps a owl:Class ;
+	rdfs:subClassOf bmo:BatteryConnector ;
+    skos:prefLabel "AlligatorClamps"@en ;
+    rdfs:comment "" .
+
+                
 
 # ---------------------------------------------------------------------------
 	
@@ -398,3 +418,67 @@ bmo:AmbientPressureUnit a owl:Class ;
 	skos:prefLabel "AmbientPressureUnit"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+	
+# ----Individuals---------------------------------------------------------------------
+
+bmo:AlligatorClamps1 a owl:NamedIndividual , bmo:AlligatorClamps .
+
+# Ambient1 emmo:hasProperty bmo:AmbientPressure1, bmo:AmbientTemperature1
+bmo:Ambient1 a owl:NamedIndividual , bmo:Ambient ;
+	emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 bmo:AmbientPressure1 , bmo:AmbientTemperature1 .
+
+# emmo:hasReferenceUnit, emmo:hasNumericalValue
+bmo:AmbientPressure1 a owl:NamedIndividual , bmo:AmbientPressure ;
+	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bmo:AmbientPressureUnit1 ;
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 102 .
+
+# emmo:hasStringValue
+bmo:AmbientPressureUnit1 a owl:NamedIndividual , bmo:AmbientPressureUnit ;
+                      emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "kPa" .
+
+bmo:AmbientTemperature1 a owl:NamedIndividual , bmo:AmbientTemperature ;
+	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bmo:AmbientTemperatureUnit1 ;
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 15 .
+
+bmo:AmbientTemperatureUnit1 a owl:NamedIndividual , bmo:AmbientTemperatureUnit ;
+	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "C" .
+
+bmo:BatteryCharacterisationMethod1 a owl:NamedIndividual , bmo:BatteryCharacterizationMethod ;
+	chameo:characterisationMethodHasStage bmo:BatteryMeasurementProcess1 , bmo:BatterySamplePreparation1 ;
+	chameo:hasCharacterisationEnvironment bmo:Ambient1 ;
+	chameo:hasCharacterisationLocation bmo:Location1 .
+
+bmo:BatteryHolder1 a owl:NamedIndividual , bmo:BatteryHolder .
+
+bmo:BatteryMeasurementProcess1 a owl:NamedIndividual , bmo:BatteryMeasurementProcess ;
+	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bmo:BatterySample1 ;
+	emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 bmo:CurrentData1 , bmo:TimeData1 , bmo:VoltageData1 ;
+	emmo:b6292331_94af_4f00_976b_ea55960c2f1c "2020-08-10T15:39:35"^^xsd:dateTime .
+
+bmo:BatterySample1 a owl:NamedIndividual , bmo:BatterySample .
+
+bmo:BatterySamplePreparation1 a owl:NamedIndividual , bmo:BatterySamplePreparation ;
+	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bmo:BatterySample1 , bmo:Fixture1 ;
+    emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d bmo:BatteryCharacterisationMethod1 .
+
+bmo:Cable1 a owl:NamedIndividual , bmo:Cable .
+
+bmo:CurrentData1 a owl:NamedIndividual , bmo:CurrentData ; 
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 "1.477E-7"^^xsd:float .
+
+#bmo:Fixture1 hasProperPart bmo:AlligatorClamps1 , bmo:Cable1
+bmo:Fixture1 a owl:NamedIndividual , bmo:Fixture ;
+	emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 bmo:AlligatorClamps1 , bmo:Cable1 .
+
+bmo:Location1 a owl:NamedIndividual , bmo:Location ;
+	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "Keysight Technologies"@en ;
+    rdfs:comment "" .
+
+bmo:SamplingTime1 a owl:NamedIndividual , bmo:SamplingTime ;
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.0001 .
+
+bmo:TimeData1 a owl:NamedIndividual , bmo:TimeData ;
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.999899983406067 .
+
+bmo:VoltageData1 a owl:NamedIndividual , bmo:VoltageData ;
+	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 447.045999862166 .
