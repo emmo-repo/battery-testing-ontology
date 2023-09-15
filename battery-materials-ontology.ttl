@@ -298,12 +298,14 @@ bmo:HardwareModel a owl:Class ;
 bmo:CurrentSpecification a owl:Class ;
 	rdfs:label "CurrentSpecification" ;
 	skos:prefLabel "CurrentSpecification"@en ;
-	rdfs:comment "" .
+	rdfs:comment "" ;
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 
 bmo:VoltageSpecification a owl:Class ;
 	rdfs:label "VoltageSpecification" ;
 	skos:prefLabel "VoltageSpecification"@en ;
-	rdfs:comment "" .
+	rdfs:comment "" ;
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 	
 bmo:CalibrationForBatteryCharacterization a owl:Class ;
 	rdfs:label "CalibrationForBatteryCharacterization" ;
