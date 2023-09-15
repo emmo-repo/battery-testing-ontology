@@ -81,6 +81,12 @@
 ### hasMeasurementParameter
 ### hasMeasurementSample
 
+bmo:BatteryCharacterizationMethod a owl:Class ;
+	rdfs:label "BatteryCharacterizationMethod" ;
+	skos:prefLabel "BatteryCharacterizationMethod"@en ;
+	skos:altLabel "BatteryCharacterisationMethod"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf chameo:CharacterisationMethod .
 
 bmo:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
