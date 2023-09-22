@@ -47,7 +47,6 @@
 	<http://purl.org/ontology/bibo/doi> "" ;
 	owl:versionInfo "1.0.0-beta4" .
 	
-
 ####### EMMO mapping:
 ### Component                -> multiperspective-persholistic EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 ### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
@@ -65,7 +64,6 @@
 ### hasStage                 -> multiperspective-persholistic EMMO_f22abf74_4538_4f50_ab85_09908cdda707
 ### hasTemporaryParticipant  -> multiperspective-persholistic EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
 ###
-
 
 ####### CHAMEO classes and properties:
 ### CharacterisationData
@@ -97,7 +95,30 @@ bmo:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
 	skos:prefLabel "BatterySample"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:Sample .
+	rdfs:subClassOf chameo:Sample ,
+		[ rdf:type owl:Restriction ;
+          owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          owl:onClass bmo:Separator
+        ] ;
+	
+bmo:Separator a owl:Class ;
+	rdfs:label "Separator" ;
+	skos:prefLabel "Separator"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+
+bmo:Cathode a owl:Class ;
+	rdfs:label "Cathode" ;
+	skos:prefLabel "Cathode"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	
+bmo:Anode a owl:Class ;
+	rdfs:label "Anode" ;
+	skos:prefLabel "Anode"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
 
 # Subclass of emmo:Property
 bmo:BatteryCellForm a owl:Class ;
@@ -225,8 +246,6 @@ bmo:AlligatorClamps a owl:Class ;
 	rdfs:subClassOf bmo:BatteryConnector ;
     skos:prefLabel "AlligatorClamps"@en ;
     rdfs:comment "" .
-
-                
 
 # ---------------------------------------------------------------------------
 	
