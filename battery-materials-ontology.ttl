@@ -89,7 +89,15 @@ bmo:BatteryCharacterizationMethod a owl:Class ;
 	skos:prefLabel "BatteryCharacterizationMethod"@en ;
 	skos:altLabel "BatteryCharacterisationMethod"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:CharacterisationMethod .
+	rdfs:subClassOf chameo:CharacterisationMethod ,
+	       [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:EMMO_f22abf74_4538_4f50_ab85_09908cdda707 ;
+             # emmo:hasStage
+             owl:someValuesFrom bmo:BatteryMeasurementProcess ] ,
+           [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:EMMO_f22abf74_4538_4f50_ab85_09908cdda707 ;
+             # emmo:hasStage
+             owl:someValuesFrom bmo:BatterySamplePreparation ] .
 
 bmo:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
@@ -98,9 +106,9 @@ bmo:BatterySample a owl:Class ;
 	rdfs:subClassOf chameo:Sample ,
 		[ rdf:type owl:Restriction ;
           owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+          # emmo:hasProperPart
           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          owl:onClass bmo:Separator
-        ] ;
+          owl:onClass bmo:Separator ] .
 	
 bmo:Separator a owl:Class ;
 	rdfs:label "Separator" ;
@@ -222,13 +230,36 @@ bmo:BatterySamplePreparation a owl:Class ;
 	rdfs:label "BatterySamplePreparation" ;
 	skos:prefLabel "BatterySamplePreparation"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:SamplePreparation .
+	rdfs:subClassOf chameo:SamplePreparation ,
+			[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+        	  # emmo:hasInput 
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bmo:BatterySample ] ,
+          	[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+        	  # emmo:hasOutput
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bmo:BatterySample ] ,
+          	[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+              # emmo:hasTemporaryParticipant
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bmo:BatteryHolder ] .
 	
 bmo:Fixture a owl:Class ;
 	rdfs:label "Fixture" ;
 	skos:prefLabel "Fixture"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bmo:BatteryHolder .
+	rdfs:subClassOf bmo:BatteryHolder ,
+	         [ rdf:type owl:Restriction ;
+               owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+               # emmo:hasProperPart
+               owl:someValuesFrom bmo:BatteryConnector ] ,
+             [ rdf:type owl:Restriction ;
+               owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+               # emmo:hasProperPart
+               owl:someValuesFrom bmo:Cable ] .       
 
 bmo:BatteryConnector a owl:Class ;
 	rdfs:label "BatteryConnector" ;
@@ -273,7 +304,45 @@ bmo:BatteryMeasurementProcess a owl:Class ;
 	rdfs:label "BatteryMeasurementProcess" ;
 	skos:prefLabel "BatteryMeasurementProcess"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:MeasurementProcess .
+	rdfs:subClassOf chameo:MeasurementProcess , 
+				[ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                  # emmo:hasTemporaryParticipant
+                  owl:someValuesFrom bmo:Hardware ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                  # emmo:hasOutput
+                  owl:someValuesFrom bmo:TraceData ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasMeasurementSample ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:BatterySample ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasCharacterisationEnvironment ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:Ambient ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasMeasurementParameter ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:MaxVoltage ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasMeasurementParameter ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:SamplingTime ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasMeasurementParameter ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:EndTime ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                  # emmo:hasProperty 
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:Accuracy ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                  # emmo:hasProperty 
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass bmo:Location ] .
 
 # Subclass of emmo:Property	
 bmo:Accuracy a owl:Class ;
@@ -317,28 +386,31 @@ bmo:Hardware a owl:Class ;
 	rdfs:label "Hardware" ;
 	skos:prefLabel "Hardware"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bmo:CharacterisationHardware .
+	rdfs:subClassOf chameo:CharacterisationInstrument .
 
 # Subclass of emmo:Property	
 bmo:HardwareType a owl:Class ;
 	rdfs:label "HardwareType" ;
 	skos:prefLabel "HardwareType"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf chameo:HardwareSpecification .
 
 # Subclass of emmo:Property	
 bmo:HardwareManufacturerName a owl:Class ;
 	rdfs:label "HardwareManufacturerName" ;
 	skos:prefLabel "HardwareManufacturerName"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf chameo:HardwareSpecification .
 	
 # Subclass of emmo:Property	
 bmo:HardwareModel a owl:Class ;
 	rdfs:label "HardwareModel" ;
 	skos:prefLabel "HardwareModel"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf chameo:HardwareSpecification .
 
 bmo:CurrentSpecification a owl:Class ;
 	rdfs:label "CurrentSpecification" ;
@@ -355,7 +427,19 @@ bmo:VoltageSpecification a owl:Class ;
 bmo:CalibrationForBatteryCharacterization a owl:Class ;
 	rdfs:label "CalibrationForBatteryCharacterization" ;
 	skos:prefLabel "CalibrationForBatteryCharacterization"@en ;
-	rdfs:comment "" .
+	skos:altLabel "CalibrationForBatteryCharacterisation"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf [ rdf:type owl:Restriction ;
+                      owl:onProperty chameo:hasCalibrationHardware ;
+                      owl:someValuesFrom bmo:Hardware ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                      # emmo:hasOutput
+                      owl:someValuesFrom bmo:VoltageData ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                      # emmo:hasTemporaryParticipant
+                      owl:someValuesFrom bmo:VoltageSource ] .
 
 bmo:VoltageSource a owl:Class ;
 	rdfs:label "VoltageSource" ;
@@ -394,28 +478,60 @@ bmo:Ambient a owl:Class ;
 	skos:prefLabel "Ambient"@en ;
 	skos:altLabel "Environment"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:CharacterisationEnvironment .
+	rdfs:subClassOf chameo:CharacterisationEnvironment ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientPressure ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientHumidity ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientTemperature ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientLight ] .
 
 # Subclass of emmo:Property
 bmo:AmbientPressure a owl:Class ;
 	rdfs:label "AmbientPressure" ;
 	skos:prefLabel "AmbientPressure"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientPressureUnit ] .
+	
 	
 # Subclass of emmo:Property
 bmo:AmbientHumidity a owl:Class ;
 	rdfs:label "AmbientHumidity" ;
 	skos:prefLabel "AmbientHumidity"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientHumidityUnit ] .
 	
 # Subclass of emmo:Property
 bmo:AmbientTemperature a owl:Class ;
 	rdfs:label "AmbientTemperature" ;
 	skos:prefLabel "AmbientTemperature"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bmo:AmbientTemperatureUnit ] .
 
 # Subclass of emmo:MeasurementUnit
 bmo:AmbientTemperatureUnit a owl:Class ;
@@ -438,7 +554,9 @@ bmo:AmbientPressureUnit a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 	
+######################################################################################
 # ----Individuals---------------------------------------------------------------------
+######################################################################################
 
 bmo:AlligatorClamps1 a owl:NamedIndividual , bmo:AlligatorClamps .
 
