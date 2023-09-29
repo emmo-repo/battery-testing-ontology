@@ -103,19 +103,8 @@ bto:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
 	skos:prefLabel "BatterySample"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:Sample ,
-		[ rdf:type owl:Restriction ;
-          owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
-          # emmo:hasProperPart
-          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          owl:onClass bto:Separator ] .
+	rdfs:subClassOf chameo:Sample .
 	
-bto:Separator a owl:Class ;
-	rdfs:label "Separator" ;
-	skos:prefLabel "Separator"@en ;
-	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
-
 bto:Cathode a owl:Class ;
 	rdfs:label "Cathode" ;
 	skos:prefLabel "Cathode"@en ;
