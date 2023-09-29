@@ -1,1 +1,1 @@
-# battery-materials-ontology
+# battery-testing-ontology
