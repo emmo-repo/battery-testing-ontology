@@ -162,7 +162,7 @@ bto:BatteryProductionDate a owl:Class ;
 # Subproperty of emmo:hasProperty	
 bto:hasCellForm a owl:ObjectProperty ;
 	rdfs:label "hasCellForm" ;
-	skos:preflabel "hasCellForm" ;
+	skos:preflabel "hasCellForm"@en ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryCellForm ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
@@ -170,7 +170,7 @@ bto:hasCellForm a owl:ObjectProperty ;
 # Subproperty of emmo:hasProperty
 bto:hasChemistryType a owl:ObjectProperty ;
 	rdfs:label "hasChemistryType" ;
-	skos:preflabel "hasChemistryType" ;
+	skos:preflabel "hasChemistryType"@en ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryChemistryType ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
@@ -178,15 +178,16 @@ bto:hasChemistryType a owl:ObjectProperty ;
 # Subproperty of emmo:hasProperty
 bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:label "hasElectrolyteType" ;
-	skos:preflabel "hasElectrolyteType" ;
+	skos:preflabel "hasElectrolyteType"@en ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryElectrolyteType ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
 
 # Subproperty of emmo:hasProperty
-bto:hasManufacturerName a owl:ObjectProperty ;
-	rdfs:label "hasManufacturerName" ;
-	skos:preflabel "hasManufacturerName" ;
+bto:hasHardwareManufacturerName a owl:ObjectProperty ;
+	rdfs:label "hasHardwareManufacturerName" ;
+	skos:preflabel "hasHardwareManufacturerName"@en ;
+	skos:altlabel "hasManufacturerName"@en ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryManufacturerName ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
@@ -194,7 +195,7 @@ bto:hasManufacturerName a owl:ObjectProperty ;
 # Subproperty of emmo:hasProperty
 bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:label "hasPartNumber" ;
-	skos:preflabel "hasPartNumber" ;
+	skos:preflabel "hasPartNumber"@en ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryPartNumber ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
@@ -351,7 +352,7 @@ bto:TraceData a owl:Class ;
 	rdfs:label "TraceData" ;
 	skos:prefLabel "TraceData"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:CharacterisationData .
+	rdfs:subClassOf chameo:RawData .
 	
 bto:VoltageData a owl:Class ;
 	rdfs:label "VoltageData" ;
@@ -383,7 +384,7 @@ bto:HardwareType a owl:Class ;
 	skos:prefLabel "HardwareType"@en ;
 	rdfs:comment "" ;
 	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
-	rdfs:subClassOf chameo:HardwareSpecification .
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 
 # Subclass of emmo:Property	
 bto:HardwareManufacturerName a owl:Class ;
@@ -391,7 +392,7 @@ bto:HardwareManufacturerName a owl:Class ;
 	skos:prefLabel "HardwareManufacturerName"@en ;
 	rdfs:comment "" ;
 	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
-	rdfs:subClassOf chameo:HardwareSpecification .
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 	
 # Subclass of emmo:Property	
 bto:HardwareModel a owl:Class ;
@@ -399,7 +400,7 @@ bto:HardwareModel a owl:Class ;
 	skos:prefLabel "HardwareModel"@en ;
 	rdfs:comment "" ;
 	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
-	rdfs:subClassOf chameo:HardwareSpecification .
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 
 bto:CurrentSpecification a owl:Class ;
 	rdfs:label "CurrentSpecification" ;
@@ -436,29 +437,40 @@ bto:VoltageSource a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:ReferenceSample .
 
-# Subproperty of emmo:hasProperty
 bto:hasHardwareType a owl:ObjectProperty ;
 	rdfs:label "hasHardwareType" ;
-	skos:preflabel "hasHardwareType" ;
+	skos:preflabel "hasHardwareType"@en ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareType ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification .
 
-# Subproperty of emmo:hasProperty
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:label "hasHardwareManufacturerName" ;
-	skos:preflabel "hasHardwareManufacturerName" ;
+	skos:preflabel "hasHardwareManufacturerName"@en ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareManufacturerName ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
-	
-# Subproperty of emmo:hasProperty
+	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+
 bto:hasHardwareModel a owl:ObjectProperty ;
 	rdfs:label "hasHardwareModel" ;
-	skos:preflabel "hasHardwareModel" ;
+	skos:preflabel "hasHardwareModel"@en ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareModel ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+
+bto:hasCurrentSpecification a owl:ObjectProperty ;
+	rdfs:label "hasCurrentSpecification" ;
+	skos:preflabel "hasCurrentSpecification"@en ;
+	rdfs:domain bto:Hardware ;
+	rdfs:range bto:CurrentSpecification ;
+	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	
+bto:hasVoltageSpecification a owl:ObjectProperty ;
+	rdfs:label "hasVoltageSpecification" ;
+	skos:preflabel "hasVoltageSpecification"@en ;
+	rdfs:domain bto:Hardware ;
+	rdfs:range bto:VoltageSpecification ;
+	rdfs:subPropertyOf chameo:hasHardwareSpecification .
 	
 # ---------------------------------------------------------------------------
 
