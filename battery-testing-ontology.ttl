@@ -45,7 +45,7 @@
 	foaf:logo "" ;
 	<http://purl.org/ontology/bibo/status> "" ;
 	<http://purl.org/ontology/bibo/doi> "" ;
-	owl:versionInfo "1.0.0-beta4" .
+	owl:versionInfo "1.0.0-beta5" .
 	
 ####### EMMO mapping:
 ### Component                -> multiperspective-persholistic EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
@@ -72,10 +72,11 @@
 ### CharacterisationEnvironment
 ### CharacterisationHardware
 ### CharacterisationMachine
+### CharacterisationMeasurementProcess
 ### CharacterisationMethod
 ### Holder
 ### MeasurementParameter
-### MeasurementProcess
+
 ### ReferenceSample
 ### Sample
 ### SamplePreparation
@@ -296,7 +297,7 @@ bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:label "BatteryMeasurementProcess" ;
 	skos:prefLabel "BatteryMeasurementProcess"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:MeasurementProcess , 
+	rdfs:subClassOf chameo:CharacterisationMeasurementProcess , 
 				[ rdf:type owl:Restriction ;
                   owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
                   # emmo:hasTemporaryParticipant
@@ -423,7 +424,8 @@ bto:CalibrationForBatteryCharacterization a owl:Class ;
 	skos:altLabel "CalibrationForBatteryCharacterisation"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf [ rdf:type owl:Restriction ;
-                      owl:onProperty chameo:hasCalibrationHardware ;
+                      owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                      # emmo:hasTemporaryParticipant
                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                       owl:onClass bto:Hardware ] ,
                     [ rdf:type owl:Restriction ;
