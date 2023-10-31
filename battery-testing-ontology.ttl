@@ -169,6 +169,7 @@ bto:hasCellForm a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryCellForm ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 
 # Subproperty of emmo:hasProperty
 bto:hasChemistryType a owl:ObjectProperty ;
@@ -177,6 +178,7 @@ bto:hasChemistryType a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryChemistryType ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 	
 # Subproperty of emmo:hasProperty
 bto:hasElectrolyteType a owl:ObjectProperty ;
@@ -185,6 +187,7 @@ bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryElectrolyteType ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 
 # Subproperty of emmo:hasProperty
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
@@ -194,6 +197,7 @@ bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryManufacturerName ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 
 # Subproperty of emmo:hasProperty
 bto:hasPartNumber a owl:ObjectProperty ;
@@ -202,6 +206,7 @@ bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryPartNumber ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 	
 # Subproperty of emmo:hasProperty
 bto:hasProductionDate a owl:ObjectProperty ;
@@ -210,6 +215,7 @@ bto:hasProductionDate a owl:ObjectProperty ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryProductionDate ;
 	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	# emmo:hasProperty
 
 # ---------------------------------------------------------------------------
 
@@ -571,28 +577,35 @@ bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 # Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
 bto:Ambient1 a owl:NamedIndividual , bto:Ambient ;
 	emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 bto:AmbientPressure1 , bto:AmbientTemperature1 .
+	# emmo:hasProperty
 
 # emmo:hasReferenceUnit, emmo:hasNumericalValue
 bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
 	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bto:AmbientPressureUnit1 ;
+	# emmo:hasReferenceUnit
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 102 .
+	# emmo:hasNumericalValue
 
 # emmo:hasStringValue
 bto:AmbientPressureUnit1 a owl:NamedIndividual , bto:AmbientPressureUnit ;
-                      emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "kPa" .
+    emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "kPa" .
+    # emmo:hasStringValue
 
 bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
 	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bto:AmbientTemperatureUnit1 ;
+	# emmo:hasReferenceUnit
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 15 .
+	# emmo:hasNumericalValue
 
 bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
 	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "C" .
+	# emmo:hasStringValue
 
 bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
-    # hasBeginTask
     emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 bto:BatterySamplePreparation1 ;
-    # hasEndTask
+    # emmo:hasBeginTask
     emmo:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 bto:BatteryMeasurementProcess1 ;
+    # emmo:hasEndTask
 	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
 	chameo:hasCharacterisationLocation bto:Location1 .
 
@@ -600,34 +613,44 @@ bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
 
 bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
 	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bto:BatterySample1 ;
+	# emmo:hasTemporaryParticipant
 	emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
-	emmo:b6292331_94af_4f00_976b_ea55960c2f1c "2020-08-10T15:39:35"^^xsd:dateTime .
+	# emmo:hasOutput
+	emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c "2020-08-10T15:39:35"^^xsd:dateTime .
+	# hasDataValue
 
 bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample .
 
 bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
 	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bto:BatterySample1 , bto:Fixture1 ;
-	# hasNext
-    emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d bto:BatteryMeasurementProcess1 .
- 
+	# emmo:hasTemporaryParticipant
+	emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d bto:BatteryMeasurementProcess1 .
+	# emmo:hasNext
+	
 bto:Cable1 a owl:NamedIndividual , bto:Cable .
 
 bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 "1.477E-7"^^xsd:float .
+	# emmo:hasNumericalValue
 
 #bto:Fixture1 hasProperPart bto:AlligatorClamps1 , bto:Cable1
 bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
 	emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 bto:AlligatorClamps1 , bto:Cable1 .
+	# emmo:hasProperPart
 
 bto:Location1 a owl:NamedIndividual , bto:Location ;
 	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "Keysight Technologies"@en ;
+	# emmo:hasStringValue
     rdfs:comment "" .
 
 bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.0001 .
+	# emmo:hasNumericalValue
 
 bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.999899983406067 .
+	# emmo:hasNumericalValue
 
 bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
 	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 447.045999862166 .
+	# emmo:hasNumericalValue
