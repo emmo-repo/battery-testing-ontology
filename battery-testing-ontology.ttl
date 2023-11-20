@@ -54,10 +54,19 @@
 ### hasProperty              -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
 ### hasProperPart            -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
 ### hasReferenceUnit         -> disciplines-metrology         EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
+emmo:Component owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+emmo:MeasurementUnit owl:equivalentClass emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+emmo:Property owl:equivalentClass emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+emmo:hasProperty owl:equivalentProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+emmo:hasProperPart owl:equivalentProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 .
+emmo:hasReferenceUnit owl:equivalentProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 .
 
 ### hasDataValue             -> perspectives-data             EMMO_b6292331_94af_4f00_976b_ea55960c2f1c
 ### hasNumericalValue        -> disciplines-math              EMMO_faf79f53_749d_40b2_807c_d34244c192f4
 ### hasStringValue           -> multiperspective-symbolic     EMMO_02face50_43a1_40ce_a909_dfe54d5e186b
+emmo:hasDataValue owl:equivalentProperty emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c .
+emmo:hasNumericalValue owl:equivalentProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 .
+emmo:hasStringValue owl:equivalentProperty emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b .
 
 ### hasBeginTask             -> multiperspective-workflow     EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296
 ### hasEndTask               -> multiperspective-workflow     EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75
@@ -66,6 +75,13 @@
 ### hasOutput                -> multiperspective-persholistic EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840
 ### hasTemporaryParticipant  -> multiperspective-persholistic EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
 ### hasTask                  -> multiperspective-workflow     EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
+emmo:hasBeginTask owl:equivalentProperty emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 .
+emmo:hasEndTask owl:equivalentProperty emmo:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 .
+emmo:hasInput owl:equivalentProperty emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 .
+emmo:hasNext owl:equivalentProperty emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d .
+emmo:hasOutput owl:equivalentProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 .
+emmo:hasTemporaryParticipant owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 .
+emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a .
 
 ####### CHAMEO classes and properties:
 ### CharacterisationData
