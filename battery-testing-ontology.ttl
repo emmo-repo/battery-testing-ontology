@@ -103,6 +103,11 @@ emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd
 ### hasMeasurementParameter
 ### hasMeasurementSample
 
+bto:btoObjectProperty a owl:Class ;
+	rdfs:label "btoObjectProperty" ;
+	skos:prefLabel "btoObjectProperty" ;
+	rdfs:comment "" .
+	
 bto:BatteryCharacterizationMethod a owl:Class ;
 	rdfs:label "BatteryCharacterizationMethod" ;
 	skos:prefLabel "BatteryCharacterizationMethod"@en ;
@@ -110,11 +115,11 @@ bto:BatteryCharacterizationMethod a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:CharacterisationMethod ,
 	       [ rdf:type owl:Restriction ;
-             owl:onProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+             owl:onProperty emmo:hasTask ;
              # emmo:hasTask
              owl:someValuesFrom bto:BatteryMeasurementProcess ] ,
            [ rdf:type owl:Restriction ;
-             owl:onProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
+             owl:onProperty emmo:hasTask ;
              # emmo:hasTask
              owl:someValuesFrom bto:BatterySamplePreparation ] .
 
@@ -124,59 +129,61 @@ bto:BatterySample a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:Sample .
 	
+# Subclass of emmo:Component
 bto:Cathode a owl:Class ;
 	rdfs:label "Cathode" ;
 	skos:prefLabel "Cathode"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	rdfs:subClassOf emmo:Component .
 	
+# Subclass of emmo:Component
 bto:Anode a owl:Class ;
 	rdfs:label "Anode" ;
 	skos:prefLabel "Anode"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	rdfs:subClassOf emmo:Component .
 
 # Subclass of emmo:Property
 bto:BatteryCellForm a owl:Class ;
 	rdfs:label "BatteryCellForm" ;
 	skos:prefLabel "BatteryCellForm"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 	
 # Subclass of emmo:Property
 bto:BatteryChemistryType a owl:Class ;
 	rdfs:label "BatteryChemistryType" ;
 	skos:prefLabel "BatteryChemistryType"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
 bto:BatteryElectrolyteType a owl:Class ;
 	rdfs:label "BatteryElectrolyteType" ;
 	skos:prefLabel "BatteryElectrolyteType"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
 bto:BatteryManufacturerName a owl:Class ;
 	rdfs:label "BatteryManufacturerName" ;
 	skos:prefLabel "BatteryManufacturerName"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 	
 # Subclass of emmo:Property
 bto:BatteryPartNumber a owl:Class ;
 	rdfs:label "BatteryPartNumber" ;
 	skos:prefLabel "BatteryPartNumber"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
 bto:BatteryProductionDate a owl:Class ;
 	rdfs:label "BatteryProductionDate" ;
 	skos:prefLabel "BatteryProductionDate"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 	
 # Subproperty of emmo:hasProperty	
 bto:hasCellForm a owl:ObjectProperty ;
@@ -185,8 +192,9 @@ bto:hasCellForm a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryCellForm ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 # Subproperty of emmo:hasProperty
 bto:hasChemistryType a owl:ObjectProperty ;
@@ -195,8 +203,9 @@ bto:hasChemistryType a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryChemistryType ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 	
 # Subproperty of emmo:hasProperty
 bto:hasElectrolyteType a owl:ObjectProperty ;
@@ -205,8 +214,9 @@ bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryElectrolyteType ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 # Subproperty of emmo:hasProperty
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
@@ -216,8 +226,9 @@ bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryManufacturerName ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 # Subproperty of emmo:hasProperty
 bto:hasPartNumber a owl:ObjectProperty ;
@@ -226,8 +237,9 @@ bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryPartNumber ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 	
 # Subproperty of emmo:hasProperty
 bto:hasProductionDate a owl:ObjectProperty ;
@@ -236,8 +248,9 @@ bto:hasProductionDate a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryProductionDate ;
-	rdfs:subPropertyOf emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+	rdfs:subPropertyOf emmo:hasProperty ;
 	# emmo:hasProperty
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 # ---------------------------------------------------------------------------
 
@@ -253,17 +266,17 @@ bto:BatterySamplePreparation a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:SamplePreparation ,
 			[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+        	  owl:onProperty emmo:hasInput ;
         	  # emmo:hasInput 
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
           	  owl:onClass bto:BatterySample ] ,
           	[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+        	  owl:onProperty emmo:hasOutput ;
         	  # emmo:hasOutput
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
           	  owl:onClass bto:BatterySample ] ,
           	[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+        	  owl:onProperty emmo:hasTemporaryParticipant ;
               # emmo:hasTemporaryParticipant
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
           	  owl:onClass bto:BatteryHolder ] .
@@ -274,25 +287,27 @@ bto:Fixture a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf bto:BatteryHolder ,
 	         [ rdf:type owl:Restriction ;
-               owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+               owl:onProperty emmo:hasProperPart ;
                # emmo:hasProperPart
                owl:someValuesFrom bto:BatteryConnector ] ,
              [ rdf:type owl:Restriction ;
-               owl:onProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+               owl:onProperty emmo:hasProperPart ;
                # emmo:hasProperPart
                owl:someValuesFrom bto:Cable ] .       
 
+# Subclass of emmo:Component
 bto:BatteryConnector a owl:Class ;
 	rdfs:label "BatteryConnector" ;
 	skos:prefLabel "BatteryConnector"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	rdfs:subClassOf emmo:Component .
 
+# Subclass of emmo:Component
 bto:Cable a owl:Class ;
 	rdfs:label "Cable" ;
 	skos:prefLabel "Cable"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+	rdfs:subClassOf emmo:Component .
 	
 bto:AlligatorClamps a owl:Class ;
 	rdfs:subClassOf bto:BatteryConnector ;
@@ -328,12 +343,12 @@ bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:CharacterisationMeasurementProcess , 
 				[ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                  owl:onProperty emmo:hasTemporaryParticipant ;
                   # emmo:hasTemporaryParticipant
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:Hardware ] ,
                 [ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                  owl:onProperty emmo:hasOutput ;
                   # emmo:hasOutput
                   owl:someValuesFrom bto:TraceData ] ,
                 [ rdf:type owl:Restriction ;
@@ -357,12 +372,12 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:EndTime ] ,
                 [ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                  owl:onProperty emmo:hasProperty ;
                   # emmo:hasProperty 
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:Accuracy ] ,
                 [ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                  owl:onProperty emmo:hasProperty ;
                   # emmo:hasProperty 
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:Location ] .
@@ -372,14 +387,14 @@ bto:Accuracy a owl:Class ;
 	rdfs:label "Accuracy" ;
 	skos:prefLabel "Accuracy"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property	
 bto:Location a owl:Class ;
 	rdfs:label "Location" ;
 	skos:prefLabel "Location"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	rdfs:subClassOf emmo:Property .
 	
 bto:TraceData a owl:Class ;
 	rdfs:label "TraceData" ;
@@ -416,7 +431,7 @@ bto:HardwareType a owl:Class ;
 	rdfs:label "HardwareType" ;
 	skos:prefLabel "HardwareType"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:Property .
 	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 
 # Subclass of emmo:Property	
@@ -424,7 +439,7 @@ bto:HardwareManufacturerName a owl:Class ;
 	rdfs:label "HardwareManufacturerName" ;
 	skos:prefLabel "HardwareManufacturerName"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:Property .
 	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 	
 # Subclass of emmo:Property	
@@ -432,7 +447,7 @@ bto:HardwareModel a owl:Class ;
 	rdfs:label "HardwareModel" ;
 	skos:prefLabel "HardwareModel"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+	# rdfs:subClassOf emmo:Property .
 	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
 
 bto:CurrentSpecification a owl:Class ;
@@ -453,16 +468,16 @@ bto:CalibrationForBatteryCharacterization a owl:Class ;
 	skos:altLabel "CalibrationForBatteryCharacterisation"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf [ rdf:type owl:Restriction ;
-                      owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                      owl:onProperty emmo:hasTemporaryParticipant ;
                       # emmo:hasTemporaryParticipant
                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                       owl:onClass bto:Hardware ] ,
                     [ rdf:type owl:Restriction ;
-                      owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                      owl:onProperty emmo:hasOutput ;
                       # emmo:hasOutput
                       owl:someValuesFrom bto:VoltageData ] ,
                     [ rdf:type owl:Restriction ;
-                      owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
+                      owl:onProperty emmo:hasTemporaryParticipant ;
                       # emmo:hasTemporaryParticipant
                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                       owl:onClass bto:VoltageSource ] .
@@ -479,7 +494,8 @@ bto:hasHardwareType a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareType ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:label "hasHardwareManufacturerName" ;
@@ -487,7 +503,8 @@ bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareManufacturerName ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasHardwareModel a owl:ObjectProperty ;
 	rdfs:label "hasHardwareModel" ;
@@ -495,7 +512,8 @@ bto:hasHardwareModel a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareModel ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasCurrentSpecification a owl:ObjectProperty ;
 	rdfs:label "hasCurrentSpecification" ;
@@ -503,7 +521,8 @@ bto:hasCurrentSpecification a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:CurrentSpecification ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 	
 bto:hasVoltageSpecification a owl:ObjectProperty ;
 	rdfs:label "hasVoltageSpecification" ;
@@ -511,7 +530,8 @@ bto:hasVoltageSpecification a owl:ObjectProperty ;
 	rdfs:comment "" ;
 	rdfs:domain bto:Hardware ;
 	rdfs:range bto:VoltageSpecification ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification .
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 	
 # ---------------------------------------------------------------------------
 
@@ -543,9 +563,9 @@ bto:AmbientPressure a owl:Class ;
 	rdfs:label "AmbientPressure" ;
 	skos:prefLabel "AmbientPressure"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+	rdfs:subClassOf emmo:Property ,
 			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientPressureUnit ] .
@@ -556,9 +576,9 @@ bto:AmbientHumidity a owl:Class ;
 	rdfs:label "AmbientHumidity" ;
 	skos:prefLabel "AmbientHumidity"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+	rdfs:subClassOf emmo:Property ,
 			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientHumidityUnit ] .
@@ -568,9 +588,9 @@ bto:AmbientTemperature a owl:Class ;
 	rdfs:label "AmbientTemperature" ;
 	skos:prefLabel "AmbientTemperature"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+	rdfs:subClassOf emmo:Property ,
 			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientTemperatureUnit ] .
@@ -580,9 +600,9 @@ bto:AmbientLight a owl:Class ;
 	rdfs:label "AmbientLight" ;
 	skos:prefLabel "AmbientLight"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba ,
+	rdfs:subClassOf emmo:Property ,
 			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 ;
+              owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientLightUnit ] .
@@ -592,28 +612,28 @@ bto:AmbientTemperatureUnit a owl:Class ;
 	rdfs:label "AmbientTemperatureUnit" ;
 	skos:prefLabel "AmbientTemperatureUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+	rdfs:subClassOf emmo:MeasurementUnit .
 
 # Subclass of emmo:MeasurementUnit
 bto:AmbientHumidityUnit a owl:Class ;
 	rdfs:label "AmbientHumidityUnit" ;
 	skos:prefLabel "AmbientHumidityUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+	rdfs:subClassOf emmo:MeasurementUnit .
 	
 # Subclass of emmo:MeasurementUnit
 bto:AmbientPressureUnit a owl:Class ;
 	rdfs:label "AmbientPressureUnit" ;
 	skos:prefLabel "AmbientPressureUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+	rdfs:subClassOf emmo:MeasurementUnit .
 	
 # Subclass of emmo:MeasurementUnit
 bto:AmbientLightUnit a owl:Class ;
 	rdfs:label "AmbientLightUnit" ;
 	skos:prefLabel "AmbientLightUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+	rdfs:subClassOf emmo:MeasurementUnit .
 	
 ######################################################################################
 # ----Individuals---------------------------------------------------------------------
@@ -623,35 +643,35 @@ bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 
 # Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
 bto:Ambient1 a owl:NamedIndividual , bto:Ambient ;
-	emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 bto:AmbientPressure1 , bto:AmbientTemperature1 .
+	emmo:hasProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
 	# emmo:hasProperty
 
 # emmo:hasReferenceUnit, emmo:hasNumericalValue
 bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
-	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bto:AmbientPressureUnit1 ;
+	emmo:hasReferenceUnit bto:AmbientPressureUnit1 ;
 	# emmo:hasReferenceUnit
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 102 .
+	emmo:hasNumericalValue 102 .
 	# emmo:hasNumericalValue
 
 # emmo:hasStringValue
 bto:AmbientPressureUnit1 a owl:NamedIndividual , bto:AmbientPressureUnit ;
-    emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "kPa" .
+    emmo:hasStringValue "kPa" .
     # emmo:hasStringValue
 
 bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
-	emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 bto:AmbientTemperatureUnit1 ;
+	emmo:hasReferenceUnit bto:AmbientTemperatureUnit1 ;
 	# emmo:hasReferenceUnit
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 15 .
+	emmo:hasNumericalValue 15 .
 	# emmo:hasNumericalValue
 
 bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
-	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "C" .
+	emmo:hasStringValue "C" .
 	# emmo:hasStringValue
 
 bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
-    emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 bto:BatterySamplePreparation1 ;
+    emmo:hasBeginTask bto:BatterySamplePreparation1 ;
     # emmo:hasBeginTask
-    emmo:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 bto:BatteryMeasurementProcess1 ;
+    emmo:hasEndTask bto:BatteryMeasurementProcess1 ;
     # emmo:hasEndTask
 	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
 	chameo:hasCharacterisationLocation bto:Location1 .
@@ -659,45 +679,45 @@ bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacteri
 bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
 
 bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
-	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bto:BatterySample1 ;
+	emmo:hasTemporaryParticipant bto:BatterySample1 ;
 	# emmo:hasTemporaryParticipant
-	emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
+	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
 	# emmo:hasOutput
-	emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c "2020-08-10T15:39:35"^^xsd:dateTime .
+	emmo:hasDataValue "2020-08-10T15:39:35"^^xsd:dateTime .
 	# hasDataValue
 
 bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample .
 
 bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
-	emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 bto:BatterySample1 , bto:Fixture1 ;
+	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
 	# emmo:hasTemporaryParticipant
-	emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d bto:BatteryMeasurementProcess1 .
+	emmo:hasNext bto:BatteryMeasurementProcess1 .
 	# emmo:hasNext
 	
 bto:Cable1 a owl:NamedIndividual , bto:Cable .
 
 bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 "1.477E-7"^^xsd:float .
+	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
 	# emmo:hasNumericalValue
 
 #bto:Fixture1 hasProperPart bto:AlligatorClamps1 , bto:Cable1
 bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
-	emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 bto:AlligatorClamps1 , bto:Cable1 .
+	emmo:hasProperPart bto:AlligatorClamps1 , bto:Cable1 .
 	# emmo:hasProperPart
 
 bto:Location1 a owl:NamedIndividual , bto:Location ;
-	emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b "Keysight Technologies"@en ;
+	emmo:hasStringValue "Keysight Technologies"@en ;
 	# emmo:hasStringValue
     rdfs:comment "" .
 
 bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.0001 .
+	emmo:hasNumericalValue 0.0001 .
 	# emmo:hasNumericalValue
 
 bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 0.999899983406067 .
+	emmo:hasNumericalValue 0.999899983406067 .
 	# emmo:hasNumericalValue
 
 bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
-	emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 447.045999862166 .
+	emmo:hasNumericalValue 447.045999862166 .
 	# emmo:hasNumericalValue
