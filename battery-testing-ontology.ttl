@@ -16,9 +16,15 @@
 	owl:versionIRI <http://emmo.info/emmo/application/bto> ;
 	owl:imports 
 	            <http://emmo.info/emmo/domain/chameo/chameo> ,
-	            <http://emmo.info/emmo/mereocausality> ,
-	            <http://emmo.info/emmo/disciplines/metrology> ,
-	            <http://emmo.info/emmo/perspectives/semiotics> ;
+	            <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> ;
+	          # Already imported by CHAMEO:
+	          # <http://emmo.info/emmo/mereocausality> ,
+	          # <http://emmo.info/emmo/disciplines/metrology> ,
+	          # <http://emmo.info/emmo/disciplines/math> ,
+	          # <http://emmo.info/emmo/perspectives/data> ,
+	          # <http://emmo.info/emmo/perspectives/semiotics> ,
+	          # <http://emmo.info/emmo/multiperspective/persholistic> ,
+	          # <http://emmo.info/emmo/multiperspective/workflow> ,
 	            	            
 	dcterms:abstract "Battery Testing Ontology."@en ;
 	dcterms:bibliographicCitation "Work under review - not available yet" ;
@@ -45,18 +51,19 @@
 	foaf:logo "" ;
 	<http://purl.org/ontology/bibo/status> "" ;
 	<http://purl.org/ontology/bibo/doi> "" ;
-	owl:versionInfo "1.0.0-beta5" .
+	owl:versionInfo "1.0.0" .
 	
 ####### EMMO mapping:
 ### Component                -> multiperspective-persholistic EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 ### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 ### Property                 -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
-### hasProperty              -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
-### hasProperPart            -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
-### hasReferenceUnit         -> disciplines-metrology         EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
 emmo:Component owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
 emmo:MeasurementUnit owl:equivalentClass emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 emmo:Property owl:equivalentClass emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+
+### hasProperty              -> perspectives-semiotics        EMMO_e1097637_70d2_4895_973f_2396f04fa204
+### hasProperPart            -> mereocausality                EMMO_9380ab64_0363_4804_b13f_3a8a94119a76
+### hasReferenceUnit         -> disciplines-metrology         EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296
 emmo:hasProperty owl:equivalentProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
 emmo:hasProperPart owl:equivalentProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 .
 emmo:hasReferenceUnit owl:equivalentProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 .
@@ -84,35 +91,40 @@ emmo:hasTemporaryParticipant owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8
 emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a .
 
 ####### CHAMEO classes and properties:
-### CharacterisationData
 ### CharacterisationEnvironment
-### CharacterisationHardware
-### CharacterisationMachine
+### CharacterisationInstrument
 ### CharacterisationMeasurementProcess
 ### CharacterisationMethod
 ### Holder
 ### MeasurementParameter
-
+### RawData
 ### ReferenceSample
 ### Sample
 ### SamplePreparation
 
-### hasCharacterisationHardware?
 ### hasCharacterisationEnvironment
-### hasHardwareSpecification?
+### hasCharacterisationEnvironmentProperty
+### hasCharacterisationLocation
+### hasHardwareSpecification
 ### hasMeasurementParameter
 ### hasMeasurementSample
 
-bto:btoObjectProperty a owl:Class ;
+bto:BatteryTestingOntology a owl:Class ;
+	rdfs:label "BatteryTestingOntology" ;
+	skos:prefLabel "BatteryTestingOntology"@en ;
+	rdfs:comment "This is the root class of the BTO ontology, introduced for grouping all of BTO's classes under a single parent class, each at a different hierarchical position." .
+
+bto:btoObjectProperty a owl:ObjectProperty ;
 	rdfs:label "btoObjectProperty" ;
-	skos:prefLabel "btoObjectProperty" ;
-	rdfs:comment "" .
+	skos:prefLabel "btoObjectProperty"@en ;
+	rdfs:comment "This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property." .
 	
 bto:BatteryCharacterizationMethod a owl:Class ;
 	rdfs:label "BatteryCharacterizationMethod" ;
 	skos:prefLabel "BatteryCharacterizationMethod"@en ;
 	skos:altLabel "BatteryCharacterisationMethod"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:CharacterisationMethod ,
 	       [ rdf:type owl:Restriction ;
              owl:onProperty emmo:hasTask ;
@@ -127,6 +139,7 @@ bto:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
 	skos:prefLabel "BatterySample"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Sample .
 	
 # Subclass of emmo:Component
@@ -134,6 +147,7 @@ bto:Cathode a owl:Class ;
 	rdfs:label "Cathode" ;
 	skos:prefLabel "Cathode"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 	
 # Subclass of emmo:Component
@@ -141,6 +155,7 @@ bto:Anode a owl:Class ;
 	rdfs:label "Anode" ;
 	skos:prefLabel "Anode"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 
 # Subclass of emmo:Property
@@ -148,6 +163,7 @@ bto:BatteryCellForm a owl:Class ;
 	rdfs:label "BatteryCellForm" ;
 	skos:prefLabel "BatteryCellForm"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 	
 # Subclass of emmo:Property
@@ -155,6 +171,7 @@ bto:BatteryChemistryType a owl:Class ;
 	rdfs:label "BatteryChemistryType" ;
 	skos:prefLabel "BatteryChemistryType"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
@@ -162,6 +179,7 @@ bto:BatteryElectrolyteType a owl:Class ;
 	rdfs:label "BatteryElectrolyteType" ;
 	skos:prefLabel "BatteryElectrolyteType"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
@@ -169,6 +187,7 @@ bto:BatteryManufacturerName a owl:Class ;
 	rdfs:label "BatteryManufacturerName" ;
 	skos:prefLabel "BatteryManufacturerName"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 	
 # Subclass of emmo:Property
@@ -176,6 +195,7 @@ bto:BatteryPartNumber a owl:Class ;
 	rdfs:label "BatteryPartNumber" ;
 	skos:prefLabel "BatteryPartNumber"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 
 # Subclass of emmo:Property
@@ -183,6 +203,7 @@ bto:BatteryProductionDate a owl:Class ;
 	rdfs:label "BatteryProductionDate" ;
 	skos:prefLabel "BatteryProductionDate"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 	
 # Subproperty of emmo:hasProperty	
@@ -258,12 +279,14 @@ bto:BatteryHolder a owl:Class ;
 	rdfs:label "BatteryHolder" ;
 	skos:prefLabel "BatteryHolder"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Holder .
 
 bto:BatterySamplePreparation a owl:Class ;
 	rdfs:label "BatterySamplePreparation" ;
 	skos:prefLabel "BatterySamplePreparation"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:SamplePreparation ,
 			[ rdf:type owl:Restriction ;
         	  owl:onProperty emmo:hasInput ;
@@ -300,6 +323,7 @@ bto:BatteryConnector a owl:Class ;
 	rdfs:label "BatteryConnector" ;
 	skos:prefLabel "BatteryConnector"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 
 # Subclass of emmo:Component
@@ -307,33 +331,41 @@ bto:Cable a owl:Class ;
 	rdfs:label "Cable" ;
 	skos:prefLabel "Cable"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 	
 bto:AlligatorClamps a owl:Class ;
-	rdfs:subClassOf bto:BatteryConnector ;
 	rdfs:label "AlligatorClamps" ;
     skos:prefLabel "AlligatorClamps"@en ;
-    rdfs:comment "" .
+    rdfs:comment "" ;
+    rdfs:subClassOf bto:BatteryConnector .
 
 # ---------------------------------------------------------------------------
-	
+
+bto:BatteryMeasurementParameter a owl:Class ;
+	rdfs:label "BatteryMeasurementParameter" ;
+	skos:prefLabel "BatteryMeasurementParameter"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:MeasurementParameter .
+
 bto:EndTime a owl:Class ;
 	rdfs:label "EndTime" ;
 	skos:prefLabel "EndTime"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:MeasurementParameter .
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
 	
 bto:MaxVoltage a owl:Class ;
 	rdfs:label "MaxVoltage" ;
 	skos:prefLabel "MaxVoltage"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:MeasurementParameter .
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
 	
 bto:SamplingTime a owl:Class ;
 	rdfs:label "SamplingTime" ;
 	skos:prefLabel "SamplingTime"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:MeasurementParameter .
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
 	
 # ---------------------------------------------------------------------------
 
