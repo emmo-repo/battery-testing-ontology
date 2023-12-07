@@ -135,143 +135,131 @@ bto:BatteryCharacterizationMethod a owl:Class ;
              # emmo:hasTask
              owl:someValuesFrom bto:BatterySamplePreparation ] .
 
+bto:BatteryComponent a owl:Class ;
+	rdfs:label "BatteryComponent" ;
+	skos:prefLabel "BatteryComponent"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Component .
+	
+bto:Cathode a owl:Class ;
+	rdfs:label "Cathode" ;
+	skos:prefLabel "Cathode"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryComponent .
+	
+bto:Anode a owl:Class ;
+	rdfs:label "Anode" ;
+	skos:prefLabel "Anode"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryComponent .
+
+########################################
+### BatterySample and its properties ###
+########################################
+
 bto:BatterySample a owl:Class ;
 	rdfs:label "BatterySample" ;
 	skos:prefLabel "BatterySample"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Sample .
-	
-# Subclass of emmo:Component
-bto:Cathode a owl:Class ;
-	rdfs:label "Cathode" ;
-	skos:prefLabel "Cathode"@en ;
-	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Component .
-	
-# Subclass of emmo:Component
-bto:Anode a owl:Class ;
-	rdfs:label "Anode" ;
-	skos:prefLabel "Anode"@en ;
-	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Component .
 
 # Subclass of emmo:Property
+bto:BatterySampleProperty a owl:Class ;
+	rdfs:label "BatterySampleProperty" ;
+	skos:prefLabel "BatterySampleProperty"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Property .
+
 bto:BatteryCellForm a owl:Class ;
 	rdfs:label "BatteryCellForm" ;
 	skos:prefLabel "BatteryCellForm"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
 	
-# Subclass of emmo:Property
 bto:BatteryChemistryType a owl:Class ;
 	rdfs:label "BatteryChemistryType" ;
 	skos:prefLabel "BatteryChemistryType"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
 
-# Subclass of emmo:Property
 bto:BatteryElectrolyteType a owl:Class ;
 	rdfs:label "BatteryElectrolyteType" ;
 	skos:prefLabel "BatteryElectrolyteType"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
 
-# Subclass of emmo:Property
 bto:BatteryManufacturerName a owl:Class ;
 	rdfs:label "BatteryManufacturerName" ;
 	skos:prefLabel "BatteryManufacturerName"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
 	
-# Subclass of emmo:Property
 bto:BatteryPartNumber a owl:Class ;
 	rdfs:label "BatteryPartNumber" ;
 	skos:prefLabel "BatteryPartNumber"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
 
-# Subclass of emmo:Property
 bto:BatteryProductionDate a owl:Class ;
 	rdfs:label "BatteryProductionDate" ;
 	skos:prefLabel "BatteryProductionDate"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatterySampleProperty .
+
+bto:hasBatterySampleProperty a owl:ObjectProperty ;
+	rdfs:label "hasBatterySampleProperty" ;
+	skos:prefLabel "hasBatterySampleProperty" ;
+	rdfs:comment "" ;
+	rdfs:domain bto:BatterySample ;
+	rdfs:range bto:BatterySampleProperty ;
+	rdfs:subPropertyOf emmo:hasProperty ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 	
-# Subproperty of emmo:hasProperty	
 bto:hasCellForm a owl:ObjectProperty ;
 	rdfs:label "hasCellForm" ;
 	skos:preflabel "hasCellForm"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryCellForm ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
-# Subproperty of emmo:hasProperty
 bto:hasChemistryType a owl:ObjectProperty ;
 	rdfs:label "hasChemistryType" ;
 	skos:preflabel "hasChemistryType"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryChemistryType ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 	
-# Subproperty of emmo:hasProperty
 bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:label "hasElectrolyteType" ;
 	skos:preflabel "hasElectrolyteType"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryElectrolyteType ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
-# Subproperty of emmo:hasProperty
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:label "hasHardwareManufacturerName" ;
 	skos:preflabel "hasHardwareManufacturerName"@en ;
 	skos:altlabel "hasManufacturerName"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryManufacturerName ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
-# Subproperty of emmo:hasProperty
 bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:label "hasPartNumber" ;
 	skos:preflabel "hasPartNumber"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryPartNumber ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 	
-# Subproperty of emmo:hasProperty
 bto:hasProductionDate a owl:ObjectProperty ;
 	rdfs:label "hasProductionDate" ;
 	skos:preflabel "hasProductionDate" ;
 	rdfs:comment "" ;
-	rdfs:domain bto:BatterySample ;
 	rdfs:range bto:BatteryProductionDate ;
-	rdfs:subPropertyOf emmo:hasProperty ;
-	# emmo:hasProperty
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
 # ---------------------------------------------------------------------------
 
@@ -281,6 +269,14 @@ bto:BatteryHolder a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Holder .
+
+# Subclass of emmo:Component
+bto:BatteryHolderComponent a owl:Class ;	
+	rdfs:label "BatteryHolderComponent" ;
+	skos:prefLabel "BatteryHolderComponent"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Component .
 
 bto:BatterySamplePreparation a owl:Class ;
 	rdfs:label "BatterySamplePreparation" ;
@@ -316,23 +312,19 @@ bto:Fixture a owl:Class ;
              [ rdf:type owl:Restriction ;
                owl:onProperty emmo:hasProperPart ;
                # emmo:hasProperPart
-               owl:someValuesFrom bto:Cable ] .       
+               owl:someValuesFrom bto:Cable ] .
 
-# Subclass of emmo:Component
 bto:BatteryConnector a owl:Class ;
 	rdfs:label "BatteryConnector" ;
 	skos:prefLabel "BatteryConnector"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Component .
+	rdfs:subClassOf bto:BatteryHolderComponent .
 
-# Subclass of emmo:Component
 bto:Cable a owl:Class ;
 	rdfs:label "Cable" ;
 	skos:prefLabel "Cable"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Component .
+	rdfs:subClassOf bto:BatteryHolderComponent .
 	
 bto:AlligatorClamps a owl:Class ;
 	rdfs:label "AlligatorClamps" ;
@@ -373,6 +365,7 @@ bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:label "BatteryMeasurementProcess" ;
 	skos:prefLabel "BatteryMeasurementProcess"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:CharacterisationMeasurementProcess , 
 				[ rdf:type owl:Restriction ;
                   owl:onProperty emmo:hasTemporaryParticipant ;
@@ -414,24 +407,31 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:Location ] .
 
-# Subclass of emmo:Property	
+# Subclass of emmo:Property
+bto:BatteryMeasurementProcessProperty a owl:Class ;
+	rdfs:label "BatteryMeasurementProcessProperty" ;
+	skos:prefLabel "BatteryMeasurementProcessProperty"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Property .
+	
 bto:Accuracy a owl:Class ;
 	rdfs:label "Accuracy" ;
 	skos:prefLabel "Accuracy"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
 
-# Subclass of emmo:Property	
-bto:Location a owl:Class ;
+	bto:Location a owl:Class ;
 	rdfs:label "Location" ;
 	skos:prefLabel "Location"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property .
+	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
 	
 bto:TraceData a owl:Class ;
 	rdfs:label "TraceData" ;
 	skos:prefLabel "TraceData"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:RawData .
 	
 bto:VoltageData a owl:Class ;
@@ -452,53 +452,59 @@ bto:TimeData a owl:Class ;
 	rdfs:comment "" ;
 	rdfs:subClassOf bto:TraceData .
 	
-bto:Hardware a owl:Class ;
-	rdfs:label "Hardware" ;
-	skos:prefLabel "Hardware"@en ;
+bto:BatteryCharacterizationHardware a owl:Class ;
+	rdfs:label "BatteryCharacterizationHardware" ;
+	skos:prefLabel "BatteryCharacterizationHardware"@en ;
+	skos:altLabel "Hardware"@en ;
 	rdfs:comment "" ;
 	rdfs:subClassOf chameo:CharacterisationInstrument .
 
-# Subclass of emmo:Property	
+bto:BatteryCharacterizationHardwareSpecification a owl:Class ;
+	rdfs:label "BatteryCharacterizationHardwareSpecification" ;
+	skos:prefLabel "BatteryCharacterizationHardwareSpecification"@en ;
+	skos:altLabel "BatteryHardwareSpecification"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+
 bto:HardwareType a owl:Class ;
 	rdfs:label "HardwareType" ;
 	skos:prefLabel "HardwareType"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:Property .
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 
-# Subclass of emmo:Property	
 bto:HardwareManufacturerName a owl:Class ;
 	rdfs:label "HardwareManufacturerName" ;
 	skos:prefLabel "HardwareManufacturerName"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:Property .
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 	
-# Subclass of emmo:Property	
 bto:HardwareModel a owl:Class ;
 	rdfs:label "HardwareModel" ;
 	skos:prefLabel "HardwareModel"@en ;
 	rdfs:comment "" ;
-	# rdfs:subClassOf emmo:Property .
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 
 bto:CurrentSpecification a owl:Class ;
 	rdfs:label "CurrentSpecification" ;
 	skos:prefLabel "CurrentSpecification"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 
 bto:VoltageSpecification a owl:Class ;
 	rdfs:label "VoltageSpecification" ;
 	skos:prefLabel "VoltageSpecification"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 	
-bto:CalibrationForBatteryCharacterization a owl:Class ;
-	rdfs:label "CalibrationForBatteryCharacterization" ;
-	skos:prefLabel "CalibrationForBatteryCharacterization"@en ;
+bto:BatteryCharacterizationCalibration a owl:Class ;
+	rdfs:label "BatteryCharacterizationCalibration" ;
+	skos:prefLabel "BatteryCharacterizationCalibration"@en ;
+	skos:altLabel "BatteryCharacterisationCalibration"@en ;
+	skos:altLabel "CalibrationForBatteryCharacterization"@en ;
 	skos:altLabel "CalibrationForBatteryCharacterisation"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf [ rdf:type owl:Restriction ;
                       owl:onProperty emmo:hasTemporaryParticipant ;
                       # emmo:hasTemporaryParticipant
@@ -518,60 +524,68 @@ bto:VoltageSource a owl:Class ;
 	rdfs:label "VoltageSource" ;
 	skos:prefLabel "VoltageSource"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:ReferenceSample .
+
+bto:hasBatteryCharacterizationHardwareSpecification a owl:ObjectProperty ;
+	rdfs:label "hasBatteryCharacterizationHardwareSpecification" ;
+	skos:prefLabel "hasBatteryCharacterizationHardwareSpecification"@en ;
+	skos:altLabel "hasBatteryCharacterisationHardwareSpecification"@en ;
+	skos:altLabel "hasHardwareSpecification"@en ;
+	skos:altLabel "hasHardwareProperty"@en ;
+	skos:altLabel "hasBatteryCharacterizationHardwareProperty"@en ;
+	skos:altLabel "hasBatteryCharacterisationHardwareProperty"@en ;
+	rdfs:comment "" ;
+	rdfs:domain bto:BatteryCharacterizationHardware ;
+	rdfs:range bto:BatteryCharacterizationHardwareSpecification ;
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasHardwareType a owl:ObjectProperty ;
 	rdfs:label "hasHardwareType" ;
 	skos:preflabel "hasHardwareType"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareType ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasHardwareManufacturerName a owl:ObjectProperty ;
 	rdfs:label "hasHardwareManufacturerName" ;
 	skos:preflabel "hasHardwareManufacturerName"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareManufacturerName ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasHardwareModel a owl:ObjectProperty ;
 	rdfs:label "hasHardwareModel" ;
 	skos:preflabel "hasHardwareModel"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:Hardware ;
 	rdfs:range bto:HardwareModel ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasCurrentSpecification a owl:ObjectProperty ;
 	rdfs:label "hasCurrentSpecification" ;
 	skos:preflabel "hasCurrentSpecification"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:Hardware ;
 	rdfs:range bto:CurrentSpecification ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 	
 bto:hasVoltageSpecification a owl:ObjectProperty ;
 	rdfs:label "hasVoltageSpecification" ;
 	skos:preflabel "hasVoltageSpecification"@en ;
 	rdfs:comment "" ;
-	rdfs:domain bto:Hardware ;
 	rdfs:range bto:VoltageSpecification ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 	
 # ---------------------------------------------------------------------------
 
-bto:Ambient a owl:Class ;
-	rdfs:label "Ambient" ;
-	skos:prefLabel "Ambient"@en ;
+bto:BatteryCharacterizationEnvironment a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironment" ;
+	skos:prefLabel "BatteryCharacterizationEnvironment"@en ;
+	skos:altLabel "BatteryCharacterisationEnvironment"@en ;
+	skos:altLabel "Ambient"@en ;
 	skos:altLabel "Environment"@en ;
 	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:CharacterisationEnvironment ,
 			[ rdf:type owl:Restriction ;
               owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
@@ -591,48 +605,51 @@ bto:Ambient a owl:Class ;
               owl:onClass bto:AmbientLight ] .
 
 # Subclass of emmo:Property
+bto:BatteryCharacterizationEnvironmentProperty a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironmentProperty" ;
+	skos:prefLabel "BatteryCharacterizationEnvironmentProperty"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Property .
+
 bto:AmbientPressure a owl:Class ;
 	rdfs:label "AmbientPressure" ;
 	skos:prefLabel "AmbientPressure"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property ,
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
 			[ rdf:type owl:Restriction ;
               owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientPressureUnit ] .
 	
-	
-# Subclass of emmo:Property
 bto:AmbientHumidity a owl:Class ;
 	rdfs:label "AmbientHumidity" ;
 	skos:prefLabel "AmbientHumidity"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property ,
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
 			[ rdf:type owl:Restriction ;
               owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientHumidityUnit ] .
 	
-# Subclass of emmo:Property
 bto:AmbientTemperature a owl:Class ;
 	rdfs:label "AmbientTemperature" ;
 	skos:prefLabel "AmbientTemperature"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property ,
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
 			[ rdf:type owl:Restriction ;
               owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onClass bto:AmbientTemperatureUnit ] .
 
-# Subclass of emmo:Property
 bto:AmbientLight a owl:Class ;
 	rdfs:label "AmbientLight" ;
 	skos:prefLabel "AmbientLight"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:Property ,
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
 			[ rdf:type owl:Restriction ;
               owl:onProperty emmo:hasReferenceUnit ;
               # emmo:hasReferenceUnit
@@ -640,32 +657,37 @@ bto:AmbientLight a owl:Class ;
               owl:onClass bto:AmbientLightUnit ] .
 
 # Subclass of emmo:MeasurementUnit
+bto:BatteryCharacterizationEnvironmentMeasurementUnit a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironmentMeasurementUnit" ;
+	skos:prefLabel "BatteryCharacterizationEnvironmentMeasurementUnit"@en ;
+	skos:altLabel "BatteryAmbientMeasurementUnit"@en ;
+	rdfs:comment "" ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:MeasurementUnit .
+
 bto:AmbientTemperatureUnit a owl:Class ;
 	rdfs:label "AmbientTemperatureUnit" ;
 	skos:prefLabel "AmbientTemperatureUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:MeasurementUnit .
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
 
-# Subclass of emmo:MeasurementUnit
 bto:AmbientHumidityUnit a owl:Class ;
 	rdfs:label "AmbientHumidityUnit" ;
 	skos:prefLabel "AmbientHumidityUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:MeasurementUnit .
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
 	
-# Subclass of emmo:MeasurementUnit
 bto:AmbientPressureUnit a owl:Class ;
 	rdfs:label "AmbientPressureUnit" ;
 	skos:prefLabel "AmbientPressureUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:MeasurementUnit .
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
 	
-# Subclass of emmo:MeasurementUnit
 bto:AmbientLightUnit a owl:Class ;
 	rdfs:label "AmbientLightUnit" ;
 	skos:prefLabel "AmbientLightUnit"@en ;
 	rdfs:comment "" ;
-	rdfs:subClassOf emmo:MeasurementUnit .
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
 	
 ######################################################################################
 # ----Individuals---------------------------------------------------------------------
@@ -674,7 +696,7 @@ bto:AmbientLightUnit a owl:Class ;
 bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 
 # Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
-bto:Ambient1 a owl:NamedIndividual , bto:Ambient ;
+bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
 	emmo:hasProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
 	# emmo:hasProperty
 
