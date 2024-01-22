@@ -1,0 +1,862 @@
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#versionIRI> <http://emmo.info/emmo/application/bto> .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#imports> <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#imports> <http://emmo.info/emmo/domain/chameo/chameo> .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/abstract> "Battery Testing Ontology."@en .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/bibliographicCitation> "Work under review - not available yet" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/contributor> "Goldbeck Consulting Ltd (UK)" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/created> "2023-03-09" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/creator> "Daniele Toti" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/creator> "Gerhard Goldbeck" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/creator> "Pierluigi Del Nostro" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/description> "Battery Testing Ontology"@en .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/issued> "" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/modified> "" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/publisher> "EMMC ASBL" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/source> "" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/dc/terms/title> "Battery Testing Ontology"@en .
+<http://emmo.info/emmo/application/bto> <http://purl.org/ontology/bibo/doi> "" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/ontology/bibo/status> "" .
+<http://emmo.info/emmo/application/bto> <http://purl.org/vocab/vann/preferredNamespacePrefix> "bto"@en .
+<http://emmo.info/emmo/application/bto> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://emmo.info/emmo/application/bto" .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2000/01/rdf-schema#comment> "Contacts:\r\n\tGerhard Goldbeck\r\n\tGoldbeck Consulting Ltd (UK)\r\n\temail: gerhard@goldbeck-consulting.com"@en .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#backwardCompatibleWith> "" .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#priorVersion> "" .
+<http://emmo.info/emmo/application/bto> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
+<http://emmo.info/emmo/application/bto> <http://xmlns.com/foaf/0.1/logo> "" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#hasBeginTask
+<http://emmo.info/emmo#hasBeginTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasDataValue
+<http://emmo.info/emmo#hasDataValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasEndTask
+<http://emmo.info/emmo#hasEndTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasNext
+<http://emmo.info/emmo#hasNext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasNumericalValue
+<http://emmo.info/emmo#hasNumericalValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasReferenceUnit
+<http://emmo.info/emmo#hasReferenceUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasStringValue
+<http://emmo.info/emmo#hasStringValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo#hasTemporaryParticipant
+<http://emmo.info/emmo#hasTemporaryParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation
+<http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#altlabel
+<http://www.w3.org/2004/02/skos/core#altlabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#preflabel
+<http://www.w3.org/2004/02/skos/core#preflabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204
+<http://emmo.info/emmo#EMMO_e1097637_70d2_4895_973f_2396f04fa204> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://emmo.info/emmo#hasProperty> .
+<http://emmo.info/emmo#hasProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://emmo.info/emmo#hasProperty
+# 
+# http://emmo.info/emmo#hasTask
+<http://emmo.info/emmo#hasTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://emmo.info/emmo/application/bto/btoObjectProperty
+<http://emmo.info/emmo/application/bto/btoObjectProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/btoObjectProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property." .
+<http://emmo.info/emmo/application/bto/btoObjectProperty> <http://www.w3.org/2000/01/rdf-schema#label> "btoObjectProperty" .
+<http://emmo.info/emmo/application/bto/btoObjectProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> "btoObjectProperty"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/btoObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/domain/chameo/chameo#hasHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#domain> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "hasBatteryCharacterizationHardwareSpecification" .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "hasBatteryCharacterisationHardwareProperty"@en .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "hasBatteryCharacterisationHardwareSpecification"@en .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "hasBatteryCharacterizationHardwareProperty"@en .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "hasHardwareProperty"@en .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "hasHardwareSpecification"@en .
+<http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#prefLabel> "hasBatteryCharacterizationHardwareSpecification"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasBatterySampleProperty
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo#hasProperty> .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/btoObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#domain> <http://emmo.info/emmo/application/bto/BatterySample> .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#label> "hasBatterySampleProperty" .
+<http://emmo.info/emmo/application/bto/hasBatterySampleProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> "hasBatterySampleProperty" .
+# 
+# http://emmo.info/emmo/application/bto/hasCellForm
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryCellForm> .
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/2000/01/rdf-schema#label> "hasCellForm" .
+<http://emmo.info/emmo/application/bto/hasCellForm> <http://www.w3.org/2004/02/skos/core#preflabel> "hasCellForm"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasChemistryType
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryChemistryType> .
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/2000/01/rdf-schema#label> "hasChemistryType" .
+<http://emmo.info/emmo/application/bto/hasChemistryType> <http://www.w3.org/2004/02/skos/core#preflabel> "hasChemistryType"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasCurrentSpecification
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/CurrentSpecification> .
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "hasCurrentSpecification" .
+<http://emmo.info/emmo/application/bto/hasCurrentSpecification> <http://www.w3.org/2004/02/skos/core#preflabel> "hasCurrentSpecification"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasElectrolyteType
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryElectrolyteType> .
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#label> "hasElectrolyteType" .
+<http://emmo.info/emmo/application/bto/hasElectrolyteType> <http://www.w3.org/2004/02/skos/core#preflabel> "hasElectrolyteType"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasHardwareManufacturerName
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryManufacturerName> .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/HardwareManufacturerName> .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#label> "hasHardwareManufacturerName" .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2004/02/skos/core#altlabel> "hasManufacturerName"@en .
+<http://emmo.info/emmo/application/bto/hasHardwareManufacturerName> <http://www.w3.org/2004/02/skos/core#preflabel> "hasHardwareManufacturerName"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasHardwareModel
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/HardwareModel> .
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/2000/01/rdf-schema#label> "hasHardwareModel" .
+<http://emmo.info/emmo/application/bto/hasHardwareModel> <http://www.w3.org/2004/02/skos/core#preflabel> "hasHardwareModel"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasHardwareType
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/HardwareType> .
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/2000/01/rdf-schema#label> "hasHardwareType" .
+<http://emmo.info/emmo/application/bto/hasHardwareType> <http://www.w3.org/2004/02/skos/core#preflabel> "hasHardwareType"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasPartNumber
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryPartNumber> .
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/2000/01/rdf-schema#label> "hasPartNumber" .
+<http://emmo.info/emmo/application/bto/hasPartNumber> <http://www.w3.org/2004/02/skos/core#preflabel> "hasPartNumber"@en .
+# 
+# http://emmo.info/emmo/application/bto/hasProductionDate
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/BatteryProductionDate> .
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/2000/01/rdf-schema#label> "hasProductionDate" .
+<http://emmo.info/emmo/application/bto/hasProductionDate> <http://www.w3.org/2004/02/skos/core#preflabel> "hasProductionDate" .
+# 
+# http://emmo.info/emmo/application/bto/hasVoltageSpecification
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#range> <http://emmo.info/emmo/application/bto/VoltageSpecification> .
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "hasVoltageSpecification" .
+<http://emmo.info/emmo/application/bto/hasVoltageSpecification> <http://www.w3.org/2004/02/skos/core#preflabel> "hasVoltageSpecification"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo#Component
+<http://emmo.info/emmo#Component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo#Component> <http://www.w3.org/2002/07/owl#equivalentClass> <http://emmo.info/emmo#EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817> .
+# 
+# http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
+<http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4> <http://www.w3.org/2002/07/owl#equivalentClass> <http://emmo.info/emmo#MeasurementUnit> .
+<http://emmo.info/emmo#MeasurementUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
+<http://emmo.info/emmo#EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba> <http://www.w3.org/2002/07/owl#equivalentClass> <http://emmo.info/emmo#Property> .
+<http://emmo.info/emmo#Property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://emmo.info/emmo#MeasurementUnit
+# 
+# http://emmo.info/emmo#Property
+# 
+# http://emmo.info/emmo/application/bto/Accuracy
+<http://emmo.info/emmo/application/bto/Accuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Accuracy> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> .
+<http://emmo.info/emmo/application/bto/Accuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Accuracy> <http://www.w3.org/2000/01/rdf-schema#label> "Accuracy" .
+<http://emmo.info/emmo/application/bto/Accuracy> <http://www.w3.org/2004/02/skos/core#prefLabel> "Accuracy"@en .
+# 
+# http://emmo.info/emmo/application/bto/AlligatorClamps
+<http://emmo.info/emmo/application/bto/AlligatorClamps> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AlligatorClamps> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryConnector> .
+<http://emmo.info/emmo/application/bto/AlligatorClamps> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AlligatorClamps> <http://www.w3.org/2000/01/rdf-schema#label> "AlligatorClamps" .
+<http://emmo.info/emmo/application/bto/AlligatorClamps> <http://www.w3.org/2004/02/skos/core#prefLabel> "AlligatorClamps"@en .
+# 
+# http://emmo.info/emmo/application/bto/Ambient
+<http://emmo.info/emmo/application/bto/Ambient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://emmo.info/emmo/application/bto/AmbientHumidity
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> .
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error3> .
+<http://org.semanticweb.owlapi/error#Error3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientHumidity" .
+<http://emmo.info/emmo/application/bto/AmbientHumidity> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientHumidity"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientHumidityUnit
+<http://emmo.info/emmo/application/bto/AmbientHumidityUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientHumidityUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> .
+<http://emmo.info/emmo/application/bto/AmbientHumidityUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientHumidityUnit> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientHumidityUnit" .
+<http://emmo.info/emmo/application/bto/AmbientHumidityUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientHumidityUnit"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientLight
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> .
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error6> .
+<http://org.semanticweb.owlapi/error#Error6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientLight" .
+<http://emmo.info/emmo/application/bto/AmbientLight> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientLight"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientLightUnit
+<http://emmo.info/emmo/application/bto/AmbientLightUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientLightUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> .
+<http://emmo.info/emmo/application/bto/AmbientLightUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientLightUnit> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientLightUnit" .
+<http://emmo.info/emmo/application/bto/AmbientLightUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientLightUnit"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientPressure
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> .
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error10> .
+<http://org.semanticweb.owlapi/error#Error10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientPressure" .
+<http://emmo.info/emmo/application/bto/AmbientPressure> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientPressure"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientPressureUnit
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientPressureUnit" .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientPressureUnit"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientTemperature
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error4> .
+<http://org.semanticweb.owlapi/error#Error4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientTemperature" .
+<http://emmo.info/emmo/application/bto/AmbientTemperature> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientTemperature"@en .
+# 
+# http://emmo.info/emmo/application/bto/AmbientTemperatureUnit
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> <http://www.w3.org/2000/01/rdf-schema#label> "AmbientTemperatureUnit" .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "AmbientTemperatureUnit"@en .
+# 
+# http://emmo.info/emmo/application/bto/Anode
+<http://emmo.info/emmo/application/bto/Anode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Anode> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryComponent> .
+<http://emmo.info/emmo/application/bto/Anode> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Anode> <http://www.w3.org/2000/01/rdf-schema#label> "Anode" .
+<http://emmo.info/emmo/application/bto/Anode> <http://www.w3.org/2004/02/skos/core#prefLabel> "Anode"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCellForm
+<http://emmo.info/emmo/application/bto/BatteryCellForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCellForm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryCellForm> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCellForm> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCellForm" .
+<http://emmo.info/emmo/application/bto/BatteryCellForm> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCellForm"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error1> .
+<http://org.semanticweb.owlapi/error#Error1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error2> .
+<http://org.semanticweb.owlapi/error#Error2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/VoltageData> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasOutput> .
+<http://emmo.info/emmo#hasOutput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationCalibration" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2004/02/skos/core#altLabel> "BatteryCharacterisationCalibration"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2004/02/skos/core#altLabel> "CalibrationForBatteryCharacterisation"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2004/02/skos/core#altLabel> "CalibrationForBatteryCharacterization"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationCalibration"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#CharacterisationEnvironment> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/AmbientHumidity> .
+_:genid2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironmentProperty> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/AmbientLight> .
+_:genid3 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironmentProperty> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/AmbientPressure> .
+_:genid4 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironmentProperty> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid5 .
+_:genid5 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/AmbientTemperature> .
+_:genid5 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironmentProperty> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationEnvironment" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2004/02/skos/core#altLabel> "Ambient"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2004/02/skos/core#altLabel> "BatteryCharacterisationEnvironment"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2004/02/skos/core#altLabel> "Environment"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationEnvironment"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#MeasurementUnit> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationEnvironmentMeasurementUnit" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2004/02/skos/core#altLabel> "BatteryAmbientMeasurementUnit"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationEnvironmentMeasurementUnit"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#Property> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationEnvironmentProperty" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationEnvironmentProperty"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#CharacterisationInstrument> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationHardware" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/2004/02/skos/core#altLabel> "Hardware"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationHardware"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#CharacterisationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationHardwareSpecification" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#altLabel> "BatteryHardwareSpecification"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationHardwareSpecification"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMethod> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasTask> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid7 .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/BatterySamplePreparation> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasTask> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryCharacterizationMethod" .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2004/02/skos/core#altLabel> "BatteryCharacterisationMethod"@en .
+<http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryCharacterizationMethod"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryChemistryType
+<http://emmo.info/emmo/application/bto/BatteryChemistryType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryChemistryType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryChemistryType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryChemistryType> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryChemistryType" .
+<http://emmo.info/emmo/application/bto/BatteryChemistryType> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryChemistryType"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryComponent
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#Component> .
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryComponent" .
+<http://emmo.info/emmo/application/bto/BatteryComponent> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryComponent"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryConnector
+<http://emmo.info/emmo/application/bto/BatteryConnector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryConnector> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryHolderComponent> .
+<http://emmo.info/emmo/application/bto/BatteryConnector> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryConnector> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryConnector" .
+<http://emmo.info/emmo/application/bto/BatteryConnector> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryConnector"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryElectrolyteType
+<http://emmo.info/emmo/application/bto/BatteryElectrolyteType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryElectrolyteType> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryElectrolyteType" .
+<http://emmo.info/emmo/application/bto/BatteryElectrolyteType> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryElectrolyteType"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryHolder
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#Holder> .
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryHolder" .
+<http://emmo.info/emmo/application/bto/BatteryHolder> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryHolder"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryHolderComponent
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#Component> .
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryHolderComponent" .
+<http://emmo.info/emmo/application/bto/BatteryHolderComponent> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryHolderComponent"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryManufacturerName
+<http://emmo.info/emmo/application/bto/BatteryManufacturerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryManufacturerName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryManufacturerName> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryManufacturerName> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryManufacturerName" .
+<http://emmo.info/emmo/application/bto/BatteryManufacturerName> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryManufacturerName"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryMeasurementParameter
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#MeasurementParameter> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryMeasurementParameter" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryMeasurementParameter"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryMeasurementProcess
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMeasurementProcess> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error5> .
+<http://org.semanticweb.owlapi/error#Error5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/TraceData> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasOutput> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/Accuracy> .
+_:genid9 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasProperty> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/Location> .
+_:genid10 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasProperty> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/Ambient> .
+_:genid11 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironment> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 .
+_:genid12 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/EndTime> .
+_:genid12 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasMeasurementParameter> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/MaxVoltage> .
+_:genid13 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasMeasurementParameter> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/SamplingTime> .
+_:genid14 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasMeasurementParameter> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#onClass> <http://emmo.info/emmo/application/bto/BatterySample> .
+_:genid15 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo/domain/chameo/chameo#hasMeasurementSample> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryMeasurementProcess" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryMeasurementProcess"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#Property> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryMeasurementProcessProperty" .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryMeasurementProcessProperty"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryPartNumber
+<http://emmo.info/emmo/application/bto/BatteryPartNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryPartNumber> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryPartNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryPartNumber> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryPartNumber" .
+<http://emmo.info/emmo/application/bto/BatteryPartNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryPartNumber"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryProductionDate
+<http://emmo.info/emmo/application/bto/BatteryProductionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryProductionDate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatterySampleProperty> .
+<http://emmo.info/emmo/application/bto/BatteryProductionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatteryProductionDate> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryProductionDate" .
+<http://emmo.info/emmo/application/bto/BatteryProductionDate> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryProductionDate"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatterySample
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#Sample> .
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/2000/01/rdf-schema#label> "BatterySample" .
+<http://emmo.info/emmo/application/bto/BatterySample> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatterySample"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatterySamplePreparation
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#SamplePreparation> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error7> .
+<http://org.semanticweb.owlapi/error#Error7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error8> .
+<http://org.semanticweb.owlapi/error#Error8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error9> .
+<http://org.semanticweb.owlapi/error#Error9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2000/01/rdf-schema#label> "BatterySamplePreparation" .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatterySamplePreparation"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatterySampleProperty
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo#Property> .
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/2000/01/rdf-schema#label> "BatterySampleProperty" .
+<http://emmo.info/emmo/application/bto/BatterySampleProperty> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatterySampleProperty"@en .
+# 
+# http://emmo.info/emmo/application/bto/BatteryTestingOntology
+<http://emmo.info/emmo/application/bto/BatteryTestingOntology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/BatteryTestingOntology> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the root class of the BTO ontology, introduced for grouping all of BTO's classes under a single parent class, each at a different hierarchical position." .
+<http://emmo.info/emmo/application/bto/BatteryTestingOntology> <http://www.w3.org/2000/01/rdf-schema#label> "BatteryTestingOntology" .
+<http://emmo.info/emmo/application/bto/BatteryTestingOntology> <http://www.w3.org/2004/02/skos/core#prefLabel> "BatteryTestingOntology"@en .
+# 
+# http://emmo.info/emmo/application/bto/Cable
+<http://emmo.info/emmo/application/bto/Cable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Cable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryHolderComponent> .
+<http://emmo.info/emmo/application/bto/Cable> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Cable> <http://www.w3.org/2000/01/rdf-schema#label> "Cable" .
+<http://emmo.info/emmo/application/bto/Cable> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cable"@en .
+# 
+# http://emmo.info/emmo/application/bto/Cathode
+<http://emmo.info/emmo/application/bto/Cathode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Cathode> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryComponent> .
+<http://emmo.info/emmo/application/bto/Cathode> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Cathode> <http://www.w3.org/2000/01/rdf-schema#label> "Cathode" .
+<http://emmo.info/emmo/application/bto/Cathode> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cathode"@en .
+# 
+# http://emmo.info/emmo/application/bto/CurrentData
+<http://emmo.info/emmo/application/bto/CurrentData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/CurrentData> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/TraceData> .
+<http://emmo.info/emmo/application/bto/CurrentData> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/CurrentData> <http://www.w3.org/2000/01/rdf-schema#label> "CurrentData" .
+<http://emmo.info/emmo/application/bto/CurrentData> <http://www.w3.org/2004/02/skos/core#prefLabel> "CurrentData"@en .
+# 
+# http://emmo.info/emmo/application/bto/CurrentSpecification
+<http://emmo.info/emmo/application/bto/CurrentSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/CurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/CurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/CurrentSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "CurrentSpecification" .
+<http://emmo.info/emmo/application/bto/CurrentSpecification> <http://www.w3.org/2004/02/skos/core#prefLabel> "CurrentSpecification"@en .
+# 
+# http://emmo.info/emmo/application/bto/EndTime
+<http://emmo.info/emmo/application/bto/EndTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/EndTime> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> .
+<http://emmo.info/emmo/application/bto/EndTime> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/EndTime> <http://www.w3.org/2000/01/rdf-schema#label> "EndTime" .
+<http://emmo.info/emmo/application/bto/EndTime> <http://www.w3.org/2004/02/skos/core#prefLabel> "EndTime"@en .
+# 
+# http://emmo.info/emmo/application/bto/Fixture
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryHolder> .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/BatteryConnector> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasProperPart> .
+<http://emmo.info/emmo#hasProperPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid17 .
+_:genid17 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://emmo.info/emmo/application/bto/Cable> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <http://emmo.info/emmo#hasProperPart> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2000/01/rdf-schema#label> "Fixture" .
+<http://emmo.info/emmo/application/bto/Fixture> <http://www.w3.org/2004/02/skos/core#prefLabel> "Fixture"@en .
+# 
+# http://emmo.info/emmo/application/bto/HardwareManufacturerName
+<http://emmo.info/emmo/application/bto/HardwareManufacturerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/HardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/HardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/HardwareManufacturerName> <http://www.w3.org/2000/01/rdf-schema#label> "HardwareManufacturerName" .
+<http://emmo.info/emmo/application/bto/HardwareManufacturerName> <http://www.w3.org/2004/02/skos/core#prefLabel> "HardwareManufacturerName"@en .
+# 
+# http://emmo.info/emmo/application/bto/HardwareModel
+<http://emmo.info/emmo/application/bto/HardwareModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/HardwareModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/HardwareModel> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/HardwareModel> <http://www.w3.org/2000/01/rdf-schema#label> "HardwareModel" .
+<http://emmo.info/emmo/application/bto/HardwareModel> <http://www.w3.org/2004/02/skos/core#prefLabel> "HardwareModel"@en .
+# 
+# http://emmo.info/emmo/application/bto/HardwareType
+<http://emmo.info/emmo/application/bto/HardwareType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/HardwareType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/HardwareType> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/HardwareType> <http://www.w3.org/2000/01/rdf-schema#label> "HardwareType" .
+<http://emmo.info/emmo/application/bto/HardwareType> <http://www.w3.org/2004/02/skos/core#prefLabel> "HardwareType"@en .
+# 
+# http://emmo.info/emmo/application/bto/Location
+<http://emmo.info/emmo/application/bto/Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/Location> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty> .
+<http://emmo.info/emmo/application/bto/Location> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+<http://emmo.info/emmo/application/bto/Location> <http://www.w3.org/2004/02/skos/core#prefLabel> "Location"@en .
+# 
+# http://emmo.info/emmo/application/bto/MaxVoltage
+<http://emmo.info/emmo/application/bto/MaxVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/MaxVoltage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> .
+<http://emmo.info/emmo/application/bto/MaxVoltage> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/MaxVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "MaxVoltage" .
+<http://emmo.info/emmo/application/bto/MaxVoltage> <http://www.w3.org/2004/02/skos/core#prefLabel> "MaxVoltage"@en .
+# 
+# http://emmo.info/emmo/application/bto/SamplingTime
+<http://emmo.info/emmo/application/bto/SamplingTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/SamplingTime> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryMeasurementParameter> .
+<http://emmo.info/emmo/application/bto/SamplingTime> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/SamplingTime> <http://www.w3.org/2000/01/rdf-schema#label> "SamplingTime" .
+<http://emmo.info/emmo/application/bto/SamplingTime> <http://www.w3.org/2004/02/skos/core#prefLabel> "SamplingTime"@en .
+# 
+# http://emmo.info/emmo/application/bto/TimeData
+<http://emmo.info/emmo/application/bto/TimeData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/TimeData> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/TraceData> .
+<http://emmo.info/emmo/application/bto/TimeData> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/TimeData> <http://www.w3.org/2000/01/rdf-schema#label> "TimeData" .
+<http://emmo.info/emmo/application/bto/TimeData> <http://www.w3.org/2004/02/skos/core#prefLabel> "TimeData"@en .
+# 
+# http://emmo.info/emmo/application/bto/TraceData
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#RawData> .
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/2000/01/rdf-schema#label> "TraceData" .
+<http://emmo.info/emmo/application/bto/TraceData> <http://www.w3.org/2004/02/skos/core#prefLabel> "TraceData"@en .
+# 
+# http://emmo.info/emmo/application/bto/VoltageData
+<http://emmo.info/emmo/application/bto/VoltageData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/VoltageData> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/TraceData> .
+<http://emmo.info/emmo/application/bto/VoltageData> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/VoltageData> <http://www.w3.org/2000/01/rdf-schema#label> "VoltageData" .
+<http://emmo.info/emmo/application/bto/VoltageData> <http://www.w3.org/2004/02/skos/core#prefLabel> "VoltageData"@en .
+# 
+# http://emmo.info/emmo/application/bto/VoltageSource
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryTestingOntology> .
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/domain/chameo/chameo#ReferenceSample> .
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/2000/01/rdf-schema#label> "VoltageSource" .
+<http://emmo.info/emmo/application/bto/VoltageSource> <http://www.w3.org/2004/02/skos/core#prefLabel> "VoltageSource"@en .
+# 
+# http://emmo.info/emmo/application/bto/VoltageSpecification
+<http://emmo.info/emmo/application/bto/VoltageSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://emmo.info/emmo/application/bto/VoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification> .
+<http://emmo.info/emmo/application/bto/VoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+<http://emmo.info/emmo/application/bto/VoltageSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "VoltageSpecification" .
+<http://emmo.info/emmo/application/bto/VoltageSpecification> <http://www.w3.org/2004/02/skos/core#prefLabel> "VoltageSpecification"@en .
+# 
+# http://org.semanticweb.owlapi/error#Error1
+# 
+# http://org.semanticweb.owlapi/error#Error10
+# 
+# http://org.semanticweb.owlapi/error#Error2
+# 
+# http://org.semanticweb.owlapi/error#Error3
+# 
+# http://org.semanticweb.owlapi/error#Error4
+# 
+# http://org.semanticweb.owlapi/error#Error5
+# 
+# http://org.semanticweb.owlapi/error#Error6
+# 
+# http://org.semanticweb.owlapi/error#Error7
+# 
+# http://org.semanticweb.owlapi/error#Error8
+# 
+# http://org.semanticweb.owlapi/error#Error9
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://emmo.info/emmo/application/bto/AlligatorClamps1
+<http://emmo.info/emmo/application/bto/AlligatorClamps1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/AlligatorClamps1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/AlligatorClamps> .
+# 
+# http://emmo.info/emmo/application/bto/Ambient1
+<http://emmo.info/emmo/application/bto/Ambient1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/Ambient1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment> .
+<http://emmo.info/emmo/application/bto/Ambient1> <http://emmo.info/emmo#hasProperty> <http://emmo.info/emmo/application/bto/AmbientPressure1> .
+<http://emmo.info/emmo/application/bto/Ambient1> <http://emmo.info/emmo#hasProperty> <http://emmo.info/emmo/application/bto/AmbientTemperature1> .
+# 
+# http://emmo.info/emmo/application/bto/AmbientPressure1
+<http://emmo.info/emmo/application/bto/AmbientPressure1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/AmbientPressure1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/AmbientPressure> .
+<http://emmo.info/emmo/application/bto/AmbientPressure1> <http://emmo.info/emmo#hasNumericalValue> "102"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://emmo.info/emmo/application/bto/AmbientPressure1> <http://emmo.info/emmo#hasReferenceUnit> <http://emmo.info/emmo/application/bto/AmbientPressureUnit1> .
+# 
+# http://emmo.info/emmo/application/bto/AmbientPressureUnit1
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/AmbientPressureUnit> .
+<http://emmo.info/emmo/application/bto/AmbientPressureUnit1> <http://emmo.info/emmo#hasStringValue> "kPa" .
+# 
+# http://emmo.info/emmo/application/bto/AmbientTemperature1
+<http://emmo.info/emmo/application/bto/AmbientTemperature1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/AmbientTemperature> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature1> <http://emmo.info/emmo#hasNumericalValue> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://emmo.info/emmo/application/bto/AmbientTemperature1> <http://emmo.info/emmo#hasReferenceUnit> <http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1> .
+# 
+# http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/AmbientTemperatureUnit> .
+<http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1> <http://emmo.info/emmo#hasStringValue> "C" .
+# 
+# http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationEnvironment> <http://emmo.info/emmo/application/bto/Ambient1> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://emmo.info/emmo#hasBeginTask> <http://emmo.info/emmo/application/bto/BatterySamplePreparation1> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://emmo.info/emmo#hasEndTask> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> .
+<http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1> <http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation> <http://emmo.info/emmo/application/bto/Location1> .
+# 
+# http://emmo.info/emmo/application/bto/BatteryHolder1
+<http://emmo.info/emmo/application/bto/BatteryHolder1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/BatteryHolder1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatteryHolder> .
+# 
+# http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcess> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://emmo.info/emmo#hasDataValue> "2020-08-10T15:39:35"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://emmo.info/emmo#hasOutput> <http://emmo.info/emmo/application/bto/CurrentData1> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://emmo.info/emmo#hasOutput> <http://emmo.info/emmo/application/bto/TimeData1> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://emmo.info/emmo#hasOutput> <http://emmo.info/emmo/application/bto/VoltageData1> .
+<http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> <http://emmo.info/emmo#hasTemporaryParticipant> <http://emmo.info/emmo/application/bto/BatterySample1> .
+# 
+# http://emmo.info/emmo/application/bto/BatterySample1
+<http://emmo.info/emmo/application/bto/BatterySample1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/BatterySample1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatterySample> .
+# 
+# http://emmo.info/emmo/application/bto/BatterySamplePreparation1
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/BatterySamplePreparation> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation1> <http://emmo.info/emmo#hasNext> <http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation1> <http://emmo.info/emmo#hasTemporaryParticipant> <http://emmo.info/emmo/application/bto/BatterySample1> .
+<http://emmo.info/emmo/application/bto/BatterySamplePreparation1> <http://emmo.info/emmo#hasTemporaryParticipant> <http://emmo.info/emmo/application/bto/Fixture1> .
+# 
+# http://emmo.info/emmo/application/bto/Cable1
+<http://emmo.info/emmo/application/bto/Cable1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/Cable1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/Cable> .
+# 
+# http://emmo.info/emmo/application/bto/CurrentData1
+<http://emmo.info/emmo/application/bto/CurrentData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/CurrentData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/CurrentData> .
+<http://emmo.info/emmo/application/bto/CurrentData1> <http://emmo.info/emmo#hasNumericalValue> "1.477E-7"^^<http://www.w3.org/2001/XMLSchema#float> .
+# 
+# http://emmo.info/emmo/application/bto/Fixture1
+<http://emmo.info/emmo/application/bto/Fixture1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/Fixture1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/Fixture> .
+<http://emmo.info/emmo/application/bto/Fixture1> <http://emmo.info/emmo#hasProperPart> <http://emmo.info/emmo/application/bto/AlligatorClamps1> .
+<http://emmo.info/emmo/application/bto/Fixture1> <http://emmo.info/emmo#hasProperPart> <http://emmo.info/emmo/application/bto/Cable1> .
+# 
+# http://emmo.info/emmo/application/bto/Location1
+<http://emmo.info/emmo/application/bto/Location1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/Location1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/Location> .
+<http://emmo.info/emmo/application/bto/Location1> <http://emmo.info/emmo#hasStringValue> "Keysight Technologies"@en .
+<http://emmo.info/emmo/application/bto/Location1> <http://www.w3.org/2000/01/rdf-schema#comment> "" .
+# 
+# http://emmo.info/emmo/application/bto/SamplingTime1
+<http://emmo.info/emmo/application/bto/SamplingTime1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/SamplingTime1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/SamplingTime> .
+<http://emmo.info/emmo/application/bto/SamplingTime1> <http://emmo.info/emmo#hasNumericalValue> "0.0001"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://emmo.info/emmo/application/bto/TimeData1
+<http://emmo.info/emmo/application/bto/TimeData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/TimeData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/TimeData> .
+<http://emmo.info/emmo/application/bto/TimeData1> <http://emmo.info/emmo#hasNumericalValue> "0.999899983406067"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+# http://emmo.info/emmo/application/bto/VoltageData1
+<http://emmo.info/emmo/application/bto/VoltageData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://emmo.info/emmo/application/bto/VoltageData1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://emmo.info/emmo/application/bto/VoltageData> .
+<http://emmo.info/emmo/application/bto/VoltageData1> <http://emmo.info/emmo#hasNumericalValue> "447.045999862166"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+# 
+_:genid18 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid19 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid20 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid21 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid22 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid23 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid24 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid25 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid26 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid27 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+# Generated by the OWL API (version 5.1.18.2021-07-30T21:49:07Z) https://github.com/owlcs/owlapi/

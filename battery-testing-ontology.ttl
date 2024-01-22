@@ -697,7 +697,7 @@ bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 
 # Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
 bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
-	emmo:hasProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
+	chameo:hasCharacterisationEnvironmentProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
 	# emmo:hasProperty
 
 # emmo:hasReferenceUnit, emmo:hasNumericalValue

@@ -1,0 +1,3261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>Battery Testing Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://emmo.info/emmo/application/bto","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://emmo.info/emmo/application/bto","name":"Battery Testing Ontology", "headline":"Battery Testing Ontology.", "dateReleased":"2023-03-09", "version":"1.0.0", "license":"https://creativecommons.org/licenses/by/4.0/legalcode", "author":[{"@type":"Person","name":"Daniele Toti"},{"@type":"Person","name":"Gerhard Goldbeck"},{"@type":"Person","name":"Pierluigi Del Nostro"}], "contributor":[{"@type":"Person","name":"Goldbeck Consulting Ltd (UK)"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Battery Testing Ontology</h1>
+<h2>Release: 2023-03-09</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="http://emmo.info/emmo/application/bto">http://emmo.info/emmo/application/bto</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://emmo.info/emmo/application/bto">http://emmo.info/emmo/application/bto</a></dd>
+<dt>Revision:</dt>
+<dd>1.0.0</dd>
+<dt>Authors:</dt>
+<dd>Daniele Toti</dd><dd>Gerhard Goldbeck</dd><dd>Pierluigi Del Nostro</dd>
+
+<dt>Contributors:</dt>
+<dd>Goldbeck Consulting Ltd (UK)</dd>
+
+<dt>Publisher:</dt>
+<dd>EMMC ASBL</dd>
+<dt>Imported Ontologies:</dt>
+<dd><a href="http://emmo.info/emmo/disciplines/computerscience">computerscience</a></dd><dd><a href="http://emmo.info/emmo/disciplines/manufacturing">manufacturing</a></dd><dd><a href="http://emmo.info/emmo/disciplines/materials">materials</a></dd><dd><a href="http://emmo.info/emmo/disciplines/math">math</a></dd><dd><a href="http://emmo.info/emmo/disciplines/metrology">metrology</a></dd><dd><a href="http://emmo.info/emmo/disciplines/models">models</a></dd><dd><a href="http://emmo.info/emmo/domain/chameo/chameo">chameo</a></dd><dd><a href="http://emmo.info/emmo/mereocausality">mereocausality</a></dd><dd><a href="http://emmo.info/emmo/multiperspective/persholistic">persholistic</a></dd><dd><a href="http://emmo.info/emmo/multiperspective/properties">properties</a></dd><dd><a href="http://emmo.info/emmo/multiperspective/symbolic">symbolic</a></dd><dd><a href="http://emmo.info/emmo/multiperspective/workflow">workflow</a></dd><dd><a href="http://emmo.info/emmo/perspectives/data">data</a></dd><dd><a href="http://emmo.info/emmo/perspectives/holistic">holistic</a></dd><dd><a href="http://emmo.info/emmo/perspectives/persistence">persistence</a></dd><dd><a href="http://emmo.info/emmo/perspectives/perspective">perspective</a></dd><dd><a href="http://emmo.info/emmo/perspectives/physicalistic">physicalistic</a></dd><dd><a href="http://emmo.info/emmo/perspectives/reductionistic">reductionistic</a></dd><dd><a href="http://emmo.info/emmo/perspectives/semiotics">semiotics</a></dd><dd><a href="http://emmo.info/emmo/perspectives/standardmodel">standardmodel</a></dd>
+
+<dt>Source:</dt>
+<dd><a href=""></a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/legalcode-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/legalcode" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Work under review - not available yet</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+Battery Testing Ontology.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>bibo</b></td><td>&lt;http://purl.org/ontology/bibo/&gt;</td></tr>
+<tr><td><b>bto</b></td><td>&lt;http://emmo.info/emmo/application/bto/&gt;</td></tr>
+<tr><td><b>chameo</b></td><td>&lt;http://emmo.info/emmo/domain/chameo/chameo#&gt;</td></tr>
+<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>emmo</b></td><td>&lt;http://emmo.info/emmo#&gt;</td></tr>
+<tr><td><b>error</b></td><td>&lt;http://org.semanticweb.owlapi/error#&gt;</td></tr>
+<tr><td><b>foaf</b></td><td>&lt;http://xmlns.com/foaf/0.1/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Battery Testing Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/Accuracy" title="http://emmo.info/emmo/application/bto/Accuracy">Accuracy</a>
+   </li>
+   <li>
+      <a href="#/AlligatorClamps"
+         title="http://emmo.info/emmo/application/bto/AlligatorClamps">AlligatorClamps</a>
+   </li>
+   <li>
+      <a href="#/AmbientHumidity"
+         title="http://emmo.info/emmo/application/bto/AmbientHumidity">AmbientHumidity</a>
+   </li>
+   <li>
+      <a href="#/AmbientHumidityUnit"
+         title="http://emmo.info/emmo/application/bto/AmbientHumidityUnit">AmbientHumidityUnit</a>
+   </li>
+   <li>
+      <a href="#/AmbientLight"
+         title="http://emmo.info/emmo/application/bto/AmbientLight">AmbientLight</a>
+   </li>
+   <li>
+      <a href="#/AmbientLightUnit"
+         title="http://emmo.info/emmo/application/bto/AmbientLightUnit">AmbientLightUnit</a>
+   </li>
+   <li>
+      <a href="#/AmbientPressure"
+         title="http://emmo.info/emmo/application/bto/AmbientPressure">AmbientPressure</a>
+   </li>
+   <li>
+      <a href="#/AmbientPressureUnit"
+         title="http://emmo.info/emmo/application/bto/AmbientPressureUnit">AmbientPressureUnit</a>
+   </li>
+   <li>
+      <a href="#/AmbientTemperature"
+         title="http://emmo.info/emmo/application/bto/AmbientTemperature">AmbientTemperature</a>
+   </li>
+   <li>
+      <a href="#/AmbientTemperatureUnit"
+         title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit">AmbientTemperatureUnit</a>
+   </li>
+   <li>
+      <a href="#/Anode" title="http://emmo.info/emmo/application/bto/Anode">Anode</a>
+   </li>
+   <li>
+      <a href="#/BatteryCellForm"
+         title="http://emmo.info/emmo/application/bto/BatteryCellForm">BatteryCellForm</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationCalibration"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration">BatteryCharacterizationCalibration</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationEnvironment"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment">BatteryCharacterizationEnvironment</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationEnvironmentProperty"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationHardware"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware">BatteryCharacterizationHardware</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationHardwareSpecification"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterizationMethod"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod">BatteryCharacterizationMethod</a>
+   </li>
+   <li>
+      <a href="#/BatteryChemistryType"
+         title="http://emmo.info/emmo/application/bto/BatteryChemistryType">BatteryChemistryType</a>
+   </li>
+   <li>
+      <a href="#/BatteryComponent"
+         title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+   </li>
+   <li>
+      <a href="#/BatteryConnector"
+         title="http://emmo.info/emmo/application/bto/BatteryConnector">BatteryConnector</a>
+   </li>
+   <li>
+      <a href="#/BatteryElectrolyteType"
+         title="http://emmo.info/emmo/application/bto/BatteryElectrolyteType">BatteryElectrolyteType</a>
+   </li>
+   <li>
+      <a href="#/BatteryHolder"
+         title="http://emmo.info/emmo/application/bto/BatteryHolder">BatteryHolder</a>
+   </li>
+   <li>
+      <a href="#/BatteryHolderComponent"
+         title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+   </li>
+   <li>
+      <a href="#/BatteryManufacturerName"
+         title="http://emmo.info/emmo/application/bto/BatteryManufacturerName">BatteryManufacturerName</a>
+   </li>
+   <li>
+      <a href="#/BatteryMeasurementParameter"
+         title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+   </li>
+   <li>
+      <a href="#/BatteryMeasurementProcess"
+         title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess">BatteryMeasurementProcess</a>
+   </li>
+   <li>
+      <a href="#/BatteryMeasurementProcessProperty"
+         title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty">BatteryMeasurementProcessProperty</a>
+   </li>
+   <li>
+      <a href="#/BatteryPartNumber"
+         title="http://emmo.info/emmo/application/bto/BatteryPartNumber">BatteryPartNumber</a>
+   </li>
+   <li>
+      <a href="#/BatteryProductionDate"
+         title="http://emmo.info/emmo/application/bto/BatteryProductionDate">BatteryProductionDate</a>
+   </li>
+   <li>
+      <a href="#/BatterySample"
+         title="http://emmo.info/emmo/application/bto/BatterySample">BatterySample</a>
+   </li>
+   <li>
+      <a href="#/BatterySamplePreparation"
+         title="http://emmo.info/emmo/application/bto/BatterySamplePreparation">BatterySamplePreparation</a>
+   </li>
+   <li>
+      <a href="#/BatterySampleProperty"
+         title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+   </li>
+   <li>
+      <a href="#/BatteryTestingOntology"
+         title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+   </li>
+   <li>
+      <a href="#/Cable" title="http://emmo.info/emmo/application/bto/Cable">Cable</a>
+   </li>
+   <li>
+      <a href="#/Cathode" title="http://emmo.info/emmo/application/bto/Cathode">Cathode</a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#Component" title="http://emmo.info/emmo#Component">
+         <span>component</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/CurrentData"
+         title="http://emmo.info/emmo/application/bto/CurrentData">CurrentData</a>
+   </li>
+   <li>
+      <a href="#/CurrentSpecification"
+         title="http://emmo.info/emmo/application/bto/CurrentSpecification">CurrentSpecification</a>
+   </li>
+   <li>
+      <a href="#/EndTime" title="http://emmo.info/emmo/application/bto/EndTime">EndTime</a>
+   </li>
+   <li>
+      <a href="#/Fixture" title="http://emmo.info/emmo/application/bto/Fixture">Fixture</a>
+   </li>
+   <li>
+      <a href="#/HardwareManufacturerName"
+         title="http://emmo.info/emmo/application/bto/HardwareManufacturerName">HardwareManufacturerName</a>
+   </li>
+   <li>
+      <a href="#/HardwareModel"
+         title="http://emmo.info/emmo/application/bto/HardwareModel">HardwareModel</a>
+   </li>
+   <li>
+      <a href="#/HardwareType"
+         title="http://emmo.info/emmo/application/bto/HardwareType">HardwareType</a>
+   </li>
+   <li>
+      <a href="#/Location" title="http://emmo.info/emmo/application/bto/Location">Location</a>
+   </li>
+   <li>
+      <a href="#/MaxVoltage"
+         title="http://emmo.info/emmo/application/bto/MaxVoltage">MaxVoltage</a>
+   </li>
+   <li>
+      <a href="#/SamplingTime"
+         title="http://emmo.info/emmo/application/bto/SamplingTime">SamplingTime</a>
+   </li>
+   <li>
+      <a href="#/TimeData" title="http://emmo.info/emmo/application/bto/TimeData">TimeData</a>
+   </li>
+   <li>
+      <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+   </li>
+   <li>
+      <a href="#/VoltageData"
+         title="http://emmo.info/emmo/application/bto/VoltageData">VoltageData</a>
+   </li>
+   <li>
+      <a href="#/VoltageSource"
+         title="http://emmo.info/emmo/application/bto/VoltageSource">VoltageSource</a>
+   </li>
+   <li>
+      <a href="#/VoltageSpecification"
+         title="http://emmo.info/emmo/application/bto/VoltageSpecification">VoltageSpecification</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/btoObjectProperty"
+         title="http://emmo.info/emmo/application/bto/btoObjectProperty">btoObjectProperty</a>
+   </li>
+   <li>
+      <a href="#/hasBatteryCharacterizationHardwareSpecification"
+         title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+   </li>
+   <li>
+      <a href="#/hasBatterySampleProperty"
+         title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+   </li>
+   <li>
+      <a href="#/hasCellForm"
+         title="http://emmo.info/emmo/application/bto/hasCellForm">hasCellForm</a>
+   </li>
+   <li>
+      <a href="#/hasChemistryType"
+         title="http://emmo.info/emmo/application/bto/hasChemistryType">hasChemistryType</a>
+   </li>
+   <li>
+      <a href="#/hasCurrentSpecification"
+         title="http://emmo.info/emmo/application/bto/hasCurrentSpecification">hasCurrentSpecification</a>
+   </li>
+   <li>
+      <a href="#/hasElectrolyteType"
+         title="http://emmo.info/emmo/application/bto/hasElectrolyteType">hasElectrolyteType</a>
+   </li>
+   <li>
+      <a href="#/hasHardwareManufacturerName"
+         title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+   </li>
+   <li>
+      <a href="#/hasHardwareModel"
+         title="http://emmo.info/emmo/application/bto/hasHardwareModel">hasHardwareModel</a>
+   </li>
+   <li>
+      <a href="#/hasHardwareType"
+         title="http://emmo.info/emmo/application/bto/hasHardwareType">hasHardwareType</a>
+   </li>
+   <li>
+      <a href="#/hasPartNumber"
+         title="http://emmo.info/emmo/application/bto/hasPartNumber">hasPartNumber</a>
+   </li>
+   <li>
+      <a href="#/hasProductionDate"
+         title="http://emmo.info/emmo/application/bto/hasProductionDate">hasProductionDate</a>
+   </li>
+   <li>
+      <a href="#/hasVoltageSpecification"
+         title="http://emmo.info/emmo/application/bto/hasVoltageSpecification">hasVoltageSpecification</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#altlabel" title="http://www.w3.org/2004/02/skos/core#altlabel">
+         <span>altlabel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasBeginTask" title="http://emmo.info/emmo#hasBeginTask">
+         <span>has begin task</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation"
+         title="http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation">
+         <span>has characterisation location</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasDataValue" title="http://emmo.info/emmo#hasDataValue">
+         <span>has data value</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasEndTask" title="http://emmo.info/emmo#hasEndTask">
+         <span>has end task</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasNext" title="http://emmo.info/emmo#hasNext">
+         <span>has next</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasNumericalValue" title="http://emmo.info/emmo#hasNumericalValue">
+         <span>has numerical value</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasReferenceUnit" title="http://emmo.info/emmo#hasReferenceUnit">
+         <span>has reference unit</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasStringValue" title="http://emmo.info/emmo#hasStringValue">
+         <span>has string value</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://emmo.info/emmo#hasTemporaryParticipant" title="http://emmo.info/emmo#hasTemporaryParticipant">
+         <span>has temporary participant</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#preflabel" title="http://www.w3.org/2004/02/skos/core#preflabel">
+         <span>preflabel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/ontology/bibo/status" title="http://purl.org/ontology/bibo/status">
+         <span>status</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#/AlligatorClamps1"
+         title="http://emmo.info/emmo/application/bto/AlligatorClamps1">
+         <span>alligator clamps1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/AmbientPressureUnit1"
+         title="http://emmo.info/emmo/application/bto/AmbientPressureUnit1">
+         <span>ambient pressure unit1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/AmbientPressure1"
+         title="http://emmo.info/emmo/application/bto/AmbientPressure1">
+         <span>ambient pressure1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/AmbientTemperatureUnit1"
+         title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1">
+         <span>ambient temperature unit1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/AmbientTemperature1"
+         title="http://emmo.info/emmo/application/bto/AmbientTemperature1">
+         <span>ambient temperature1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/Ambient1" title="http://emmo.info/emmo/application/bto/Ambient1">
+         <span>ambient1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BatteryCharacterisationMethod1"
+         title="http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1">
+         <span>battery characterisation method1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BatteryHolder1"
+         title="http://emmo.info/emmo/application/bto/BatteryHolder1">
+         <span>battery holder1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BatteryMeasurementProcess1"
+         title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1">
+         <span>battery measurement process1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BatterySamplePreparation1"
+         title="http://emmo.info/emmo/application/bto/BatterySamplePreparation1">
+         <span>battery sample preparation1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/BatterySample1"
+         title="http://emmo.info/emmo/application/bto/BatterySample1">
+         <span>battery sample1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/Cable1" title="http://emmo.info/emmo/application/bto/Cable1">
+         <span>cable1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/CurrentData1"
+         title="http://emmo.info/emmo/application/bto/CurrentData1">
+         <span>current data1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/Fixture1" title="http://emmo.info/emmo/application/bto/Fixture1">
+         <span>fixture1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/Location1" title="http://emmo.info/emmo/application/bto/Location1">
+         <span>location1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/SamplingTime1"
+         title="http://emmo.info/emmo/application/bto/SamplingTime1">
+         <span>sampling time1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/TimeData1" title="http://emmo.info/emmo/application/bto/TimeData1">
+         <span>time data1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#/VoltageData1"
+         title="http://emmo.info/emmo/application/bto/VoltageData1">
+         <span>voltage data1</span>
+      </a>
+   </li>
+</ul><h4> Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist"/><iframe align="center" width="100%" height ="500px" src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Battery Testing Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">Contacts:
+	Gerhard Goldbeck
+	Goldbeck Consulting Ltd (UK)
+	email: gerhard@goldbeck-consulting.com</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Battery Testing Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Battery Testing Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#/Accuracy" title="http://emmo.info/emmo/application/bto/Accuracy">Accuracy</a>
+      </li>
+      <li>
+         <a href="#/AlligatorClamps"
+            title="http://emmo.info/emmo/application/bto/AlligatorClamps">AlligatorClamps</a>
+      </li>
+      <li>
+         <a href="#/AmbientHumidity"
+            title="http://emmo.info/emmo/application/bto/AmbientHumidity">AmbientHumidity</a>
+      </li>
+      <li>
+         <a href="#/AmbientHumidityUnit"
+            title="http://emmo.info/emmo/application/bto/AmbientHumidityUnit">AmbientHumidityUnit</a>
+      </li>
+      <li>
+         <a href="#/AmbientLight"
+            title="http://emmo.info/emmo/application/bto/AmbientLight">AmbientLight</a>
+      </li>
+      <li>
+         <a href="#/AmbientLightUnit"
+            title="http://emmo.info/emmo/application/bto/AmbientLightUnit">AmbientLightUnit</a>
+      </li>
+      <li>
+         <a href="#/AmbientPressure"
+            title="http://emmo.info/emmo/application/bto/AmbientPressure">AmbientPressure</a>
+      </li>
+      <li>
+         <a href="#/AmbientPressureUnit"
+            title="http://emmo.info/emmo/application/bto/AmbientPressureUnit">AmbientPressureUnit</a>
+      </li>
+      <li>
+         <a href="#/AmbientTemperature"
+            title="http://emmo.info/emmo/application/bto/AmbientTemperature">AmbientTemperature</a>
+      </li>
+      <li>
+         <a href="#/AmbientTemperatureUnit"
+            title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit">AmbientTemperatureUnit</a>
+      </li>
+      <li>
+         <a href="#/Anode" title="http://emmo.info/emmo/application/bto/Anode">Anode</a>
+      </li>
+      <li>
+         <a href="#/BatteryCellForm"
+            title="http://emmo.info/emmo/application/bto/BatteryCellForm">BatteryCellForm</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationCalibration"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration">BatteryCharacterizationCalibration</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationEnvironment"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment">BatteryCharacterizationEnvironment</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationEnvironmentProperty"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationHardware"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware">BatteryCharacterizationHardware</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationHardwareSpecification"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterizationMethod"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod">BatteryCharacterizationMethod</a>
+      </li>
+      <li>
+         <a href="#/BatteryChemistryType"
+            title="http://emmo.info/emmo/application/bto/BatteryChemistryType">BatteryChemistryType</a>
+      </li>
+      <li>
+         <a href="#/BatteryComponent"
+            title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+      </li>
+      <li>
+         <a href="#/BatteryConnector"
+            title="http://emmo.info/emmo/application/bto/BatteryConnector">BatteryConnector</a>
+      </li>
+      <li>
+         <a href="#/BatteryElectrolyteType"
+            title="http://emmo.info/emmo/application/bto/BatteryElectrolyteType">BatteryElectrolyteType</a>
+      </li>
+      <li>
+         <a href="#/BatteryHolder"
+            title="http://emmo.info/emmo/application/bto/BatteryHolder">BatteryHolder</a>
+      </li>
+      <li>
+         <a href="#/BatteryHolderComponent"
+            title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+      </li>
+      <li>
+         <a href="#/BatteryManufacturerName"
+            title="http://emmo.info/emmo/application/bto/BatteryManufacturerName">BatteryManufacturerName</a>
+      </li>
+      <li>
+         <a href="#/BatteryMeasurementParameter"
+            title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+      </li>
+      <li>
+         <a href="#/BatteryMeasurementProcess"
+            title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess">BatteryMeasurementProcess</a>
+      </li>
+      <li>
+         <a href="#/BatteryMeasurementProcessProperty"
+            title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty">BatteryMeasurementProcessProperty</a>
+      </li>
+      <li>
+         <a href="#/BatteryPartNumber"
+            title="http://emmo.info/emmo/application/bto/BatteryPartNumber">BatteryPartNumber</a>
+      </li>
+      <li>
+         <a href="#/BatteryProductionDate"
+            title="http://emmo.info/emmo/application/bto/BatteryProductionDate">BatteryProductionDate</a>
+      </li>
+      <li>
+         <a href="#/BatterySample"
+            title="http://emmo.info/emmo/application/bto/BatterySample">BatterySample</a>
+      </li>
+      <li>
+         <a href="#/BatterySamplePreparation"
+            title="http://emmo.info/emmo/application/bto/BatterySamplePreparation">BatterySamplePreparation</a>
+      </li>
+      <li>
+         <a href="#/BatterySampleProperty"
+            title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+      </li>
+      <li>
+         <a href="#/BatteryTestingOntology"
+            title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+      </li>
+      <li>
+         <a href="#/Cable" title="http://emmo.info/emmo/application/bto/Cable">Cable</a>
+      </li>
+      <li>
+         <a href="#/Cathode" title="http://emmo.info/emmo/application/bto/Cathode">Cathode</a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#Component" title="http://emmo.info/emmo#Component">
+            <span>component</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/CurrentData"
+            title="http://emmo.info/emmo/application/bto/CurrentData">CurrentData</a>
+      </li>
+      <li>
+         <a href="#/CurrentSpecification"
+            title="http://emmo.info/emmo/application/bto/CurrentSpecification">CurrentSpecification</a>
+      </li>
+      <li>
+         <a href="#/EndTime" title="http://emmo.info/emmo/application/bto/EndTime">EndTime</a>
+      </li>
+      <li>
+         <a href="#/Fixture" title="http://emmo.info/emmo/application/bto/Fixture">Fixture</a>
+      </li>
+      <li>
+         <a href="#/HardwareManufacturerName"
+            title="http://emmo.info/emmo/application/bto/HardwareManufacturerName">HardwareManufacturerName</a>
+      </li>
+      <li>
+         <a href="#/HardwareModel"
+            title="http://emmo.info/emmo/application/bto/HardwareModel">HardwareModel</a>
+      </li>
+      <li>
+         <a href="#/HardwareType"
+            title="http://emmo.info/emmo/application/bto/HardwareType">HardwareType</a>
+      </li>
+      <li>
+         <a href="#/Location" title="http://emmo.info/emmo/application/bto/Location">Location</a>
+      </li>
+      <li>
+         <a href="#/MaxVoltage"
+            title="http://emmo.info/emmo/application/bto/MaxVoltage">MaxVoltage</a>
+      </li>
+      <li>
+         <a href="#/SamplingTime"
+            title="http://emmo.info/emmo/application/bto/SamplingTime">SamplingTime</a>
+      </li>
+      <li>
+         <a href="#/TimeData" title="http://emmo.info/emmo/application/bto/TimeData">TimeData</a>
+      </li>
+      <li>
+         <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+      </li>
+      <li>
+         <a href="#/VoltageData"
+            title="http://emmo.info/emmo/application/bto/VoltageData">VoltageData</a>
+      </li>
+      <li>
+         <a href="#/VoltageSource"
+            title="http://emmo.info/emmo/application/bto/VoltageSource">VoltageSource</a>
+      </li>
+      <li>
+         <a href="#/VoltageSpecification"
+            title="http://emmo.info/emmo/application/bto/VoltageSpecification">VoltageSpecification</a>
+      </li>
+   </ul>
+   <div class="entity" id="/Accuracy">
+      <h3>Accuracy<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Accuracy</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryMeasurementProcessProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty">BatteryMeasurementProcessProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AlligatorClamps">
+      <h3>AlligatorClamps<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AlligatorClamps</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryConnector"
+               title="http://emmo.info/emmo/application/bto/BatteryConnector">BatteryConnector</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/AlligatorClamps1"
+               title="http://emmo.info/emmo/application/bto/AlligatorClamps1">alligator clamps1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientHumidity">
+      <h3>AmbientHumidity<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientHumidity</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error3"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error3">error3</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientHumidityUnit">
+      <h3>AmbientHumidityUnit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientHumidityUnit</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientLight">
+      <h3>AmbientLight<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientLight</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error6"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error6">error6</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientLightUnit">
+      <h3>AmbientLightUnit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientLightUnit</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientPressure">
+      <h3>AmbientPressure<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientPressure</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error10"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error10">error10</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/AmbientPressure1"
+               title="http://emmo.info/emmo/application/bto/AmbientPressure1">ambient pressure1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientPressureUnit">
+      <h3>AmbientPressureUnit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientPressureUnit</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/AmbientPressureUnit1"
+               title="http://emmo.info/emmo/application/bto/AmbientPressureUnit1">ambient pressure unit1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientTemperature">
+      <h3>AmbientTemperature<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientTemperature</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error4"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error4">error4</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/AmbientTemperature1"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperature1">ambient temperature1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientTemperatureUnit">
+      <h3>AmbientTemperatureUnit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientTemperatureUnit</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/AmbientTemperatureUnit1"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1">ambient temperature unit1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Anode">
+      <h3>Anode<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Anode</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCellForm">
+      <h3>BatteryCellForm<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCellForm</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasCellForm"
+               title="http://emmo.info/emmo/application/bto/hasCellForm">hasCellForm</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationCalibration">
+      <h3>BatteryCharacterizationCalibration<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error1"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error1">error1</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error2"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error2">error2</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationEnvironment">
+      <h3>BatteryCharacterizationEnvironment<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationEnvironment"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationEnvironment">characterisation environment</a>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/Ambient1" title="http://emmo.info/emmo/application/bto/Ambient1">ambient1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationEnvironmentMeasurementUnit">
+      <h3>BatteryCharacterizationEnvironmentMeasurementUnit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo#MeasurementUnit"
+               target="_blank"
+               title="http://emmo.info/emmo#MeasurementUnit">measurement unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/AmbientHumidityUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientHumidityUnit">AmbientHumidityUnit</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientLightUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientLightUnit">AmbientLightUnit</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientPressureUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientPressureUnit">AmbientPressureUnit</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientTemperatureUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit">AmbientTemperatureUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationEnvironmentProperty">
+      <h3>BatteryCharacterizationEnvironmentProperty<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo#Property"
+               target="_blank"
+               title="http://emmo.info/emmo#Property">property</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/AmbientHumidity"
+               title="http://emmo.info/emmo/application/bto/AmbientHumidity">AmbientHumidity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientLight"
+               title="http://emmo.info/emmo/application/bto/AmbientLight">AmbientLight</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientPressure"
+               title="http://emmo.info/emmo/application/bto/AmbientPressure">AmbientPressure</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/AmbientTemperature"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperature">AmbientTemperature</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationHardware">
+      <h3>BatteryCharacterizationHardware<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationInstrument"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationInstrument">characterisation instrument</a>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/hasBatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationHardwareSpecification">
+      <h3>BatteryCharacterizationHardwareSpecification<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationHardwareSpecification"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationHardwareSpecification">characterisation hardware specification</a>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/CurrentSpecification"
+               title="http://emmo.info/emmo/application/bto/CurrentSpecification">CurrentSpecification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/HardwareManufacturerName"
+               title="http://emmo.info/emmo/application/bto/HardwareManufacturerName">HardwareManufacturerName</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/HardwareModel"
+               title="http://emmo.info/emmo/application/bto/HardwareModel">HardwareModel</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/HardwareType"
+               title="http://emmo.info/emmo/application/bto/HardwareType">HardwareType</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/VoltageSpecification"
+               title="http://emmo.info/emmo/application/bto/VoltageSpecification">VoltageSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasBatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterizationMethod">
+      <h3>BatteryCharacterizationMethod<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMethod"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMethod">characterisation method</a>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/BatteryCharacterisationMethod1"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1">battery characterisation method1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryChemistryType">
+      <h3>BatteryChemistryType<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryChemistryType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasChemistryType"
+               title="http://emmo.info/emmo/application/bto/hasChemistryType">hasChemistryType</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryComponent">
+      <h3>BatteryComponent<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryComponent</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://emmo.info/emmo#Component" title="http://emmo.info/emmo#Component">component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/Anode" title="http://emmo.info/emmo/application/bto/Anode">Anode</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/Cathode" title="http://emmo.info/emmo/application/bto/Cathode">Cathode</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryConnector">
+      <h3>BatteryConnector<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryConnector</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryHolderComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/AlligatorClamps"
+               title="http://emmo.info/emmo/application/bto/AlligatorClamps">AlligatorClamps</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryElectrolyteType">
+      <h3>BatteryElectrolyteType<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryElectrolyteType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasElectrolyteType"
+               title="http://emmo.info/emmo/application/bto/hasElectrolyteType">hasElectrolyteType</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryHolder">
+      <h3>BatteryHolder<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryHolder</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#Holder"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#Holder">holder</a>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/Fixture" title="http://emmo.info/emmo/application/bto/Fixture">Fixture</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/BatteryHolder1"
+               title="http://emmo.info/emmo/application/bto/BatteryHolder1">battery holder1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryHolderComponent">
+      <h3>BatteryHolderComponent<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryHolderComponent</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://emmo.info/emmo#Component" title="http://emmo.info/emmo#Component">component</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/BatteryConnector"
+               title="http://emmo.info/emmo/application/bto/BatteryConnector">BatteryConnector</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/Cable" title="http://emmo.info/emmo/application/bto/Cable">Cable</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryManufacturerName">
+      <h3>BatteryManufacturerName<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryManufacturerName</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasHardwareManufacturerName"
+               title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryMeasurementParameter">
+      <h3>BatteryMeasurementParameter<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryMeasurementParameter</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#MeasurementParameter"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#MeasurementParameter">measurement parameter</a>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/EndTime" title="http://emmo.info/emmo/application/bto/EndTime">EndTime</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/MaxVoltage"
+               title="http://emmo.info/emmo/application/bto/MaxVoltage">MaxVoltage</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/SamplingTime"
+               title="http://emmo.info/emmo/application/bto/SamplingTime">SamplingTime</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryMeasurementProcess">
+      <h3>BatteryMeasurementProcess<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryMeasurementProcess</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMeasurementProcess"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#CharacterisationMeasurementProcess">characterisation measurement process</a>, <a href="http://org.semanticweb.owlapi/error#Error5"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error5">error5</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/BatteryMeasurementProcess1"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1">battery measurement process1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryMeasurementProcessProperty">
+      <h3>BatteryMeasurementProcessProperty<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo#Property"
+               target="_blank"
+               title="http://emmo.info/emmo#Property">property</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/Accuracy" title="http://emmo.info/emmo/application/bto/Accuracy">Accuracy</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/Location" title="http://emmo.info/emmo/application/bto/Location">Location</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryPartNumber">
+      <h3>BatteryPartNumber<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryPartNumber</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasPartNumber"
+               title="http://emmo.info/emmo/application/bto/hasPartNumber">hasPartNumber</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryProductionDate">
+      <h3>BatteryProductionDate<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryProductionDate</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasProductionDate"
+               title="http://emmo.info/emmo/application/bto/hasProductionDate">hasProductionDate</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatterySample">
+      <h3>BatterySample<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatterySample</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#Sample"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#Sample">sample</a>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#/hasBatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/BatterySample1"
+               title="http://emmo.info/emmo/application/bto/BatterySample1">battery sample1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatterySamplePreparation">
+      <h3>BatterySamplePreparation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatterySamplePreparation</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error7"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error7">error7</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error8"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error8">error8</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://org.semanticweb.owlapi/error#Error9"
+               target="_blank"
+               title="http://org.semanticweb.owlapi/error#Error9">error9</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#SamplePreparation"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#SamplePreparation">sample preparation</a>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/BatterySamplePreparation1"
+               title="http://emmo.info/emmo/application/bto/BatterySamplePreparation1">battery sample preparation1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatterySampleProperty">
+      <h3>BatterySampleProperty<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatterySampleProperty</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo#Property"
+               target="_blank"
+               title="http://emmo.info/emmo#Property">property</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/BatteryCellForm"
+               title="http://emmo.info/emmo/application/bto/BatteryCellForm">BatteryCellForm</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryChemistryType"
+               title="http://emmo.info/emmo/application/bto/BatteryChemistryType">BatteryChemistryType</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryElectrolyteType"
+               title="http://emmo.info/emmo/application/bto/BatteryElectrolyteType">BatteryElectrolyteType</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryManufacturerName"
+               title="http://emmo.info/emmo/application/bto/BatteryManufacturerName">BatteryManufacturerName</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryPartNumber"
+               title="http://emmo.info/emmo/application/bto/BatteryPartNumber">BatteryPartNumber</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryProductionDate"
+               title="http://emmo.info/emmo/application/bto/BatteryProductionDate">BatteryProductionDate</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasBatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryTestingOntology">
+      <h3>BatteryTestingOntology<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryTestingOntology</p>
+      <div class="comment">
+         <span class="markdown">This is the root class of the BTO ontology, introduced for grouping all of BTO's classes under a single parent class, each at a different hierarchical position.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationCalibration"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationCalibration">BatteryCharacterizationCalibration</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryCharacterizationEnvironment"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment">BatteryCharacterizationEnvironment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryCharacterizationEnvironmentMeasurementUnit"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentMeasurementUnit">BatteryCharacterizationEnvironmentMeasurementUnit</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryCharacterizationEnvironmentProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironmentProperty">BatteryCharacterizationEnvironmentProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryCharacterizationMethod"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod">BatteryCharacterizationMethod</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryHolder"
+               title="http://emmo.info/emmo/application/bto/BatteryHolder">BatteryHolder</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryHolderComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryMeasurementParameter"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryMeasurementProcess"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess">BatteryMeasurementProcess</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryMeasurementProcessProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty">BatteryMeasurementProcessProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatterySample"
+               title="http://emmo.info/emmo/application/bto/BatterySample">BatterySample</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatterySamplePreparation"
+               title="http://emmo.info/emmo/application/bto/BatterySamplePreparation">BatterySamplePreparation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatterySampleProperty"
+               title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/VoltageSource"
+               title="http://emmo.info/emmo/application/bto/VoltageSource">VoltageSource</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Cable">
+      <h3>Cable<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Cable</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryHolderComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/Cable1" title="http://emmo.info/emmo/application/bto/Cable1">cable1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Cathode">
+      <h3>Cathode<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Cathode</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#Component">
+      <h3>component<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#Component</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="http://emmo.info/emmo#EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817"
+               target="_blank"
+               title="http://emmo.info/emmo#EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817">e m m o f76884f7 964e 488e 9bb7 1b2453e9e817</a>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/BatteryComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryComponent">BatteryComponent</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/BatteryHolderComponent"
+               title="http://emmo.info/emmo/application/bto/BatteryHolderComponent">BatteryHolderComponent</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/CurrentData">
+      <h3>CurrentData<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/CurrentData</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/CurrentData1"
+               title="http://emmo.info/emmo/application/bto/CurrentData1">current data1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/CurrentSpecification">
+      <h3>CurrentSpecification<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/CurrentSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasCurrentSpecification"
+               title="http://emmo.info/emmo/application/bto/hasCurrentSpecification">hasCurrentSpecification</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/EndTime">
+      <h3>EndTime<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/EndTime</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryMeasurementParameter"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Fixture">
+      <h3>Fixture<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Fixture</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryHolder"
+               title="http://emmo.info/emmo/application/bto/BatteryHolder">BatteryHolder</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/Fixture1" title="http://emmo.info/emmo/application/bto/Fixture1">fixture1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/HardwareManufacturerName">
+      <h3>HardwareManufacturerName<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/HardwareManufacturerName</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasHardwareManufacturerName"
+               title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/HardwareModel">
+      <h3>HardwareModel<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/HardwareModel</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasHardwareModel"
+               title="http://emmo.info/emmo/application/bto/hasHardwareModel">hasHardwareModel</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/HardwareType">
+      <h3>HardwareType<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/HardwareType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasHardwareType"
+               title="http://emmo.info/emmo/application/bto/hasHardwareType">hasHardwareType</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Location">
+      <h3>Location<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Location</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryMeasurementProcessProperty"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcessProperty">BatteryMeasurementProcessProperty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/Location1" title="http://emmo.info/emmo/application/bto/Location1">location1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/MaxVoltage">
+      <h3>MaxVoltage<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/MaxVoltage</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryMeasurementParameter"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/SamplingTime">
+      <h3>SamplingTime<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/SamplingTime</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryMeasurementParameter"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementParameter">BatteryMeasurementParameter</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/SamplingTime1"
+               title="http://emmo.info/emmo/application/bto/SamplingTime1">sampling time1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/TimeData">
+      <h3>TimeData<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/TimeData</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/TimeData1" title="http://emmo.info/emmo/application/bto/TimeData1">time data1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/TraceData">
+      <h3>TraceData<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/TraceData</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#RawData"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#RawData">raw data</a>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#/CurrentData"
+               title="http://emmo.info/emmo/application/bto/CurrentData">CurrentData</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/TimeData" title="http://emmo.info/emmo/application/bto/TimeData">TimeData</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#/VoltageData"
+               title="http://emmo.info/emmo/application/bto/VoltageData">VoltageData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/VoltageData">
+      <h3>VoltageData<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/VoltageData</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/TraceData" title="http://emmo.info/emmo/application/bto/TraceData">TraceData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#/VoltageData1"
+               title="http://emmo.info/emmo/application/bto/VoltageData1">voltage data1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/VoltageSource">
+      <h3>VoltageSource<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/VoltageSource</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryTestingOntology"
+               title="http://emmo.info/emmo/application/bto/BatteryTestingOntology">BatteryTestingOntology</a>
+            <sup class="type-c" title="class">c</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#ReferenceSample"
+               target="_blank"
+               title="http://emmo.info/emmo/domain/chameo/chameo#ReferenceSample">reference sample</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/VoltageSpecification">
+      <h3>VoltageSpecification<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/VoltageSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationHardwareSpecification"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#/hasVoltageSpecification"
+               title="http://emmo.info/emmo/application/bto/hasVoltageSpecification">hasVoltageSpecification</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#/btoObjectProperty"
+            title="http://emmo.info/emmo/application/bto/btoObjectProperty">btoObjectProperty</a>
+      </li>
+      <li>
+         <a href="#/hasBatteryCharacterizationHardwareSpecification"
+            title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+      </li>
+      <li>
+         <a href="#/hasBatterySampleProperty"
+            title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+      </li>
+      <li>
+         <a href="#/hasCellForm"
+            title="http://emmo.info/emmo/application/bto/hasCellForm">hasCellForm</a>
+      </li>
+      <li>
+         <a href="#/hasChemistryType"
+            title="http://emmo.info/emmo/application/bto/hasChemistryType">hasChemistryType</a>
+      </li>
+      <li>
+         <a href="#/hasCurrentSpecification"
+            title="http://emmo.info/emmo/application/bto/hasCurrentSpecification">hasCurrentSpecification</a>
+      </li>
+      <li>
+         <a href="#/hasElectrolyteType"
+            title="http://emmo.info/emmo/application/bto/hasElectrolyteType">hasElectrolyteType</a>
+      </li>
+      <li>
+         <a href="#/hasHardwareManufacturerName"
+            title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+      </li>
+      <li>
+         <a href="#/hasHardwareModel"
+            title="http://emmo.info/emmo/application/bto/hasHardwareModel">hasHardwareModel</a>
+      </li>
+      <li>
+         <a href="#/hasHardwareType"
+            title="http://emmo.info/emmo/application/bto/hasHardwareType">hasHardwareType</a>
+      </li>
+      <li>
+         <a href="#/hasPartNumber"
+            title="http://emmo.info/emmo/application/bto/hasPartNumber">hasPartNumber</a>
+      </li>
+      <li>
+         <a href="#/hasProductionDate"
+            title="http://emmo.info/emmo/application/bto/hasProductionDate">hasProductionDate</a>
+      </li>
+      <li>
+         <a href="#/hasVoltageSpecification"
+            title="http://emmo.info/emmo/application/bto/hasVoltageSpecification">hasVoltageSpecification</a>
+      </li>
+   </ul>
+   <div class="entity" id="/btoObjectProperty">
+      <h3>btoObjectProperty<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/btoObjectProperty</p>
+      <div class="comment">
+         <span class="markdown">This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasBatteryCharacterizationHardwareSpecification">
+      <h3>hasBatteryCharacterizationHardwareSpecification<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/btoObjectProperty"
+                  title="http://emmo.info/emmo/application/bto/btoObjectProperty">btoObjectProperty</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="http://emmo.info/emmo/domain/chameo/chameo#hasHardwareSpecification"
+                  target="_blank"
+                  title="http://emmo.info/emmo/domain/chameo/chameo#hasHardwareSpecification">has hardware specification</a>
+            </dd>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#/hasCurrentSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasCurrentSpecification">hasCurrentSpecification</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasHardwareManufacturerName"
+                  title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasHardwareModel"
+                  title="http://emmo.info/emmo/application/bto/hasHardwareModel">hasHardwareModel</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasHardwareType"
+                  title="http://emmo.info/emmo/application/bto/hasHardwareType">hasHardwareType</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasVoltageSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasVoltageSpecification">hasVoltageSpecification</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/BatteryCharacterizationHardware"
+                  title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardware">BatteryCharacterizationHardware</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/BatteryCharacterizationHardwareSpecification">BatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasBatterySampleProperty">
+      <h3>hasBatterySampleProperty<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasBatterySampleProperty</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/btoObjectProperty"
+                  title="http://emmo.info/emmo/application/bto/btoObjectProperty">btoObjectProperty</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="http://emmo.info/emmo#hasProperty"
+                  target="_blank"
+                  title="http://emmo.info/emmo#hasProperty">has property</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#/hasCellForm"
+                  title="http://emmo.info/emmo/application/bto/hasCellForm">hasCellForm</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasChemistryType"
+                  title="http://emmo.info/emmo/application/bto/hasChemistryType">hasChemistryType</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasElectrolyteType"
+                  title="http://emmo.info/emmo/application/bto/hasElectrolyteType">hasElectrolyteType</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasHardwareManufacturerName"
+                  title="http://emmo.info/emmo/application/bto/hasHardwareManufacturerName">hasHardwareManufacturerName</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasPartNumber"
+                  title="http://emmo.info/emmo/application/bto/hasPartNumber">hasPartNumber</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasProductionDate"
+                  title="http://emmo.info/emmo/application/bto/hasProductionDate">hasProductionDate</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#/BatterySample"
+                  title="http://emmo.info/emmo/application/bto/BatterySample">BatterySample</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/BatterySampleProperty">BatterySampleProperty</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasCellForm">
+      <h3>hasCellForm<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasCellForm</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryCellForm"
+                  title="http://emmo.info/emmo/application/bto/BatteryCellForm">BatteryCellForm</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasChemistryType">
+      <h3>hasChemistryType<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasChemistryType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryChemistryType"
+                  title="http://emmo.info/emmo/application/bto/BatteryChemistryType">BatteryChemistryType</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasCurrentSpecification">
+      <h3>hasCurrentSpecification<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasCurrentSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/CurrentSpecification"
+                  title="http://emmo.info/emmo/application/bto/CurrentSpecification">CurrentSpecification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasElectrolyteType">
+      <h3>hasElectrolyteType<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasElectrolyteType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryElectrolyteType"
+                  title="http://emmo.info/emmo/application/bto/BatteryElectrolyteType">BatteryElectrolyteType</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasHardwareManufacturerName">
+      <h3>hasHardwareManufacturerName<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasHardwareManufacturerName</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryManufacturerName"
+                  title="http://emmo.info/emmo/application/bto/BatteryManufacturerName">BatteryManufacturerName</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#/HardwareManufacturerName"
+                  title="http://emmo.info/emmo/application/bto/HardwareManufacturerName">HardwareManufacturerName</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasHardwareModel">
+      <h3>hasHardwareModel<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasHardwareModel</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/HardwareModel"
+                  title="http://emmo.info/emmo/application/bto/HardwareModel">HardwareModel</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasHardwareType">
+      <h3>hasHardwareType<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasHardwareType</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/HardwareType"
+                  title="http://emmo.info/emmo/application/bto/HardwareType">HardwareType</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasPartNumber">
+      <h3>hasPartNumber<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasPartNumber</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryPartNumber"
+                  title="http://emmo.info/emmo/application/bto/BatteryPartNumber">BatteryPartNumber</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasProductionDate">
+      <h3>hasProductionDate<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasProductionDate</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatterySampleProperty"
+                  title="http://emmo.info/emmo/application/bto/hasBatterySampleProperty">hasBatterySampleProperty</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/BatteryProductionDate"
+                  title="http://emmo.info/emmo/application/bto/BatteryProductionDate">BatteryProductionDate</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="/hasVoltageSpecification">
+      <h3>hasVoltageSpecification<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/hasVoltageSpecification</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#/hasBatteryCharacterizationHardwareSpecification"
+                  title="http://emmo.info/emmo/application/bto/hasBatteryCharacterizationHardwareSpecification">hasBatteryCharacterizationHardwareSpecification</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#/VoltageSpecification"
+                  title="http://emmo.info/emmo/application/bto/VoltageSpecification">VoltageSpecification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="annotationproperties">
+   <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#altlabel" title="http://www.w3.org/2004/02/skos/core#altlabel">
+            <span>altlabel</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasBeginTask" title="http://emmo.info/emmo#hasBeginTask">
+            <span>has begin task</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation"
+            title="http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation">
+            <span>has characterisation location</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasDataValue" title="http://emmo.info/emmo#hasDataValue">
+            <span>has data value</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasEndTask" title="http://emmo.info/emmo#hasEndTask">
+            <span>has end task</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasNext" title="http://emmo.info/emmo#hasNext">
+            <span>has next</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasNumericalValue" title="http://emmo.info/emmo#hasNumericalValue">
+            <span>has numerical value</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasReferenceUnit" title="http://emmo.info/emmo#hasReferenceUnit">
+            <span>has reference unit</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasStringValue" title="http://emmo.info/emmo#hasStringValue">
+            <span>has string value</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://emmo.info/emmo#hasTemporaryParticipant" title="http://emmo.info/emmo#hasTemporaryParticipant">
+            <span>has temporary participant</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#preflabel" title="http://www.w3.org/2004/02/skos/core#preflabel">
+            <span>preflabel</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://purl.org/ontology/bibo/status" title="http://purl.org/ontology/bibo/status">
+            <span>status</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#altlabel">
+      <h3>altlabel<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#altlabel</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasBeginTask">
+      <h3>has begin task<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasBeginTask</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation">
+      <h3>has characterisation location<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/domain/chameo/chameo#hasCharacterisationLocation</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasDataValue">
+      <h3>has data value<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasDataValue</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasEndTask">
+      <h3>has end task<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasEndTask</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasNext">
+      <h3>has next<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasNext</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasNumericalValue">
+      <h3>has numerical value<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasNumericalValue</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasReferenceUnit">
+      <h3>has reference unit<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasReferenceUnit</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasStringValue">
+      <h3>has string value<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasStringValue</p>
+   </div>
+   <div class="entity" id="http://emmo.info/emmo#hasTemporaryParticipant">
+      <h3>has temporary participant<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo#hasTemporaryParticipant</p>
+   </div>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#preflabel">
+      <h3>preflabel<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#preflabel</p>
+   </div>
+   <div class="entity" id="http://purl.org/ontology/bibo/status">
+      <h3>status<sup class="type-ap" title="annotation property">ap</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/bibo/status</p>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="namedindividuals">
+   <h3 id="namedindividuals" class="list">Named Individuals</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#/AlligatorClamps1"
+            title="http://emmo.info/emmo/application/bto/AlligatorClamps1">
+            <span>alligator clamps1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/AmbientPressureUnit1"
+            title="http://emmo.info/emmo/application/bto/AmbientPressureUnit1">
+            <span>ambient pressure unit1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/AmbientPressure1"
+            title="http://emmo.info/emmo/application/bto/AmbientPressure1">
+            <span>ambient pressure1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/AmbientTemperatureUnit1"
+            title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1">
+            <span>ambient temperature unit1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/AmbientTemperature1"
+            title="http://emmo.info/emmo/application/bto/AmbientTemperature1">
+            <span>ambient temperature1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/Ambient1" title="http://emmo.info/emmo/application/bto/Ambient1">
+            <span>ambient1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/BatteryCharacterisationMethod1"
+            title="http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1">
+            <span>battery characterisation method1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/BatteryHolder1"
+            title="http://emmo.info/emmo/application/bto/BatteryHolder1">
+            <span>battery holder1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/BatteryMeasurementProcess1"
+            title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1">
+            <span>battery measurement process1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/BatterySamplePreparation1"
+            title="http://emmo.info/emmo/application/bto/BatterySamplePreparation1">
+            <span>battery sample preparation1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/BatterySample1"
+            title="http://emmo.info/emmo/application/bto/BatterySample1">
+            <span>battery sample1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/Cable1" title="http://emmo.info/emmo/application/bto/Cable1">
+            <span>cable1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/CurrentData1"
+            title="http://emmo.info/emmo/application/bto/CurrentData1">
+            <span>current data1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/Fixture1" title="http://emmo.info/emmo/application/bto/Fixture1">
+            <span>fixture1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/Location1" title="http://emmo.info/emmo/application/bto/Location1">
+            <span>location1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/SamplingTime1"
+            title="http://emmo.info/emmo/application/bto/SamplingTime1">
+            <span>sampling time1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/TimeData1" title="http://emmo.info/emmo/application/bto/TimeData1">
+            <span>time data1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#/VoltageData1"
+            title="http://emmo.info/emmo/application/bto/VoltageData1">
+            <span>voltage data1</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="/AlligatorClamps1">
+      <h3>alligator clamps1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AlligatorClamps1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/AlligatorClamps"
+               title="http://emmo.info/emmo/application/bto/AlligatorClamps">AlligatorClamps</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientPressureUnit1">
+      <h3>ambient pressure unit1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientPressureUnit1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/AmbientPressureUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientPressureUnit">AmbientPressureUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientPressure1">
+      <h3>ambient pressure1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientPressure1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/AmbientPressure"
+               title="http://emmo.info/emmo/application/bto/AmbientPressure">AmbientPressure</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientTemperatureUnit1">
+      <h3>ambient temperature unit1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientTemperatureUnit1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/AmbientTemperatureUnit"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperatureUnit">AmbientTemperatureUnit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/AmbientTemperature1">
+      <h3>ambient temperature1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/AmbientTemperature1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/AmbientTemperature"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperature">AmbientTemperature</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Ambient1">
+      <h3>ambient1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Ambient1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationEnvironment"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationEnvironment">BatteryCharacterizationEnvironment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="http://emmo.info/emmo#hasProperty"
+               target="_blank"
+               title="http://emmo.info/emmo#hasProperty">has property</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="#/AmbientPressure1"
+               title="http://emmo.info/emmo/application/bto/AmbientPressure1">ambient pressure1</a>
+         </dd>
+         <dd>
+            <a href="http://emmo.info/emmo#hasProperty"
+               target="_blank"
+               title="http://emmo.info/emmo#hasProperty">has property</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="#/AmbientTemperature1"
+               title="http://emmo.info/emmo/application/bto/AmbientTemperature1">ambient temperature1</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryCharacterisationMethod1">
+      <h3>battery characterisation method1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryCharacterisationMethod1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatteryCharacterizationMethod"
+               title="http://emmo.info/emmo/application/bto/BatteryCharacterizationMethod">BatteryCharacterizationMethod</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryHolder1">
+      <h3>battery holder1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryHolder1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatteryHolder"
+               title="http://emmo.info/emmo/application/bto/BatteryHolder">BatteryHolder</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatteryMeasurementProcess1">
+      <h3>battery measurement process1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatteryMeasurementProcess1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatteryMeasurementProcess"
+               title="http://emmo.info/emmo/application/bto/BatteryMeasurementProcess">BatteryMeasurementProcess</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatterySamplePreparation1">
+      <h3>battery sample preparation1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatterySamplePreparation1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatterySamplePreparation"
+               title="http://emmo.info/emmo/application/bto/BatterySamplePreparation">BatterySamplePreparation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/BatterySample1">
+      <h3>battery sample1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/BatterySample1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/BatterySample"
+               title="http://emmo.info/emmo/application/bto/BatterySample">BatterySample</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Cable1">
+      <h3>cable1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Cable1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/Cable" title="http://emmo.info/emmo/application/bto/Cable">Cable</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/CurrentData1">
+      <h3>current data1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/CurrentData1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/CurrentData"
+               title="http://emmo.info/emmo/application/bto/CurrentData">CurrentData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Fixture1">
+      <h3>fixture1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Fixture1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/Fixture" title="http://emmo.info/emmo/application/bto/Fixture">Fixture</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/Location1">
+      <h3>location1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/Location1</p>
+      <div class="comment">
+         <span class="markdown"/>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/Location" title="http://emmo.info/emmo/application/bto/Location">Location</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/SamplingTime1">
+      <h3>sampling time1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/SamplingTime1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/SamplingTime"
+               title="http://emmo.info/emmo/application/bto/SamplingTime">SamplingTime</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/TimeData1">
+      <h3>time data1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/TimeData1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/TimeData" title="http://emmo.info/emmo/application/bto/TimeData">TimeData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="/VoltageData1">
+      <h3>voltage data1<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://emmo.info/emmo/application/bto/VoltageData1</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#/VoltageData"
+               title="http://emmo.info/emmo/application/bto/VoltageData">VoltageData</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="rules">
+   <h3 class="list" id="rule">Rules</h3>
+   <ul class="hlist"/>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
