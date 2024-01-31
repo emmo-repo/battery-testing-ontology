@@ -383,7 +383,7 @@ bto:BatteryMeasurementProcess a owl:Class ;
                 [ rdf:type owl:Restriction ;
                   owl:onProperty chameo:hasCharacterisationEnvironment ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                  owl:onClass bto:Ambient ] ,
+                  owl:onClass bto:BatteryCharacterizationEnvironment ] ,
                 [ rdf:type owl:Restriction ;
                   owl:onProperty chameo:hasMeasurementParameter ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
