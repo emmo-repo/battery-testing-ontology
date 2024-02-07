@@ -111,6 +111,12 @@ emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd
 ### hasMeasurementParameter
 ### hasMeasurementSample
 
+####### Battery Domain Ontology mapping:
+
+domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
+domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
+# domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
+
 bto:BatteryTestingOntology a owl:Class ;
 	rdfs:label "BatteryTestingOntology"@en ;
 	skos:prefLabel "BatteryTestingOntology"@en ;
@@ -166,7 +172,7 @@ bto:BatterySample a owl:Class ;
 	rdfs:comment "A battery selected from a larger set to be used in a battery testing procedure."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Sample ;
-	owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
+	owl:equivalentClass domain-battery:Battery .
 
 # Subclass of emmo:Property
 bto:BatterySampleProperty a owl:Class ;
@@ -408,7 +414,8 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:onProperty emmo:hasProperty ;
                   # emmo:hasProperty 
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                  owl:onClass bto:Location ] .
+                  owl:onClass bto:Location ] ;
+	owl:equivalentClass domain-battery:BatteryMeasurement .
 
 # Subclass of emmo:Property
 bto:BatteryMeasurementProcessProperty a owl:Class ;
