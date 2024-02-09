@@ -1,0 +1,98 @@
+@prefix : <http://emmo.info/emmo/application/bto/> .
+@prefix bto: <http://emmo.info/emmo/application/bto/> .
+@prefix emmo: <http://emmo.info/emmo#> .
+@prefix chameo: <http://emmo.info/emmo/domain/chameo/chameo#> .
+@prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://emmo.info/emmo/application/bto> .
+
+######################################################################################
+# ----Individuals---------------------------------------------------------------------
+######################################################################################
+
+bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
+
+# Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
+bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
+	chameo:hasCharacterisationEnvironmentProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
+	# emmo:hasProperty
+
+# emmo:hasReferenceUnit, emmo:hasNumericalValue
+bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
+	emmo:hasReferenceUnit bto:AmbientPressureUnit1 ;
+	# emmo:hasReferenceUnit
+	emmo:hasNumericalValue 102 .
+	# emmo:hasNumericalValue
+
+# emmo:hasStringValue
+bto:AmbientPressureUnit1 a owl:NamedIndividual , bto:AmbientPressureUnit ;
+    emmo:hasStringValue "kPa" .
+    # emmo:hasStringValue
+
+bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
+	emmo:hasReferenceUnit bto:AmbientTemperatureUnit1 ;
+	# emmo:hasReferenceUnit
+	emmo:hasNumericalValue 15 .
+	# emmo:hasNumericalValue
+
+bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
+	emmo:hasStringValue "C" .
+	# emmo:hasStringValue
+
+bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
+    emmo:hasBeginTask bto:BatterySamplePreparation1 ;
+    # emmo:hasBeginTask
+    emmo:hasEndTask bto:BatteryMeasurementProcess1 ;
+    # emmo:hasEndTask
+	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
+	chameo:hasCharacterisationLocation bto:Location1 .
+
+bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
+
+bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
+	emmo:hasTemporaryParticipant bto:BatterySample1 ;
+	# emmo:hasTemporaryParticipant
+	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
+	# emmo:hasOutput
+	emmo:hasDataValue "2020-08-10T15:39:35"^^xsd:dateTime .
+	# hasDataValue
+
+bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample .
+
+bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
+	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
+	# emmo:hasTemporaryParticipant
+	emmo:hasNext bto:BatteryMeasurementProcess1 .
+	# emmo:hasNext
+	
+bto:Cable1 a owl:NamedIndividual , bto:Cable .
+
+bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
+	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
+	# emmo:hasNumericalValue
+
+#bto:Fixture1 hasProperPart bto:AlligatorClamps1 , bto:Cable1
+bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
+	emmo:hasProperPart bto:AlligatorClamps1 , bto:Cable1 .
+	# emmo:hasProperPart
+
+bto:Location1 a owl:NamedIndividual , bto:Location ;
+	emmo:hasStringValue "Keysight Technologies"@en .
+	# emmo:hasStringValue
+  
+bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
+	emmo:hasNumericalValue 0.0001 .
+	# emmo:hasNumericalValue
+
+bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
+	emmo:hasNumericalValue 0.999899983406067 .
+	# emmo:hasNumericalValue
+
+bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
+	emmo:hasNumericalValue 447.045999862166 .
+	# emmo:hasNumericalValue

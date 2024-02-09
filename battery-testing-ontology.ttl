@@ -112,7 +112,9 @@ emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd
 ### hasMeasurementSample
 
 ####### Battery Domain Ontology mapping:
-
+### Battery
+### BatteryMeasurement
+### BatteryMeasurementResult
 domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
 domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
 # domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
@@ -373,7 +375,7 @@ bto:SamplingTime a owl:Class ;
 bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:label "BatteryMeasurementProcess"@en ;
 	skos:prefLabel "BatteryMeasurementProcess"@en ;
-	rdfs:comment "The measurement step in a battery characterization method. It involves at least a characterization hardware, a characterization environment, a battery sample to be measured, the configuration parameters, the level of accuracy and the location of the measurement. Its output are the trace data of the measurement."@en ;
+	rdfs:comment "The measurement step in a battery characterization method. It involves at least a characterization hardware, a characterization environment, a battery sample to be measured, the configuration parameters, the level of accuracy and the location of the measurement. Its output is the trace data of the measurement."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:CharacterisationMeasurementProcess , 
 				[ rdf:type owl:Restriction ;
@@ -415,7 +417,7 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   # emmo:hasProperty 
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:Location ] ;
-	owl:equivalentClass domain-battery:BatteryMeasurement .
+	rdfs:subClassOf domain-battery:BatteryMeasurement .
 
 # Subclass of emmo:Property
 bto:BatteryMeasurementProcessProperty a owl:Class ;
@@ -698,89 +700,3 @@ bto:AmbientLightUnit a owl:Class ;
 	skos:prefLabel "AmbientLightUnit"@en ;
 	rdfs:comment "The measurement unit of the light of a battery characterization hardware."@en ;
 	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
-	
-######################################################################################
-# ----Individuals---------------------------------------------------------------------
-######################################################################################
-
-bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
-
-# Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
-bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
-	chameo:hasCharacterisationEnvironmentProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
-	# emmo:hasProperty
-
-# emmo:hasReferenceUnit, emmo:hasNumericalValue
-bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
-	emmo:hasReferenceUnit bto:AmbientPressureUnit1 ;
-	# emmo:hasReferenceUnit
-	emmo:hasNumericalValue 102 .
-	# emmo:hasNumericalValue
-
-# emmo:hasStringValue
-bto:AmbientPressureUnit1 a owl:NamedIndividual , bto:AmbientPressureUnit ;
-    emmo:hasStringValue "kPa" .
-    # emmo:hasStringValue
-
-bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
-	emmo:hasReferenceUnit bto:AmbientTemperatureUnit1 ;
-	# emmo:hasReferenceUnit
-	emmo:hasNumericalValue 15 .
-	# emmo:hasNumericalValue
-
-bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
-	emmo:hasStringValue "C" .
-	# emmo:hasStringValue
-
-bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
-    emmo:hasBeginTask bto:BatterySamplePreparation1 ;
-    # emmo:hasBeginTask
-    emmo:hasEndTask bto:BatteryMeasurementProcess1 ;
-    # emmo:hasEndTask
-	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
-	chameo:hasCharacterisationLocation bto:Location1 .
-
-bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
-
-bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
-	emmo:hasTemporaryParticipant bto:BatterySample1 ;
-	# emmo:hasTemporaryParticipant
-	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
-	# emmo:hasOutput
-	emmo:hasDataValue "2020-08-10T15:39:35"^^xsd:dateTime .
-	# hasDataValue
-
-bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample .
-
-bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
-	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
-	# emmo:hasTemporaryParticipant
-	emmo:hasNext bto:BatteryMeasurementProcess1 .
-	# emmo:hasNext
-	
-bto:Cable1 a owl:NamedIndividual , bto:Cable .
-
-bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
-	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
-	# emmo:hasNumericalValue
-
-#bto:Fixture1 hasProperPart bto:AlligatorClamps1 , bto:Cable1
-bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
-	emmo:hasProperPart bto:AlligatorClamps1 , bto:Cable1 .
-	# emmo:hasProperPart
-
-bto:Location1 a owl:NamedIndividual , bto:Location ;
-	emmo:hasStringValue "Keysight Technologies"@en .
-	# emmo:hasStringValue
-  
-bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
-	emmo:hasNumericalValue 0.0001 .
-	# emmo:hasNumericalValue
-
-bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
-	emmo:hasNumericalValue 0.999899983406067 .
-	# emmo:hasNumericalValue
-
-bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
-	emmo:hasNumericalValue 447.045999862166 .
-	# emmo:hasNumericalValue
