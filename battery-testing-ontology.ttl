@@ -114,11 +114,21 @@ emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd
 
 ####### Battery Domain Ontology mapping:
 ### Battery
-### BatteryMeasurement
-### BatteryMeasurementResult
 domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
+### BatteryMeasurement
 domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
+### BatteryMeasurementResult
 # domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
+
+###### Electrochemistry Domain Ontology mapping:
+### Anode
+domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electrochemistry_b6319c74_d2ce_48c0_a75a_63156776b302 ;
+	rdfs:subClassOf bto:BatteryComponent .
+### Cathode
+domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
+	rdfs:subClassOf bto:BatteryComponent .
+
+
 
 bto:BatteryTestingOntology a owl:Class ;
 	rdfs:label "BatteryTestingOntology"@en ;
@@ -153,17 +163,17 @@ bto:BatteryComponent a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 	
-bto:Cathode a owl:Class ;
-	rdfs:label "Cathode"@en ;
-	skos:prefLabel "Cathode"@en ;
-	rdfs:comment "The positive electrode found in a battery. It is thus a component of a battery."@en ;
-	rdfs:subClassOf bto:BatteryComponent .
+# bto:Cathode a owl:Class ;
+# 	rdfs:label "Cathode"@en ;
+# 	skos:prefLabel "Cathode"@en ;
+# 	rdfs:comment "The positive electrode found in a battery. It is thus a component of a battery."@en ;
+# 	rdfs:subClassOf bto:BatteryComponent .
 	
-bto:Anode a owl:Class ;
-	rdfs:label "Anode"@en ;
-	skos:prefLabel "Anode"@en ;
-	rdfs:comment "The negative electrode found in a battery. It is thus a component of a battery."@en ;
-	rdfs:subClassOf bto:BatteryComponent .
+# bto:Anode a owl:Class ;
+# 	rdfs:label "Anode"@en ;
+# 	skos:prefLabel "Anode"@en ;
+# 	rdfs:comment "The negative electrode found in a battery. It is thus a component of a battery."@en ;
+# 	rdfs:subClassOf bto:BatteryComponent .
 
 ########################################
 ### BatterySample and its properties ###
