@@ -150,11 +150,15 @@ bto:BatteryCharacterizationMethod a owl:Class ;
 	       [ rdf:type owl:Restriction ;
              owl:onProperty emmo:hasTask ;
              # emmo:hasTask
-             owl:someValuesFrom bto:BatteryMeasurementProcess ] ,
+             owl:someValuesFrom bto:CalibrationForBatteryCharacterization ] ,
+	       [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:hasTask ;
+             # emmo:hasTask
+             owl:someValuesFrom bto:BatterySamplePreparation ] ,
            [ rdf:type owl:Restriction ;
              owl:onProperty emmo:hasTask ;
              # emmo:hasTask
-             owl:someValuesFrom bto:BatterySamplePreparation ] .
+             owl:someValuesFrom bto:BatteryMeasurementProcess ] .
 
 bto:BatteryComponent a owl:Class ;
 	rdfs:label "BatteryComponent"@en ;
@@ -185,7 +189,7 @@ bto:BatterySample a owl:Class ;
 	rdfs:comment "A battery selected from a larger set to be used in a battery testing procedure."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Sample ;
-	owl:equivalentClass domain-battery:Battery .
+	rdfs:subClassOf domain-battery:Battery .
 
 # Subclass of emmo:Property
 bto:BatterySampleProperty a owl:Class ;
@@ -422,12 +426,12 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:onProperty emmo:hasProperty ;
                   # emmo:hasProperty 
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                  owl:onClass bto:Accuracy ] ,
-                [ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:hasProperty ;
-                  # emmo:hasProperty 
-                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                  owl:onClass bto:Location ] ;
+                  owl:onClass bto:Accuracy ] ;
+#                [ rdf:type owl:Restriction ;
+#                  owl:onProperty emmo:hasProperty ;
+#                  # emmo:hasProperty 
+#                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+#                  owl:onClass bto:Location ] ;
 	rdfs:subClassOf domain-battery:BatteryMeasurement .
 
 # Subclass of emmo:Property
@@ -444,11 +448,11 @@ bto:Accuracy a owl:Class ;
 	rdfs:comment "The level of accuracy of a battery measurement process. It is a property of the process."@en ;
 	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
 
-	bto:Location a owl:Class ;
-	rdfs:label "Location"@en ;
-	skos:prefLabel "Location"@en ;
-	rdfs:comment "The location where the battery measurement process takes place. It is a property of the process."@en ;
-	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
+# bto:Location a owl:Class ;
+#	rdfs:label "Location"@en ;
+#	skos:prefLabel "Location"@en ;
+#	rdfs:comment "The location where the battery measurement process takes place. It is a property of the process."@en ;
+#	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
 	
 bto:TraceData a owl:Class ;
 	rdfs:label "TraceData"@en ;
@@ -520,12 +524,12 @@ bto:VoltageSpecification a owl:Class ;
 	rdfs:comment "A specification of the battery characterization hardware, related to the voltage it can provide."@en ;
 	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 	
-bto:BatteryCharacterizationCalibration a owl:Class ;
-	rdfs:label "BatteryCharacterizationCalibration"@en ;
-	skos:prefLabel "BatteryCharacterizationCalibration"@en ;
-	skos:altLabel "BatteryCharacterisationCalibration"@en ;
-	skos:altLabel "CalibrationForBatteryCharacterization"@en ;
+bto:CalibrationForBatteryCharacterization a owl:Class ;
+	rdfs:label "CalibrationForBatteryCharacterization"@en ;
+	skos:prefLabel "CalibrationForBatteryCharacterization"@en ;
 	skos:altLabel "CalibrationForBatteryCharacterisation"@en ;
+	skos:altLabel "BatteryCharacterizationCalibration"@en ;
+	skos:altLabel "BatteryCharacterisationCalibration"@en ;
 	rdfs:comment "The process of calibration of a battery characterization hardware with reference to a voltage source, which produces as output a reference voltage data."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf [ rdf:type owl:Restriction ;
