@@ -32,8 +32,8 @@
 	dcterms:abstract "Battery Testing Ontology."@en ;
 	dcterms:bibliographicCitation "Work under review - not available yet" ;
 	dcterms:contributor <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
-	dcterms:created "2023-03-09" ;
 	dcterms:creator <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
+	dcterms:created "2023-03-09" ;
 	dcterms:description "Battery Testing Ontology"@en ;
 	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
 	dcterms:publisher "EMMC ASBL" ;
