@@ -31,11 +31,9 @@
 	            	            
 	dcterms:abstract "Battery Testing Ontology."@en ;
 	dcterms:bibliographicCitation "Work under review - not available yet" ;
-	dcterms:contributor "Goldbeck Consulting Ltd (UK)" ;
+	dcterms:contributor <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
 	dcterms:created "2023-03-09" ;
-	dcterms:creator "Daniele Toti" ,
-	"Gerhard Goldbeck" ,
-	"Pierluigi Del Nostro" ;
+	dcterms:creator <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
 	dcterms:description "Battery Testing Ontology"@en ;
 	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
 	dcterms:publisher "EMMC ASBL" ;
@@ -55,7 +53,25 @@
 	<http://purl.org/ontology/bibo/status> "" ;
 	<http://purl.org/ontology/bibo/doi> "" ;
 	owl:versionInfo "1.0.0" .
+
+<https://orcid.org/0000-0002-9668-6961> a foaf:Person ;
+	rdfs:label "Daniele Toti" ;
+	skos:prefLabel "Daniele Toti" ;
+	foaf:name "Daniele Toti" ;
+	rdfs:comment "" .
 	
+<https://orcid.org/0000-0002-5174-8508> a foaf:Person ;
+	rdfs:label "Pierluigi Del Nostro" ;
+	skos:prefLabel "Pierluigi Del Nostro" ;
+	foaf:name "Pierluigi Del Nostro" ;
+	rdfs:comment "" .
+	
+<https://orcid.org/0000-0002-4181-2852> a foaf:Person ;
+	rdfs:label "Gerhard Goldbeck" ;
+	skos:prefLabel "Gerhard Goldbeck" ;
+	foaf:name "Gerhard Goldbeck" ;
+	rdfs:comment "" .
+		
 ####### EMMO mapping:
 ### Component                -> multiperspective-persholistic EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 ### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
@@ -127,7 +143,8 @@ domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electr
 ### Cathode
 domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
 	rdfs:subClassOf bto:BatteryComponent .
-
+### OutputCable
+domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
 
 
 bto:BatteryTestingOntology a owl:Class ;
@@ -190,6 +207,20 @@ bto:BatterySample a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Sample ;
 	rdfs:subClassOf domain-battery:Battery .
+	
+bto:RawBatterySample a owl:Class ;
+	rdfs:label "RawBatterySample"@en ;
+	skos:prefLabel "RawBatterySample"@en ;
+	rdfs:comment "A battery sample to be prepared for testing. It is thus the input of the process of preparing a battery sample."@en ;
+	rdfs:subClass chameo:RawSample ;
+	rdfs:subClassOf bto:BatterySample .
+	
+bto:PreparedatterySample a owl:Class ;
+	rdfs:label "PreparedBatterySample"@en ;
+	skos:prefLabel "PreparedBatterySample"@en ;
+	rdfs:comment "A battery sample that has been prepared for testing. It is thus the output of the process of preparing a battery sample."@en ;
+	rdfs:subClassOf chameo:PreparedSample ;
+	rdfs:subClassOf bto:BatterySample .
 
 # Subclass of emmo:Property
 bto:BatterySampleProperty a owl:Class ;
@@ -312,17 +343,14 @@ bto:BatterySamplePreparation a owl:Class ;
 	rdfs:subClassOf chameo:SamplePreparation ,
 			[ rdf:type owl:Restriction ;
         	  owl:onProperty emmo:hasInput ;
-        	  # emmo:hasInput 
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          	  owl:onClass bto:BatterySample ] ,
+          	  owl:onClass bto:RawBatterySample ] ,
           	[ rdf:type owl:Restriction ;
         	  owl:onProperty emmo:hasOutput ;
-        	  # emmo:hasOutput
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          	  owl:onClass bto:BatterySample ] ,
+          	  owl:onClass bto:PreparedBatterySample ] ,
           	[ rdf:type owl:Restriction ;
         	  owl:onProperty emmo:hasTemporaryParticipant ;
-              # emmo:hasTemporaryParticipant
         	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
           	  owl:onClass bto:BatteryHolder ] .
 	
@@ -338,7 +366,8 @@ bto:Fixture a owl:Class ;
              [ rdf:type owl:Restriction ;
                owl:onProperty emmo:hasProperPart ;
                # emmo:hasProperPart
-               owl:someValuesFrom bto:Cable ] .
+               owl:someValuesFrom bto:Cable ] ;
+    owl:equivalentClass domain-electrochemistry:OutputCable .
 
 bto:BatteryConnector a owl:Class ;
 	rdfs:label "BatteryConnector"@en ;
@@ -395,13 +424,17 @@ bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:subClassOf chameo:CharacterisationMeasurementProcess , 
 				[ rdf:type owl:Restriction ;
                   owl:onProperty emmo:hasTemporaryParticipant ;
-                  # emmo:hasTemporaryParticipant
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:BatteryCharacterizationHardware ] ,
                 [ rdf:type owl:Restriction ;
                   owl:onProperty emmo:hasOutput ;
-                  # emmo:hasOutput
-                  owl:someValuesFrom bto:TraceData ] ,
+                  owl:someValuesFrom bto:VoltageData ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:hasOutput ;
+                  owl:someValuesFrom bto:CurrentData ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty emmo:hasOutput ;
+                  owl:someValuesFrom bto:TimeData ] ,
                 [ rdf:type owl:Restriction ;
                   owl:onProperty chameo:hasMeasurementSample ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -423,15 +456,17 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                   owl:onClass bto:EndTime ] ,
                 [ rdf:type owl:Restriction ;
-                  owl:onProperty emmo:hasProperty ;
-                  # emmo:hasProperty 
+                  owl:onProperty chameo:hasAccuracy ;
                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                  owl:onClass bto:Accuracy ] ;
-#                [ rdf:type owl:Restriction ;
-#                  owl:onProperty emmo:hasProperty ;
-#                  # emmo:hasProperty 
-#                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-#                  owl:onClass bto:Location ] ;
+                  owl:onClass chameo:Accuracy ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasLab ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass chameo:Lab ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty chameo:hasOperator ;
+                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:onClass chameo:Operator ] ;
 	rdfs:subClassOf domain-battery:BatteryMeasurement .
 
 # Subclass of emmo:Property
