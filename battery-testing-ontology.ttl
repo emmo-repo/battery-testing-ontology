@@ -24,6 +24,7 @@
 	          # <http://emmo.info/emmo/mereocausality> ,
 	          # <http://emmo.info/emmo/disciplines/metrology> ,
 	          # <http://emmo.info/emmo/disciplines/math> ,
+	          # <http://emmo.info/emmo/disciplines/manufacturing> ,
 	          # <http://emmo.info/emmo/perspectives/data> ,
 	          # <http://emmo.info/emmo/perspectives/semiotics> ,
 	          # <http://emmo.info/emmo/multiperspective/persholistic> ,
@@ -77,6 +78,7 @@
 ### MeasurementUnit          -> disciplines-metrology         EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 ### Property                 -> perspectives-semiotics        EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 emmo:Component owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+emmo:Manufacturing owl:equivalentClass emmo:EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b .
 emmo:MeasurementUnit owl:equivalentClass emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
 emmo:Property owl:equivalentClass emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
 
@@ -296,13 +298,13 @@ bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:range bto:BatteryElectrolyteType ;
 	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
-bto:hasHardwareManufacturerName a owl:ObjectProperty ;
-	rdfs:label "hasHardwareManufacturerName"@en ;
-	skos:preflabel "hasHardwareManufacturerName"@en ;
-	skos:altlabel "hasManufacturerName"@en ;
-	rdfs:comment "A specific object property that connects a battery sample with its hardware manufacturer name."@en ;
-	rdfs:range bto:BatteryManufacturerName ;
-	rdfs:subPropertyOf bto:hasBatterySampleProperty .
+bto:hasManufacturer a owl:ObjectProperty ;
+	rdfs:label "hasManufacturer"@en ;
+	skos:preflabel "hasManufacturer"@en ;
+	skos:altlabel "hasManufacturer"@en ;
+	rdfs:comment "A specific object property that connects either a battery sample or its characterization hardware with its manufacturer."@en ;
+	rdfs:range emmo:Manufacturer ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:label "hasPartNumber"@en ;
@@ -311,12 +313,12 @@ bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:range bto:BatteryPartNumber ;
 	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 	
-bto:hasProductionDate a owl:ObjectProperty ;
+bto:hasProductionDate a owl:DatatypeProperty ;
 	rdfs:label "hasProductionDate"@en ;
 	skos:preflabel "hasProductionDate" ;
-	rdfs:comment "A specific object property that connects a battery sample with its production date."@en ;
-	rdfs:range bto:BatteryProductionDate ;
-	rdfs:subPropertyOf bto:hasBatterySampleProperty .
+	rdfs:comment "A specific datatype property that specifies a production date for a battery sample."@en ;
+	rdfs:range xsd:string .
+	# rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
 # ---------------------------------------------------------------------------
 
@@ -608,13 +610,6 @@ bto:hasHardwareType a owl:ObjectProperty ;
 	skos:preflabel "hasHardwareType"@en ;
 	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware type."@en ;
 	rdfs:range bto:HardwareType ;
-	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
-
-bto:hasHardwareManufacturerName a owl:ObjectProperty ;
-	rdfs:label "hasHardwareManufacturerName"@en ;
-	skos:preflabel "hasHardwareManufacturerName"@en ;
-	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware manufacturer name."@en ;
-	rdfs:range bto:HardwareManufacturerName ;
 	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasHardwareModel a owl:ObjectProperty ;
