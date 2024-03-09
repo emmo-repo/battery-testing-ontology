@@ -126,6 +126,7 @@ emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd
 ### hasCharacterisationEnvironment
 ### hasCharacterisationEnvironmentProperty
 ### hasCharacterisationLocation
+### hasDataset
 ### hasHardwareSpecification
 ### hasMeasurementParameter
 ### hasMeasurementSample
@@ -137,6 +138,9 @@ domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_
 domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
 ### BatteryMeasurementResult
 # domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
+### BatteryTimeSeriesDataSet
+domain-battery:BatteryTimeSeriesDataSet owl:equivalentClass domain-battery:battery_d9b99b14_44e8_473b_af8f_2a160429df69 .
+
 
 ###### Electrochemistry Domain Ontology mapping:
 ### Anode
@@ -145,6 +149,8 @@ domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electr
 ### Cathode
 domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
 	rdfs:subClassOf bto:BatteryComponent .
+### FormFactor
+domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 ;
 ### OutputCable
 domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
 
@@ -159,6 +165,11 @@ bto:btoObjectProperty a owl:ObjectProperty ;
 	skos:prefLabel "btoObjectProperty"@en ;
 	rdfs:comment "This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property."@en .
 	
+bto:btoDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:label "btoDatatypeProperty"@en ;
+	skos:prefLabel "btoDatatypeProperty"@en ;
+	rdfs:comment "This is the root datatype property of the BTO ontology, introduced for grouping all of BTO's datatype properties under a single parent datatype property."@en .
+		
 bto:BatteryCharacterizationMethod a owl:Class ;
 	rdfs:label "BatteryCharacterizationMethod"@en ;
 	skos:prefLabel "BatteryCharacterizationMethod"@en ;
@@ -224,7 +235,6 @@ bto:PreparedatterySample a owl:Class ;
 	rdfs:subClassOf chameo:PreparedSample ;
 	rdfs:subClassOf bto:BatterySample .
 
-# Subclass of emmo:Property
 bto:BatterySampleProperty a owl:Class ;
 	rdfs:label "BatterySampleProperty"@en ;
 	skos:prefLabel "BatterySampleProperty"@en ;
@@ -232,11 +242,11 @@ bto:BatterySampleProperty a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
 
-bto:BatteryCellForm a owl:Class ;
-	rdfs:label "BatteryCellForm"@en ;
-	skos:prefLabel "BatteryCellForm"@en ;
-	rdfs:comment "The shape of the cell in a battery sample. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
+# bto:BatteryCellForm a owl:Class ;
+#	rdfs:label "BatteryCellForm"@en ;
+#	skos:prefLabel "BatteryCellForm"@en ;
+#	rdfs:comment "The shape of the cell in a battery sample. It is a property of the sample."@en ;
+#	rdfs:subClassOf bto:BatterySampleProperty .
 	
 bto:BatteryChemistryType a owl:Class ;
 	rdfs:label "BatteryChemistryType"@en ;
@@ -281,7 +291,7 @@ bto:hasCellForm a owl:ObjectProperty ;
 	rdfs:label "hasCellForm"@en ;
 	skos:preflabel "hasCellForm"@en ;
 	rdfs:comment "A specific object property that connects a battery sample with its cell form."@en ;
-	rdfs:range bto:BatteryCellForm ;
+	rdfs:range domain-electrochemistry:FormFactor ;
 	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 
 bto:hasChemistryType a owl:ObjectProperty ;
@@ -317,8 +327,8 @@ bto:hasProductionDate a owl:DatatypeProperty ;
 	rdfs:label "hasProductionDate"@en ;
 	skos:preflabel "hasProductionDate" ;
 	rdfs:comment "A specific datatype property that specifies a production date for a battery sample."@en ;
-	rdfs:range xsd:string .
-	# rdfs:subPropertyOf bto:hasBatterySampleProperty .
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf bto:btoDatatypeProperty .
 
 # ---------------------------------------------------------------------------
 
@@ -382,6 +392,12 @@ bto:Cable a owl:Class ;
 	skos:prefLabel "Cable"@en ;
 	rdfs:comment "A physical cable that connects a battery sample for the testing procedure."@en ;
 	rdfs:subClassOf bto:BatteryHolderComponent .
+	
+bto:HipotCable a owl:Class ;
+	rdfs:label "HipotCable"@en ;
+	skos:prefLabel "HipotCable"@en ;
+	rdfs:comment "A specific type of cable."@en ;
+	rdfs:subClassOf bto:Cable .
 	
 bto:AlligatorClamps a owl:Class ;
 	rdfs:label "AlligatorClamps"@en ;
@@ -496,7 +512,10 @@ bto:TraceData a owl:Class ;
 	skos:prefLabel "TraceData"@en ;
 	rdfs:comment "The output of a battery measurement process in terms of raw data resulting from the measurement."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:RawData .
+	rdfs:subClassOf chameo:RawData ;
+	rdfs:subClassOf [ rdf:type owl:Restriction ;
+             owl:onProperty chameo:hasDataset ;
+             owl:someValuesFrom domain-battery:BatteryTimeSeriesDataSet ] .
 	
 bto:VoltageData a owl:Class ;
 	rdfs:label "VoltageData"@en ;
