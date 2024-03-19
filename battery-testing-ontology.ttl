@@ -1,6 +1,6 @@
 @prefix : <http://w3id.org/emmo-bto/bto#> .
 @prefix bto: <http://w3id.org/emmo-bto/bto#> .
-@prefix emmo: <https://w3id.org/emmo/emmo#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix chameo: <http://w3id.org/emmo-chameo/chameo#> .
 @prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
 @prefix domain-electrochemistry: <https://w3id.org/emmo/domain/electrochemistry/electrochemistry#> .
@@ -18,17 +18,19 @@
 	owl:versionIRI <http://w3id.org/emmo-bto/1.0.0-beta1/bto> ;
 	owl:imports 
 	            <http://w3id.org/emmo-chameo/chameo> ,
-	            <http://emmo.info/emmo/1.0.0-beta5/multiperspective/symbolic> ,
-	            <https://w3id.org/emmo/domain/battery/battery> ;
+	            <https://w3id.org/emmo/1.0.0-beta5/multiperspective/symbolic> ,
+	            <https://w3id.org/emmo/domain/battery/battery> ,
+	            <https://w3id.org/emmo/domain/battery/batteryquantities> ,
+	            <https://w3id.org/emmo/domain/electrochemistry/electrochemistry> ;
 	          # Already imported by CHAMEO:
-	          # <http://emmo.info/emmo/mereocausality> ,
-	          # <http://emmo.info/emmo/disciplines/metrology> ,
-	          # <http://emmo.info/emmo/disciplines/math> ,
-	          # <http://emmo.info/emmo/disciplines/manufacturing> ,
-	          # <http://emmo.info/emmo/perspectives/data> ,
-	          # <http://emmo.info/emmo/perspectives/semiotics> ,
-	          # <http://emmo.info/emmo/multiperspective/persholistic> ,
-	          # <http://emmo.info/emmo/multiperspective/workflow> ,
+	          # <http://w3id.org/emmo/mereocausality> ,
+	          # <http://w3id.org/emmo/disciplines/metrology> ,
+	          # <http://w3id.org/emmo/disciplines/math> ,
+	          # <http://w3id.org/emmo/disciplines/manufacturing> ,
+	          # <http://w3id.org/emmo/perspectives/data> ,
+	          # <http://w3id.org/emmo/perspectives/semiotics> ,
+	          # <http://w3id.org/emmo/multiperspective/persholistic> ,
+	          # <http://w3id.org/emmo/multiperspective/workflow> ,
 	            	            
 	dcterms:abstract "Battery Testing Ontology."@en ;
 	dcterms:bibliographicCitation "Work under review - not available yet" ;
