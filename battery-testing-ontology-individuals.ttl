@@ -1,6 +1,6 @@
 @prefix : <http://w3id.org/emmo-bto/bto#> .
 @prefix bto: <http://w3id.org/emmo-bto/bto#> .
-@prefix emmo: <https://w3id.org/emmo/emmo#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix chameo: <http://w3id.org/emmo-chameo/chameo#> .
 @prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
 @prefix domain-electrochemistry: <https://w3id.org/emmo/domain/electrochemistry/electrochemistry#> .
