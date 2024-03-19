@@ -17,11 +17,12 @@
 <http://w3id.org/emmo-bto/bto> rdf:type owl:Ontology ;
 	owl:versionIRI <http://w3id.org/emmo-bto/1.0.0-beta1/bto> ;
 	owl:imports 
-	            <http://w3id.org/emmo-chameo/chameo> ,
-	            <https://w3id.org/emmo/1.0.0-beta5/multiperspective/symbolic> ,
-	            <https://w3id.org/emmo/domain/battery/battery> ,
-	            <https://w3id.org/emmo/domain/battery/batteryquantities> ,
-	            <https://w3id.org/emmo/domain/electrochemistry/electrochemistry> ;
+		<http://w3id.org/emmo-chameo/chameo> ,
+		<https://w3id.org/emmo/1.0.0-beta5/multiperspective/symbolic> ,
+		<https://w3id.org/emmo/domain/battery/battery> ,
+		<https://w3id.org/emmo/domain/battery/batteryquantities> ,
+		<https://w3id.org/emmo/domain/electrochemistry/electrochemistry> ,
+		<https://w3id.org/emmo/domain/electrochemistry/electrochemicalquantities> ;
 	          # Already imported by CHAMEO:
 	          # <http://w3id.org/emmo/mereocausality> ,
 	          # <http://w3id.org/emmo/disciplines/metrology> ,
@@ -143,7 +144,6 @@ domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c4
 ### BatteryTimeSeriesDataSet
 domain-battery:BatteryTimeSeriesDataSet owl:equivalentClass domain-battery:battery_d9b99b14_44e8_473b_af8f_2a160429df69 .
 
-
 ###### Electrochemistry Domain Ontology mapping:
 ### Anode
 domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electrochemistry_b6319c74_d2ce_48c0_a75a_63156776b302 ;
@@ -152,10 +152,9 @@ domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electr
 domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
 	rdfs:subClassOf bto:BatteryComponent .
 ### FormFactor
-domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 ;
+domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 .
 ### OutputCable
 domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
-
 
 bto:BatteryTestingOntology a owl:Class ;
 	rdfs:label "BatteryTestingOntology"@en ;
