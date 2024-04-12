@@ -21,7 +21,18 @@
 bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 
 bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
-	chameo:hasCharacterisationEnvironmentProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
+	chameo:hasCharacterisationEnvironmentProperty bto:AmbientHumidity1, bto:AmbientLight1 , bto:AmbientPressure1 , bto:AmbientTemperature1 ;
+	rdfs:comment "Controlled by temperature chamber"@en .
+
+bto:AmbientLight1 a owl:NamedIndividual , bto:AmbientLight ;
+	emmo:hasStringValue "room light" .
+
+bto:AmbientHumidity1 a owl:NamedIndividual , bto:AmbientHumidity ;
+	emmo:hasReferenceUnit bto:AmbientHumidityUnit1 ;
+	emmo:hasNumericalValue 65 .
+
+bto:AmbientHumidityUnit1 a owl:NamedIndividual , bto:AmbientHumidityUnit ;
+    emmo:hasStringValue "%" .
 
 bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
 	emmo:hasReferenceUnit bto:AmbientPressureUnit1 ;
@@ -37,6 +48,14 @@ bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
 bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
 	emmo:hasStringValue "C" .
 
+bto:BatteryCharacterizationHardware1 a owl:NamedIndividual, bto:BatteryCharacterizationHardware ;
+	bto:hasCurrentSpecification bto:CurrentSpecification1 ;
+	bto:hasHardwareModel bto:HardwareModel1 ;
+	bto:hasHardwareType bto:HardwareType1 ;
+	bto:hasManufacturer bto:Manufacturer2 ;
+	bto:hasVoltageSpecification bto:VoltageSpecification1 ;
+	chameo:hasDateOfCalibration "25/01/2020"^^xsd:dateTime .
+
 bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
     emmo:hasTask bto:BatterySamplePreparation1 ;
     emmo:hasTask bto:BatteryMeasurementProcess1 ;
@@ -47,9 +66,10 @@ bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
 
 bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
 	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
-	emmo:hasTemporaryParticipant bto:BatterySample1 ;
-	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
-	emmo:hasDataValue "2020-08-10T15:39:35"^^xsd:dateTime .
+	chameo:hasMeasurementParameter bto:SamplingTime1 ;
+	emmo:hasTemporaryParticipant bto:BatterySample1, bto:BatteryCharacterizationHardware1 ;
+	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 .
+	# ???:hasDateTime "2020-08-10T15:39:35"^^xsd:dateTime .
 
 bto:BatteryPartNumber1 a owl:NamedIndividual , bto:BatteryPartNumber ;
 	emmo:hasStringValue "FS 3011-23" .
@@ -61,7 +81,7 @@ bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample ;
 	bto:hasProductionDate "04/12/2018" ;
 	emmo:hasProperty bto:BatterySampleHeight1 ;
 	emmo:hasProperty bto:BatterySampleLength1 ;
-	emmo:hasProperty bto:BatterySampleWidth1 ;
+	emmo:hasProperty bto:BatterySampleWidth1 .
 	
 bto:BatterySampleHeight1 a owl:NamedIndividual , emmo:Height ;
 	emmo:hasNumericalValue "23" ;
@@ -72,15 +92,18 @@ bto:BatterySampleLength1 a owl:NamedIndividual , emmo:Length ;
 	emmo:hasMeasurementUnit bto:MeasurementUnit1 .
 
 bto:BatterySampleWidth1 a owl:NamedIndividual , emmo:Width ;
-	emmo:hasNumericalValue "50" ;
+	emmo:hasNumericalValue "70" ;
 	emmo:hasMeasurementUnit bto:MeasurementUnit1 .	
 
 bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
 	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
 	emmo:hasNext bto:BatteryMeasurementProcess1 .
 	
-bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
-	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
+# bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
+#	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
+
+bto:CurrentSpecification1 a owl:NamedIndividual , bto:CurrentSpecification ;
+	emmo:hasNumericalValue "0.01" .
 
 bto:FormFactor1 a owl:NamedIndividual , domain-electrochemistry:FormFactor ;
 	emmo:hasStringValue "electrodes and separators without pouch foil housings" .
@@ -88,6 +111,12 @@ bto:FormFactor1 a owl:NamedIndividual , domain-electrochemistry:FormFactor ;
 bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
 	emmo:hasProperPart bto:AlligatorClamps1 , bto:HipotCable1 ;
 	rdfs:label "Cable and alligator clamps"@en .
+
+bto:HardwareModel1 a owl:NamedIndividual, bto:HardwareModel ;
+	emmo:hasStringValue "B2985A" .
+
+bto:HarwareType1 a owl:NamedIndividual, bto:HardwareType ;
+	emmo:hasStringValue "Femto/Picoammeter and Electrometer/High Resistance Meter" .
 
 bto:HipotCable1 a owl:NamedIndividual , bto:HipotCable .
 
@@ -100,6 +129,9 @@ bto:Location1 a owl:NamedIndividual , dcterms:Location ;
   
 bto:Manufacturer1 a owl:NamedIndividual , emmo:Manufacturer ;
 	foaf:name "Freudenberg" . 
+	
+bto:Manufacturer2 a owl:NamedIndividual , emmo:Manufacturer ;
+	foaf:name "Keysight Technologies" .
     
 bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
 	emmo:hasStringValue "nm" .
@@ -110,8 +142,11 @@ bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
 bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
 	emmo:hasNumericalValue 0.0001 .
 
-bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
-	emmo:hasNumericalValue 0.999899983406067 .
+bto:VoltageSpecification1 a owl:NamedIndividual , bto:VoltageSpecification ;
+	emmo:hasNumericalValue "1000" .
+
+# bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
+#	emmo:hasNumericalValue 0.999899983406067 .
 	
-bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
-	emmo:hasNumericalValue 447.045999862166 .
+# bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
+#	emmo:hasNumericalValue 447.045999862166 .

@@ -38,7 +38,7 @@
 	dcterms:contributor <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
 	dcterms:creator <https://orcid.org/0000-0002-9668-6961>, <https://orcid.org/0000-0002-5174-8508>, <https://orcid.org/0000-0002-4181-2852> ;
 	dcterms:created "2023-03-09" ;
-	dcterms:description "The Battery Testing Ontology (BTO) is an application-level ontology belonging to EMMO's ecosystem, meant to model battery testing methodologies and techniques, like the partial discharge test. BTO is connected and aligned with a number of EMMO-based ontologies, including CHAMEO, Battery Domain Ontology and Electrochemistry."@en
+	dcterms:description "The Battery Testing Ontology (BTO) is an application-level ontology belonging to EMMO's ecosystem, meant to model battery testing methodologies and techniques, like the partial discharge test. BTO is connected and aligned with a number of EMMO-based ontologies, including CHAMEO, Battery Domain Ontology and Electrochemistry."@en ;
 	dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
 	dcterms:publisher "EMMC ASBL" ;
 	dcterms:title "Battery Testing Ontology"@en ;
@@ -166,128 +166,31 @@ domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:e
 ### OutputCable
 domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
 
-bto:BatteryTestingOntology a owl:Class ;
-	rdfs:label "BatteryTestingOntology"@en ;
-	skos:prefLabel "BatteryTestingOntology"@en ;
-	rdfs:comment "This is the root class of the BTO ontology, introduced for grouping all of BTO's classes under a single parent class, each at a different hierarchical position."@en .
+# ---------------------------------------------------------------------------
 
-bto:btoObjectProperty a owl:ObjectProperty ;
-	rdfs:label "btoObjectProperty"@en ;
-	skos:prefLabel "btoObjectProperty"@en ;
-	rdfs:comment "This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property."@en .
-	
 bto:btoDatatypeProperty a owl:DatatypeProperty ;
 	rdfs:label "btoDatatypeProperty"@en ;
 	skos:prefLabel "btoDatatypeProperty"@en ;
 	rdfs:comment "This is the root datatype property of the BTO ontology, introduced for grouping all of BTO's datatype properties under a single parent datatype property."@en .
 		
-bto:BatteryCharacterizationMethod a owl:Class ;
-	rdfs:label "BatteryCharacterizationMethod"@en ;
-	skos:prefLabel "BatteryCharacterizationMethod"@en ;
-	skos:altLabel "BatteryCharacterisationMethod"@en ;
-	rdfs:comment "The description of the overall characterization method for a battery. It is usually made up of different steps, or tasks (e.g. battery measurement process, battery sample preparation)."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:CharacterisationMethod ,
-	       [ rdf:type owl:Restriction ;
-             owl:onProperty emmo:hasTask ;
-             # emmo:hasTask
-             owl:someValuesFrom bto:CalibrationForBatteryCharacterization ] ,
-	       [ rdf:type owl:Restriction ;
-             owl:onProperty emmo:hasTask ;
-             # emmo:hasTask
-             owl:someValuesFrom bto:BatterySamplePreparation ] ,
-           [ rdf:type owl:Restriction ;
-             owl:onProperty emmo:hasTask ;
-             # emmo:hasTask
-             owl:someValuesFrom bto:BatteryMeasurementProcess ] .
+bto:btoObjectProperty a owl:ObjectProperty ;
+	rdfs:label "btoObjectProperty"@en ;
+	skos:prefLabel "btoObjectProperty"@en ;
+	rdfs:comment "This is the root object property of the BTO ontology, introduced for grouping all of BTO's object properties under a single parent object property."@en .
 
-bto:BatteryComponent a owl:Class ;
-	rdfs:label "BatteryComponent"@en ;
-	skos:prefLabel "BatteryComponent"@en ;
-	rdfs:comment "A physical part of a battery."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Component .
-	
-# bto:Cathode a owl:Class ;
-# 	rdfs:label "Cathode"@en ;
-# 	skos:prefLabel "Cathode"@en ;
-# 	rdfs:comment "The positive electrode found in a battery. It is thus a component of a battery."@en ;
-# 	rdfs:subClassOf bto:BatteryComponent .
-	
-# bto:Anode a owl:Class ;
-# 	rdfs:label "Anode"@en ;
-# 	skos:prefLabel "Anode"@en ;
-# 	rdfs:comment "The negative electrode found in a battery. It is thus a component of a battery."@en ;
-# 	rdfs:subClassOf bto:BatteryComponent .
-
-########################################
-### BatterySample and its properties ###
-########################################
-
-bto:BatterySample a owl:Class ;
-	rdfs:label "BatterySample"@en ;
-	skos:prefLabel "BatterySample"@en ;
-	rdfs:comment "A battery selected from a larger set to be used in a battery testing procedure."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:Sample ;
-	rdfs:subClassOf domain-battery:Battery .
-	
-bto:RawBatterySample a owl:Class ;
-	rdfs:label "RawBatterySample"@en ;
-	skos:prefLabel "RawBatterySample"@en ;
-	rdfs:comment "A battery sample to be prepared for testing. It is thus the input of the process of preparing a battery sample."@en ;
-	rdfs:subClass chameo:RawSample ;
-	rdfs:subClassOf bto:BatterySample .
-	
-bto:PreparedatterySample a owl:Class ;
-	rdfs:label "PreparedBatterySample"@en ;
-	skos:prefLabel "PreparedBatterySample"@en ;
-	rdfs:comment "A battery sample that has been prepared for testing. It is thus the output of the process of preparing a battery sample."@en ;
-	rdfs:subClassOf chameo:PreparedSample ;
-	rdfs:subClassOf bto:BatterySample .
-
-bto:BatterySampleProperty a owl:Class ;
-	rdfs:label "BatterySampleProperty"@en ;
-	skos:prefLabel "BatterySampleProperty"@en ;
-	rdfs:comment "A characteristic of a battery sample."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
-
-# bto:BatteryCellForm a owl:Class ;
-#	rdfs:label "BatteryCellForm"@en ;
-#	skos:prefLabel "BatteryCellForm"@en ;
-#	rdfs:comment "The shape of the cell in a battery sample. It is a property of the sample."@en ;
-#	rdfs:subClassOf bto:BatterySampleProperty .
-	
-bto:BatteryChemistryType a owl:Class ;
-	rdfs:label "BatteryChemistryType"@en ;
-	skos:prefLabel "BatteryChemistryType"@en ;
-	rdfs:comment "The type of chemistry in a battery sample. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
-
-bto:BatteryElectrolyteType a owl:Class ;
-	rdfs:label "BatteryElectrolyteType"@en ;
-	skos:prefLabel "BatteryElectrolyteType"@en ;
-	rdfs:comment "The type of electrolyte in a battery sample. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
-
-bto:BatteryManufacturerName a owl:Class ;
-	rdfs:label "BatteryManufacturerName"@en ;
-	skos:prefLabel "BatteryManufacturerName"@en ;
-	rdfs:comment "The name of the manufacturer of a battery sample. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
-	
-bto:BatteryPartNumber a owl:Class ;
-	rdfs:label "BatteryPartNumber"@en ;
-	skos:prefLabel "BatteryPartNumber"@en ;
-	rdfs:comment "The part number, or code, of a battery sample. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
-
-bto:BatteryProductionDate a owl:Class ;
-	rdfs:label "BatteryProductionDate"@en ;
-	skos:prefLabel "BatteryProductionDate"@en ;
-	rdfs:comment "The date reported as the one in which the battery sample has been produced. It is a property of the sample."@en ;
-	rdfs:subClassOf bto:BatterySampleProperty .
+bto:hasBatteryCharacterizationHardwareSpecification a owl:ObjectProperty ;
+	rdfs:label "hasBatteryCharacterizationHardwareSpecification"@en ;
+	skos:prefLabel "hasBatteryCharacterizationHardwareSpecification"@en ;
+	skos:altLabel "hasBatteryCharacterisationHardwareSpecification"@en ;
+	skos:altLabel "hasHardwareSpecification"@en ;
+	skos:altLabel "hasHardwareProperty"@en ;
+	skos:altLabel "hasBatteryCharacterizationHardwareProperty"@en ;
+	skos:altLabel "hasBatteryCharacterisationHardwareProperty"@en ;
+	rdfs:comment "Object property that connects a battery characterization hardware with its specifications. It is a super-property of more specific object properties."@en ;
+	rdfs:domain bto:BatteryCharacterizationHardware ;
+	rdfs:range bto:BatteryCharacterizationHardwareSpecification ;
+	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
+	rdfs:subPropertyOf bto:btoObjectProperty .
 
 bto:hasBatterySampleProperty a owl:ObjectProperty ;
 	rdfs:label "hasBatterySampleProperty"@en ;
@@ -312,12 +215,33 @@ bto:hasChemistryType a owl:ObjectProperty ;
 	rdfs:range bto:BatteryChemistryType ;
 	rdfs:subPropertyOf bto:hasBatterySampleProperty .
 	
+bto:hasCurrentSpecification a owl:ObjectProperty ;
+	rdfs:label "hasCurrentSpecification"@en ;
+	skos:preflabel "hasCurrentSpecification"@en ;
+	rdfs:comment "A specific object property that connects a battery characterization hardware with its current specification."@en ;
+	rdfs:range bto:CurrentSpecification ;
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
+	
 bto:hasElectrolyteType a owl:ObjectProperty ;
 	rdfs:label "hasElectrolyteType"@en ;
 	skos:preflabel "hasElectrolyteType"@en ;
 	rdfs:comment "A specific object property that connects a battery sample with its electrolyte type."@en ;
 	rdfs:range bto:BatteryElectrolyteType ;
 	rdfs:subPropertyOf bto:hasBatterySampleProperty .
+
+bto:hasHardwareModel a owl:ObjectProperty ;
+	rdfs:label "hasHardwareModel"@en ;
+	skos:preflabel "hasHardwareModel"@en ;
+	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware model."@en ;
+	rdfs:range bto:HardwareModel ;
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
+
+bto:hasHardwareType a owl:ObjectProperty ;
+	rdfs:label "hasHardwareType"@en ;
+	skos:preflabel "hasHardwareType"@en ;
+	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware type."@en ;
+	rdfs:range bto:HardwareType ;
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasManufacturer a owl:ObjectProperty ;
 	rdfs:label "hasManufacturer"@en ;
@@ -340,8 +264,196 @@ bto:hasProductionDate a owl:DatatypeProperty ;
 	rdfs:comment "A specific datatype property that specifies a production date for a battery sample."@en ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf bto:btoDatatypeProperty .
-
+		
+bto:hasVoltageSpecification a owl:ObjectProperty ;
+	rdfs:label "hasVoltageSpecification"@en ;
+	skos:preflabel "hasVoltageSpecification"@en ;
+	rdfs:comment "A specific object property that connects a battery characterization hardware with its voltage specification."@en ;
+	rdfs:range bto:VoltageSpecification ;
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
+	
 # ---------------------------------------------------------------------------
+	
+bto:Accuracy a owl:Class ;
+	rdfs:label "Accuracy"@en ;
+	skos:prefLabel "Accuracy"@en ;
+	rdfs:comment "The level of accuracy of a battery measurement process. It is a property of the process."@en ;
+	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
+	
+bto:AlligatorClamps a owl:Class ;
+	rdfs:label "AlligatorClamps"@en ;
+    skos:prefLabel "AlligatorClamps"@en ;
+    rdfs:comment "A specific type of battery connector."@en ;
+    rdfs:subClassOf bto:BatteryConnector .
+
+bto:AmbientHumidity a owl:Class ;
+	rdfs:label "AmbientHumidity"@en ;
+	skos:prefLabel "AmbientHumidity"@en ;
+	rdfs:comment "A specific property of a battery characterization environment, related to its level of humidity."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:hasReferenceUnit ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientHumidityUnit ] .
+	
+bto:AmbientHumidityUnit a owl:Class ;
+	rdfs:label "AmbientHumidityUnit"@en ;
+	skos:prefLabel "AmbientHumidityUnit"@en ;
+	rdfs:comment "The measurement unit of the humidity of a battery characterization hardware."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
+
+bto:AmbientLight a owl:Class ;
+	rdfs:label "AmbientLight"@en ;
+	skos:prefLabel "AmbientLight"@en ;
+	rdfs:comment "A specific property of a battery characterization environment, related to its level of luminosity (amount of light)."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:hasReferenceUnit ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientLightUnit ] .
+
+bto:AmbientLightUnit a owl:Class ;
+	rdfs:label "AmbientLightUnit"@en ;
+	skos:prefLabel "AmbientLightUnit"@en ;
+	rdfs:comment "The measurement unit of the light of a battery characterization hardware."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
+	
+bto:AmbientPressure a owl:Class ;
+	rdfs:label "AmbientPressure"@en ;
+	skos:prefLabel "AmbientPressure"@en ;
+	rdfs:comment "A specific property of a battery characterization environment, related to its level of pressure."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:hasReferenceUnit ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientPressureUnit ] .
+	
+bto:AmbientPressureUnit a owl:Class ;
+	rdfs:label "AmbientPressureUnit"@en ;
+	skos:prefLabel "AmbientPressureUnit"@en ;
+	rdfs:comment "The measurement unit of the pressure of a battery characterization hardware."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
+	
+bto:AmbientTemperature a owl:Class ;
+	rdfs:label "AmbientTemperature"@en ;
+	skos:prefLabel "AmbientTemperature"@en ;
+	rdfs:comment "A specific property of a battery characterization environment, related to its level of temperature."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty emmo:hasReferenceUnit ;
+              # emmo:hasReferenceUnit
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientTemperatureUnit ] .
+	
+bto:AmbientTemperatureUnit a owl:Class ;
+	rdfs:label "AmbientTemperatureUnit"@en ;
+	skos:prefLabel "AmbientTemperatureUnit"@en ;
+	rdfs:comment "The measurement unit of the temperature of a battery characterization hardware."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
+
+bto:BatteryCharacterizationEnvironment a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironment"@en ;
+	skos:prefLabel "BatteryCharacterizationEnvironment"@en ;
+	skos:altLabel "BatteryCharacterisationEnvironment"@en ;
+	skos:altLabel "Ambient"@en ;
+	skos:altLabel "Environment"@en ;
+	rdfs:comment "The environment in which a battery characterization takes place. It may have a number of properties, or specifications, including pressure, humidity, temperature and light."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:CharacterisationEnvironment ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientPressure ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientHumidity ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientTemperature ] ,
+			[ rdf:type owl:Restriction ;
+              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
+              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onClass bto:AmbientLight ] .
+
+bto:BatteryCharacterizationEnvironmentMeasurementUnit a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironmentMeasurementUnit"@en ;
+	skos:prefLabel "BatteryCharacterizationEnvironmentMeasurementUnit"@en ;
+	skos:altLabel "BatteryAmbientMeasurementUnit"@en ;
+	rdfs:comment "Measurement unit of a specification of a battery characterization hardware. It is a super-class of more specific classes."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:MeasurementUnit .
+	
+bto:BatteryCharacterizationEnvironmentProperty a owl:Class ;
+	rdfs:label "BatteryCharacterizationEnvironmentProperty"@en ;
+	skos:prefLabel "BatteryCharacterizationEnvironmentProperty"@en ;
+	rdfs:comment "A property of a battery characterization environment, e.g. temperature, pressure, humidity, light. It is a super-class of more specific classes."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Property .
+	
+bto:BatteryCharacterizationHardware a owl:Class ;
+	rdfs:label "BatteryCharacterizationHardware"@en ;
+	skos:prefLabel "BatteryCharacterizationHardware"@en ;
+	skos:altLabel "Hardware"@en ;
+	rdfs:comment "The physical apparatus of the battery testing procedure. It is required in a battery measurement process."@en ;
+	rdfs:subClassOf chameo:CharacterisationInstrument .
+
+bto:BatteryCharacterizationHardwareSpecification a owl:Class ;
+	rdfs:label "BatteryCharacterizationHardwareSpecification"@en ;
+	skos:prefLabel "BatteryCharacterizationHardwareSpecification"@en ;
+	skos:altLabel "BatteryHardwareSpecification"@en ;
+	rdfs:comment "A characteristic or specification of a battery testing hardware"@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .	
+	
+bto:BatteryCharacterizationMethod a owl:Class ;
+	rdfs:label "BatteryCharacterizationMethod"@en ;
+	skos:prefLabel "BatteryCharacterizationMethod"@en ;
+	skos:altLabel "BatteryCharacterisationMethod"@en ;
+	rdfs:comment "The description of the overall characterization method for a battery. It is usually made up of different steps, or tasks (e.g. battery measurement process, battery sample preparation)."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:CharacterisationMethod ,
+	       [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:hasTask ;
+             # emmo:hasTask
+             owl:someValuesFrom bto:CalibrationForBatteryCharacterization ] ,
+	       [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:hasTask ;
+             # emmo:hasTask
+             owl:someValuesFrom bto:BatterySamplePreparation ] ,
+           [ rdf:type owl:Restriction ;
+             owl:onProperty emmo:hasTask ;
+             # emmo:hasTask
+             owl:someValuesFrom bto:BatteryMeasurementProcess ] .
+
+bto:BatteryChemistryType a owl:Class ;
+	rdfs:label "BatteryChemistryType"@en ;
+	skos:prefLabel "BatteryChemistryType"@en ;
+	rdfs:comment "The type of chemistry in a battery sample. It is a property of the sample."@en ;
+	rdfs:subClassOf bto:BatterySampleProperty .
+
+bto:BatteryComponent a owl:Class ;
+	rdfs:label "BatteryComponent"@en ;
+	skos:prefLabel "BatteryComponent"@en ;
+	rdfs:comment "A physical part of a battery."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Component .
+
+bto:BatteryConnector a owl:Class ;
+	rdfs:label "BatteryConnector"@en ;
+	skos:prefLabel "BatteryConnector"@en ;
+	rdfs:comment "A physical connector that connects a battery sample for the testing procedure."@en ;
+	rdfs:subClassOf bto:BatteryHolderComponent .
+
+bto:BatteryElectrolyteType a owl:Class ;
+	rdfs:label "BatteryElectrolyteType"@en ;
+	skos:prefLabel "BatteryElectrolyteType"@en ;
+	rdfs:comment "The type of electrolyte in a battery sample. It is a property of the sample."@en ;
+	rdfs:subClassOf bto:BatterySampleProperty .
 
 bto:BatteryHolder a owl:Class ;
 	rdfs:label "BatteryHolder"@en ;
@@ -350,7 +462,6 @@ bto:BatteryHolder a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:Holder .
 
-# Subclass of emmo:Component
 bto:BatteryHolderComponent a owl:Class ;	
 	rdfs:label "BatteryHolderComponent"@en ;
 	skos:prefLabel "BatteryHolderComponent"@en ;
@@ -358,65 +469,11 @@ bto:BatteryHolderComponent a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 
-bto:BatterySamplePreparation a owl:Class ;
-	rdfs:label "BatterySamplePreparation"@en ;
-	skos:prefLabel "BatterySamplePreparation"@en ;
-	rdfs:comment "A step in the battery characterization method, related to the preparation of the battery sample to be tested. The battery sample, unprepared, is input to this step; the battery sample, prepared, is the output of this step. The holding device is a temporary participant of this step."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:SamplePreparation ,
-			[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:hasInput ;
-        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          	  owl:onClass bto:RawBatterySample ] ,
-          	[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:hasOutput ;
-        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          	  owl:onClass bto:PreparedBatterySample ] ,
-          	[ rdf:type owl:Restriction ;
-        	  owl:onProperty emmo:hasTemporaryParticipant ;
-        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-          	  owl:onClass bto:BatteryHolder ] .
-	
-bto:Fixture a owl:Class ;
-	rdfs:label "Fixture"@en ;
-	skos:prefLabel "Fixture"@en ;
-	rdfs:comment "A type of holding device for a battery sample. It may consist of a battery connector and a cable."@en ;
-	rdfs:subClassOf bto:BatteryHolder ,
-	         [ rdf:type owl:Restriction ;
-               owl:onProperty emmo:hasProperPart ;
-               # emmo:hasProperPart
-               owl:someValuesFrom bto:BatteryConnector ] ,
-             [ rdf:type owl:Restriction ;
-               owl:onProperty emmo:hasProperPart ;
-               # emmo:hasProperPart
-               owl:someValuesFrom bto:Cable ] ;
-    owl:equivalentClass domain-electrochemistry:OutputCable .
-
-bto:BatteryConnector a owl:Class ;
-	rdfs:label "BatteryConnector"@en ;
-	skos:prefLabel "BatteryConnector"@en ;
-	rdfs:comment "A physical connector that connects a battery sample for the testing procedure."@en ;
-	rdfs:subClassOf bto:BatteryHolderComponent .
-
-bto:Cable a owl:Class ;
-	rdfs:label "Cable"@en ;
-	skos:prefLabel "Cable"@en ;
-	rdfs:comment "A physical cable that connects a battery sample for the testing procedure."@en ;
-	rdfs:subClassOf bto:BatteryHolderComponent .
-	
-bto:HipotCable a owl:Class ;
-	rdfs:label "HipotCable"@en ;
-	skos:prefLabel "HipotCable"@en ;
-	rdfs:comment "A specific type of cable."@en ;
-	rdfs:subClassOf bto:Cable .
-	
-bto:AlligatorClamps a owl:Class ;
-	rdfs:label "AlligatorClamps"@en ;
-    skos:prefLabel "AlligatorClamps"@en ;
-    rdfs:comment "A specific type of battery connector."@en ;
-    rdfs:subClassOf bto:BatteryConnector .
-
-# ---------------------------------------------------------------------------
+bto:BatteryManufacturerName a owl:Class ;
+	rdfs:label "BatteryManufacturerName"@en ;
+	skos:prefLabel "BatteryManufacturerName"@en ;
+	rdfs:comment "The name of the manufacturer of a battery sample. It is a property of the sample."@en ;
+	rdfs:subClassOf bto:BatterySampleProperty .
 
 bto:BatteryMeasurementParameter a owl:Class ;
 	rdfs:label "BatteryMeasurementParameter"@en ;
@@ -424,26 +481,6 @@ bto:BatteryMeasurementParameter a owl:Class ;
 	rdfs:comment "A configuration parameter of a battery measurement step in the testing procedure."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:MeasurementParameter .
-
-bto:EndTime a owl:Class ;
-	rdfs:label "EndTime"@en ;
-	skos:prefLabel "EndTime"@en ;
-	rdfs:comment "A parameter in the battery measurement step. It specifies the end time of the measurement."@en ;
-	rdfs:subClassOf bto:BatteryMeasurementParameter .
-	
-bto:MaxVoltage a owl:Class ;
-	rdfs:label "MaxVoltage"@en ;
-	skos:prefLabel "MaxVoltage"@en ;
-	rdfs:comment "A parameter in the battery measurement step. It specifies the maximum voltage of the measurement."@en ;
-	rdfs:subClassOf bto:BatteryMeasurementParameter .
-	
-bto:SamplingTime a owl:Class ;
-	rdfs:label "SamplingTime"@en ;
-	skos:prefLabel "SamplingTime"@en ;
-	rdfs:comment "A parameter in the battery measurement step. It specifies the sampling time of the measurement."@en ;
-	rdfs:subClassOf bto:BatteryMeasurementParameter .
-	
-# ---------------------------------------------------------------------------
 
 bto:BatteryMeasurementProcess a owl:Class ;
 	rdfs:label "BatteryMeasurementProcess"@en ;
@@ -498,99 +535,70 @@ bto:BatteryMeasurementProcess a owl:Class ;
                   owl:onClass chameo:Operator ] ;
 	rdfs:subClassOf domain-battery:BatteryMeasurement .
 
-# Subclass of emmo:Property
 bto:BatteryMeasurementProcessProperty a owl:Class ;
 	rdfs:label "BatteryMeasurementProcessProperty"@en ;
 	skos:prefLabel "BatteryMeasurementProcessProperty"@en ;
 	rdfs:comment "A characteristic of the battery measurement process. It is a super-class of more specific classes."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Property .
-	
-bto:Accuracy a owl:Class ;
-	rdfs:label "Accuracy"@en ;
-	skos:prefLabel "Accuracy"@en ;
-	rdfs:comment "The level of accuracy of a battery measurement process. It is a property of the process."@en ;
-	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
 
-# bto:Location a owl:Class ;
-#	rdfs:label "Location"@en ;
-#	skos:prefLabel "Location"@en ;
-#	rdfs:comment "The location where the battery measurement process takes place. It is a property of the process."@en ;
-#	rdfs:subClassOf bto:BatteryMeasurementProcessProperty .
+bto:BatteryPartNumber a owl:Class ;
+	rdfs:label "BatteryPartNumber"@en ;
+	skos:prefLabel "BatteryPartNumber"@en ;
+	rdfs:comment "The part number, or code, of a battery sample. It is a property of the sample."@en ;
+	rdfs:subClassOf bto:BatterySampleProperty .
+
+bto:BatteryProductionDate a owl:Class ;
+	rdfs:label "BatteryProductionDate"@en ;
+	skos:prefLabel "BatteryProductionDate"@en ;
+	rdfs:comment "The date reported as the one in which the battery sample has been produced. It is a property of the sample."@en ;
+	rdfs:subClassOf bto:BatterySampleProperty .
 	
-bto:TraceData a owl:Class ;
-	rdfs:label "TraceData"@en ;
-	skos:prefLabel "TraceData"@en ;
-	rdfs:comment "The output of a battery measurement process in terms of raw data resulting from the measurement."@en ;
+bto:BatterySample a owl:Class ;
+	rdfs:label "BatterySample"@en ;
+	skos:prefLabel "BatterySample"@en ;
+	rdfs:comment "A battery selected from a larger set to be used in a battery testing procedure."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:RawData ;
-	rdfs:subClassOf [ rdf:type owl:Restriction ;
-             owl:onProperty chameo:hasDataset ;
-             owl:someValuesFrom domain-battery:BatteryTimeSeriesDataSet ] .
-	
-bto:VoltageData a owl:Class ;
-	rdfs:label "VoltageData"@en ;
-	skos:prefLabel "VoltageData"@en ;
-	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the voltage measured."@en ;
-	rdfs:subClassOf bto:TraceData .
-	
-bto:CurrentData a owl:Class ;
-	rdfs:label "CurrentData"@en ;
-	skos:prefLabel "CurrentData"@en ;
-	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the current measured."@en ;
-	rdfs:subClassOf bto:TraceData .
+	rdfs:subClassOf chameo:Sample ;
+	rdfs:subClassOf domain-battery:Battery .
 
-bto:TimeData a owl:Class ;
-	rdfs:label "TimeData"@en ;
-	skos:prefLabel "TimeData"@en ;
-	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the time intervals of the measurement."@en ;
-	rdfs:subClassOf bto:TraceData .
-	
-bto:BatteryCharacterizationHardware a owl:Class ;
-	rdfs:label "BatteryCharacterizationHardware"@en ;
-	skos:prefLabel "BatteryCharacterizationHardware"@en ;
-	skos:altLabel "Hardware"@en ;
-	rdfs:comment "The physical apparatus of the battery testing procedure. It is required in a battery measurement process."@en ;
-	rdfs:subClassOf chameo:CharacterisationInstrument .
-
-bto:BatteryCharacterizationHardwareSpecification a owl:Class ;
-	rdfs:label "BatteryCharacterizationHardwareSpecification"@en ;
-	skos:prefLabel "BatteryCharacterizationHardwareSpecification"@en ;
-	skos:altLabel "BatteryHardwareSpecification"@en ;
-	rdfs:comment "A characteristic or specification of a battery testing hardware"@en ;
+bto:BatterySamplePreparation a owl:Class ;
+	rdfs:label "BatterySamplePreparation"@en ;
+	skos:prefLabel "BatterySamplePreparation"@en ;
+	rdfs:comment "A step in the battery characterization method, related to the preparation of the battery sample to be tested. The battery sample, unprepared, is input to this step; the battery sample, prepared, is the output of this step. The holding device is a temporary participant of this step."@en ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:CharacterisationHardwareSpecification .
+	rdfs:subClassOf chameo:SamplePreparation ,
+			[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:hasInput ;
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bto:RawBatterySample ] ,
+          	[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:hasOutput ;
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bto:PreparedBatterySample ] ,
+          	[ rdf:type owl:Restriction ;
+        	  owl:onProperty emmo:hasTemporaryParticipant ;
+        	  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          	  owl:onClass bto:BatteryHolder ] .
 
-bto:HardwareType a owl:Class ;
-	rdfs:label "HardwareType"@en ;
-	skos:prefLabel "HardwareType"@en ;
-	rdfs:comment "The type of the hardware used for the measurement process."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+bto:BatterySampleProperty a owl:Class ;
+	rdfs:label "BatterySampleProperty"@en ;
+	skos:prefLabel "BatterySampleProperty"@en ;
+	rdfs:comment "A characteristic of a battery sample."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf emmo:Property .
 
-bto:HardwareManufacturerName a owl:Class ;
-	rdfs:label "HardwareManufacturerName"@en ;
-	skos:prefLabel "HardwareManufacturerName"@en ;
-	rdfs:comment "The name of the manufacturer of the hardware used for the measurement process."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
-	
-bto:HardwareModel a owl:Class ;
-	rdfs:label "HardwareModel"@en ;
-	skos:prefLabel "HardwareModel"@en ;
-	rdfs:comment "The model of the hardware used for the measurement process."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+bto:BatteryTestingOntology a owl:Class ;
+	rdfs:label "BatteryTestingOntology"@en ;
+	skos:prefLabel "BatteryTestingOntology"@en ;
+	rdfs:comment "This is the root class of the BTO ontology, introduced for grouping all of BTO's classes under a single parent class, each at a different hierarchical position."@en .
 
-bto:CurrentSpecification a owl:Class ;
-	rdfs:label "CurrentSpecification"@en ;
-	skos:prefLabel "CurrentSpecification"@en ;
-	rdfs:comment "A specification of the battery characterization hardware, related to the current it can sustain."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+bto:Cable a owl:Class ;
+	rdfs:label "Cable"@en ;
+	skos:prefLabel "Cable"@en ;
+	rdfs:comment "A physical cable that connects a battery sample for the testing procedure."@en ;
+	rdfs:subClassOf bto:BatteryHolderComponent .
 
-bto:VoltageSpecification a owl:Class ;
-	rdfs:label "VoltageSpecification"@en ;
-	skos:prefLabel "VoltageSpecification"@en ;
-	rdfs:comment "A specification of the battery characterization hardware, related to the voltage it can provide."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
-	
 bto:CalibrationForBatteryCharacterization a owl:Class ;
 	rdfs:label "CalibrationForBatteryCharacterization"@en ;
 	skos:prefLabel "CalibrationForBatteryCharacterization"@en ;
@@ -614,6 +622,111 @@ bto:CalibrationForBatteryCharacterization a owl:Class ;
                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                       owl:onClass bto:VoltageSource ] .
 
+bto:CurrentData a owl:Class ;
+	rdfs:label "CurrentData"@en ;
+	skos:prefLabel "CurrentData"@en ;
+	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the current measured."@en ;
+	rdfs:subClassOf bto:TraceData .
+
+bto:CurrentSpecification a owl:Class ;
+	rdfs:label "CurrentSpecification"@en ;
+	skos:prefLabel "CurrentSpecification"@en ;
+	rdfs:comment "A specification of the battery characterization hardware, related to the current it can sustain."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+
+bto:EndTime a owl:Class ;
+	rdfs:label "EndTime"@en ;
+	skos:prefLabel "EndTime"@en ;
+	rdfs:comment "A parameter in the battery measurement step. It specifies the end time of the measurement."@en ;
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
+
+bto:Fixture a owl:Class ;
+	rdfs:label "Fixture"@en ;
+	skos:prefLabel "Fixture"@en ;
+	rdfs:comment "A type of holding device for a battery sample. It may consist of a battery connector and a cable."@en ;
+	rdfs:subClassOf bto:BatteryHolder ,
+	         [ rdf:type owl:Restriction ;
+               owl:onProperty emmo:hasProperPart ;
+               # emmo:hasProperPart
+               owl:someValuesFrom bto:BatteryConnector ] ,
+             [ rdf:type owl:Restriction ;
+               owl:onProperty emmo:hasProperPart ;
+               # emmo:hasProperPart
+               owl:someValuesFrom bto:Cable ] ;
+    owl:equivalentClass domain-electrochemistry:OutputCable .
+
+bto:HardwareManufacturerName a owl:Class ;
+	rdfs:label "HardwareManufacturerName"@en ;
+	skos:prefLabel "HardwareManufacturerName"@en ;
+	rdfs:comment "The name of the manufacturer of the hardware used for the measurement process."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+	
+bto:HardwareModel a owl:Class ;
+	rdfs:label "HardwareModel"@en ;
+	skos:prefLabel "HardwareModel"@en ;
+	rdfs:comment "The model of the hardware used for the measurement process."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+
+bto:HardwareType a owl:Class ;
+	rdfs:label "HardwareType"@en ;
+	skos:prefLabel "HardwareType"@en ;
+	rdfs:comment "The type of the hardware used for the measurement process."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
+
+bto:HipotCable a owl:Class ;
+	rdfs:label "HipotCable"@en ;
+	skos:prefLabel "HipotCable"@en ;
+	rdfs:comment "A specific type of cable."@en ;
+	rdfs:subClassOf bto:Cable .
+
+bto:MaxVoltage a owl:Class ;
+	rdfs:label "MaxVoltage"@en ;
+	skos:prefLabel "MaxVoltage"@en ;
+	rdfs:comment "A parameter in the battery measurement step. It specifies the maximum voltage of the measurement."@en ;
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
+
+bto:PreparedatterySample a owl:Class ;
+	rdfs:label "PreparedBatterySample"@en ;
+	skos:prefLabel "PreparedBatterySample"@en ;
+	rdfs:comment "A battery sample that has been prepared for testing. It is thus the output of the process of preparing a battery sample."@en ;
+	rdfs:subClassOf chameo:PreparedSample ;
+	rdfs:subClassOf bto:BatterySample .	
+
+bto:RawBatterySample a owl:Class ;
+	rdfs:label "RawBatterySample"@en ;
+	skos:prefLabel "RawBatterySample"@en ;
+	rdfs:comment "A battery sample to be prepared for testing. It is thus the input of the process of preparing a battery sample."@en ;
+	rdfs:subClass chameo:RawSample ;
+	rdfs:subClassOf bto:BatterySample .
+	
+bto:SamplingTime a owl:Class ;
+	rdfs:label "SamplingTime"@en ;
+	skos:prefLabel "SamplingTime"@en ;
+	rdfs:comment "A parameter in the battery measurement step. It specifies the sampling time of the measurement."@en ;
+	rdfs:subClassOf bto:BatteryMeasurementParameter .
+		
+bto:TimeData a owl:Class ;
+	rdfs:label "TimeData"@en ;
+	skos:prefLabel "TimeData"@en ;
+	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the time intervals of the measurement."@en ;
+	rdfs:subClassOf bto:TraceData .
+		
+bto:TraceData a owl:Class ;
+	rdfs:label "TraceData"@en ;
+	skos:prefLabel "TraceData"@en ;
+	rdfs:comment "The output of a battery measurement process in terms of raw data resulting from the measurement."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
+	rdfs:subClassOf chameo:RawData ;
+	rdfs:subClassOf [ rdf:type owl:Restriction ;
+             owl:onProperty chameo:hasDataset ;
+             owl:someValuesFrom domain-battery:BatteryTimeSeriesDataSet ] .
+	
+bto:VoltageData a owl:Class ;
+	rdfs:label "VoltageData"@en ;
+	skos:prefLabel "VoltageData"@en ;
+	rdfs:comment "A specific type of trace data output from a battery measurement process, related to the voltage measured."@en ;
+	rdfs:subClassOf bto:TraceData .
+
 bto:VoltageSource a owl:Class ;
 	rdfs:label "VoltageSource"@en ;
 	skos:prefLabel "VoltageSource"@en ;
@@ -621,157 +734,10 @@ bto:VoltageSource a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:ReferenceSample .
 
-bto:hasBatteryCharacterizationHardwareSpecification a owl:ObjectProperty ;
-	rdfs:label "hasBatteryCharacterizationHardwareSpecification"@en ;
-	skos:prefLabel "hasBatteryCharacterizationHardwareSpecification"@en ;
-	skos:altLabel "hasBatteryCharacterisationHardwareSpecification"@en ;
-	skos:altLabel "hasHardwareSpecification"@en ;
-	skos:altLabel "hasHardwareProperty"@en ;
-	skos:altLabel "hasBatteryCharacterizationHardwareProperty"@en ;
-	skos:altLabel "hasBatteryCharacterisationHardwareProperty"@en ;
-	rdfs:comment "Object property that connects a battery characterization hardware with its specifications. It is a super-property of more specific object properties."@en ;
-	rdfs:domain bto:BatteryCharacterizationHardware ;
-	rdfs:range bto:BatteryCharacterizationHardwareSpecification ;
-	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+bto:VoltageSpecification a owl:Class ;
+	rdfs:label "VoltageSpecification"@en ;
+	skos:prefLabel "VoltageSpecification"@en ;
+	rdfs:comment "A specification of the battery characterization hardware, related to the voltage it can provide."@en ;
+	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .	
 
-bto:hasHardwareType a owl:ObjectProperty ;
-	rdfs:label "hasHardwareType"@en ;
-	skos:preflabel "hasHardwareType"@en ;
-	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware type."@en ;
-	rdfs:range bto:HardwareType ;
-	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
-
-bto:hasHardwareModel a owl:ObjectProperty ;
-	rdfs:label "hasHardwareModel"@en ;
-	skos:preflabel "hasHardwareModel"@en ;
-	rdfs:comment "A specific object property that connects a battery characterization hardware with its hardware model."@en ;
-	rdfs:range bto:HardwareModel ;
-	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
-
-bto:hasCurrentSpecification a owl:ObjectProperty ;
-	rdfs:label "hasCurrentSpecification"@en ;
-	skos:preflabel "hasCurrentSpecification"@en ;
-	rdfs:comment "A specific object property that connects a battery characterization hardware with its current specification."@en ;
-	rdfs:range bto:CurrentSpecification ;
-	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
-	
-bto:hasVoltageSpecification a owl:ObjectProperty ;
-	rdfs:label "hasVoltageSpecification"@en ;
-	skos:preflabel "hasVoltageSpecification"@en ;
-	rdfs:comment "A specific object property that connects a battery characterization hardware with its voltage specification."@en ;
-	rdfs:range bto:VoltageSpecification ;
-	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
-	
 # ---------------------------------------------------------------------------
-
-bto:BatteryCharacterizationEnvironment a owl:Class ;
-	rdfs:label "BatteryCharacterizationEnvironment"@en ;
-	skos:prefLabel "BatteryCharacterizationEnvironment"@en ;
-	skos:altLabel "BatteryCharacterisationEnvironment"@en ;
-	skos:altLabel "Ambient"@en ;
-	skos:altLabel "Environment"@en ;
-	rdfs:comment "The environment in which a battery characterization takes place. It may have a number of properties, or specifications, including pressure, humidity, temperature and light."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf chameo:CharacterisationEnvironment ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientPressure ] ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientHumidity ] ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientTemperature ] ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty chameo:hasCharacterisationEnvironmentProperty ;
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientLight ] .
-
-# Subclass of emmo:Property
-bto:BatteryCharacterizationEnvironmentProperty a owl:Class ;
-	rdfs:label "BatteryCharacterizationEnvironmentProperty"@en ;
-	skos:prefLabel "BatteryCharacterizationEnvironmentProperty"@en ;
-	rdfs:comment "A property of a battery characterization environment, e.g. temperature, pressure, humidity, light. It is a super-class of more specific classes."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:Property .
-
-bto:AmbientPressure a owl:Class ;
-	rdfs:label "AmbientPressure"@en ;
-	skos:prefLabel "AmbientPressure"@en ;
-	rdfs:comment "A specific property of a battery characterization environment, related to its level of pressure."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:hasReferenceUnit ;
-              # emmo:hasReferenceUnit
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientPressureUnit ] .
-	
-bto:AmbientHumidity a owl:Class ;
-	rdfs:label "AmbientHumidity"@en ;
-	skos:prefLabel "AmbientHumidity"@en ;
-	rdfs:comment "A specific property of a battery characterization environment, related to its level of humidity."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:hasReferenceUnit ;
-              # emmo:hasReferenceUnit
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientHumidityUnit ] .
-	
-bto:AmbientTemperature a owl:Class ;
-	rdfs:label "AmbientTemperature"@en ;
-	skos:prefLabel "AmbientTemperature"@en ;
-	rdfs:comment "A specific property of a battery characterization environment, related to its level of temperature."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:hasReferenceUnit ;
-              # emmo:hasReferenceUnit
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientTemperatureUnit ] .
-
-bto:AmbientLight a owl:Class ;
-	rdfs:label "AmbientLight"@en ;
-	skos:prefLabel "AmbientLight"@en ;
-	rdfs:comment "A specific property of a battery characterization environment, related to its level of luminosity (amount of light)."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentProperty ,
-			[ rdf:type owl:Restriction ;
-              owl:onProperty emmo:hasReferenceUnit ;
-              # emmo:hasReferenceUnit
-              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onClass bto:AmbientLightUnit ] .
-
-# Subclass of emmo:MeasurementUnit
-bto:BatteryCharacterizationEnvironmentMeasurementUnit a owl:Class ;
-	rdfs:label "BatteryCharacterizationEnvironmentMeasurementUnit"@en ;
-	skos:prefLabel "BatteryCharacterizationEnvironmentMeasurementUnit"@en ;
-	skos:altLabel "BatteryAmbientMeasurementUnit"@en ;
-	rdfs:comment "Measurement unit of a specification of a battery characterization hardware. It is a super-class of more specific classes."@en ;
-	rdfs:subClassOf bto:BatteryTestingOntology ;
-	rdfs:subClassOf emmo:MeasurementUnit .
-
-bto:AmbientTemperatureUnit a owl:Class ;
-	rdfs:label "AmbientTemperatureUnit"@en ;
-	skos:prefLabel "AmbientTemperatureUnit"@en ;
-	rdfs:comment "The measurement unit of the temperature of a battery characterization hardware."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
-
-bto:AmbientHumidityUnit a owl:Class ;
-	rdfs:label "AmbientHumidityUnit"@en ;
-	skos:prefLabel "AmbientHumidityUnit"@en ;
-	rdfs:comment "The measurement unit of the humidity of a battery characterization hardware."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
-	
-bto:AmbientPressureUnit a owl:Class ;
-	rdfs:label "AmbientPressureUnit"@en ;
-	skos:prefLabel "AmbientPressureUnit"@en ;
-	rdfs:comment "The measurement unit of the pressure of a battery characterization hardware."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
-	
-bto:AmbientLightUnit a owl:Class ;
-	rdfs:label "AmbientLightUnit"@en ;
-	skos:prefLabel "AmbientLightUnit"@en ;
-	rdfs:comment "The measurement unit of the light of a battery characterization hardware."@en ;
-	rdfs:subClassOf bto:BatteryCharacterizationEnvironmentMeasurementUnit .
