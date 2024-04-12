@@ -20,82 +20,98 @@
 
 bto:AlligatorClamps1 a owl:NamedIndividual , bto:AlligatorClamps .
 
-# Ambient1 emmo:hasProperty bto:AmbientPressure1, bto:AmbientTemperature1
 bto:Ambient1 a owl:NamedIndividual , bto:BatteryCharacterizationEnvironment ;
 	chameo:hasCharacterisationEnvironmentProperty bto:AmbientPressure1 , bto:AmbientTemperature1 .
-	# emmo:hasProperty
 
-# emmo:hasReferenceUnit, emmo:hasNumericalValue
 bto:AmbientPressure1 a owl:NamedIndividual , bto:AmbientPressure ;
 	emmo:hasReferenceUnit bto:AmbientPressureUnit1 ;
-	# emmo:hasReferenceUnit
 	emmo:hasNumericalValue 102 .
-	# emmo:hasNumericalValue
 
-# emmo:hasStringValue
 bto:AmbientPressureUnit1 a owl:NamedIndividual , bto:AmbientPressureUnit ;
     emmo:hasStringValue "kPa" .
-    # emmo:hasStringValue
 
 bto:AmbientTemperature1 a owl:NamedIndividual , bto:AmbientTemperature ;
 	emmo:hasReferenceUnit bto:AmbientTemperatureUnit1 ;
-	# emmo:hasReferenceUnit
 	emmo:hasNumericalValue 15 .
-	# emmo:hasNumericalValue
 
 bto:AmbientTemperatureUnit1 a owl:NamedIndividual , bto:AmbientTemperatureUnit ;
 	emmo:hasStringValue "C" .
-	# emmo:hasStringValue
 
 bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
-    emmo:hasBeginTask bto:BatterySamplePreparation1 ;
-    # emmo:hasBeginTask
-    emmo:hasEndTask bto:BatteryMeasurementProcess1 ;
-    # emmo:hasEndTask
-	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
-	chameo:hasCharacterisationLocation bto:Location1 .
+    emmo:hasTask bto:BatterySamplePreparation1 ;
+    emmo:hasTask bto:BatteryMeasurementProcess1 ;
+	rdfs:comment "Optical quality control methods in cell production are unable to detect small but still relevant defects in the separator..."@en ;
+	chameo:hasLab bto:Lab1 .
 
 bto:BatteryHolder1 a owl:NamedIndividual , bto:BatteryHolder .
 
 bto:BatteryMeasurementProcess1 a owl:NamedIndividual , bto:BatteryMeasurementProcess ;
+	chameo:hasCharacterisationEnvironment bto:Ambient1 ;
 	emmo:hasTemporaryParticipant bto:BatterySample1 ;
-	# emmo:hasTemporaryParticipant
 	emmo:hasOutput bto:CurrentData1 , bto:TimeData1 , bto:VoltageData1 ;
-	# emmo:hasOutput
 	emmo:hasDataValue "2020-08-10T15:39:35"^^xsd:dateTime .
-	# hasDataValue
 
-bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample .
+bto:BatteryPartNumber1 a owl:NamedIndividual , bto:BatteryPartNumber ;
+	emmo:hasStringValue "FS 3011-23" .
+	
+bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample ;
+	bto:hasCellForm bto:FormFactor1 ;
+	bto:hasManufacturer bto:Manufacturer1 ;
+	bto:hasPartNumber bto:BatteryPartNumber1 ;
+	bto:hasProductionDate "04/12/2018" ;
+	emmo:hasProperty bto:BatterySampleHeight1 ;
+	emmo:hasProperty bto:BatterySampleLength1 ;
+	emmo:hasProperty bto:BatterySampleWidth1 ;
+	
+bto:BatterySampleHeight1 a owl:NamedIndividual , emmo:Height ;
+	emmo:hasNumericalValue "23" ;
+	emmo:hasMeasurementUnit bto:MeasurementUnit2 . 
+
+bto:BatterySampleLength1 a owl:NamedIndividual , emmo:Length ;
+	emmo:hasNumericalValue "50" ;
+	emmo:hasMeasurementUnit bto:MeasurementUnit1 .
+
+bto:BatterySampleWidth1 a owl:NamedIndividual , emmo:Width ;
+	emmo:hasNumericalValue "50" ;
+	emmo:hasMeasurementUnit bto:MeasurementUnit1 .	
 
 bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparation ;
 	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
-	# emmo:hasTemporaryParticipant
 	emmo:hasNext bto:BatteryMeasurementProcess1 .
-	# emmo:hasNext
 	
-bto:Cable1 a owl:NamedIndividual , bto:Cable .
-
 bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
 	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
-	# emmo:hasNumericalValue
 
-#bto:Fixture1 hasProperPart bto:AlligatorClamps1 , bto:Cable1
+bto:FormFactor1 a owl:NamedIndividual , domain-electrochemistry:FormFactor ;
+	emmo:hasStringValue "electrodes and separators without pouch foil housings" .
+
 bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
-	emmo:hasProperPart bto:AlligatorClamps1 , bto:Cable1 .
-	# emmo:hasProperPart
+	emmo:hasProperPart bto:AlligatorClamps1 , bto:HipotCable1 ;
+	rdfs:label "Cable and alligator clamps"@en .
 
-bto:Location1 a owl:NamedIndividual , bto:Location ;
-	emmo:hasStringValue "Keysight Technologies"@en .
-	# emmo:hasStringValue
+bto:HipotCable1 a owl:NamedIndividual , bto:HipotCable .
+
+bto:Lab1 a owl:NamedIndividual , chameo:Lab ;
+	rdfs:label "Keysight Laboratories Linz"@en ;
+	dcterms:spatial bto:Location1 .
+
+bto:Location1 a owl:NamedIndividual , dcterms:Location ;
+	rdfs:label "Keysight Technologies"@en .
   
+bto:Manufacturer1 a owl:NamedIndividual , emmo:Manufacturer ;
+	foaf:name "Freudenberg" . 
+    
+bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
+	emmo:hasStringValue "nm" .
+	
+bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
+	emmo:hasStringValue "μm" .
+    
 bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
 	emmo:hasNumericalValue 0.0001 .
-	# emmo:hasNumericalValue
 
 bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
 	emmo:hasNumericalValue 0.999899983406067 .
-	# emmo:hasNumericalValue
-
+	
 bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
 	emmo:hasNumericalValue 447.045999862166 .
-	# emmo:hasNumericalValue
