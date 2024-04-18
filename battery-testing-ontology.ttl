@@ -76,7 +76,7 @@
 	foaf:name "Gerhard Goldbeck" ;
 	rdfs:comment "" .
 		
-####### EMMO mapping:
+####### EMMO classes and properties (with mapping):
 ### Component                -> multiperspective-persholistic        EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817
 ### Height                   -> disciplines-isq                      EMMO_08bcf1d6_e719_46c8_bb21_24bc9bf34dba
 ### Length                   -> disciplines-isq                      EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac
@@ -84,6 +84,7 @@
 ### MeasurementUnit          -> disciplines-metrology                EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4
 ### Property                 -> perspectives-semiotics               EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 ### Width                    -> disciplines-isq                      EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0
+
 emmo:Component owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
 emmo:Height owl:equivalentClass emmo:EMMO_08bcf1d6_e719_46c8_bb21_24bc9bf34dba .
 emmo:Length owl:equivalentClass emmo:EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac .
@@ -107,6 +108,7 @@ emmo:Width owl:equivalentClass emmo:EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0 .
 ### hasStringValue           -> multiperspective-symbolic            EMMO_02face50_43a1_40ce_a909_dfe54d5e186b
 ### hasTask                  -> multiperspective-workflow            EMMO_70da982d_1810_4b01_9630_a28e216ecd9a
 ### hasTemporaryParticipant  -> multiperspective-persholistic        EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
+### hasUriValue              -> disciplines-computerscience          EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925
 
 emmo:hasBeginTask owl:equivalentProperty emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 .
 emmo:hasDataValue owl:equivalentProperty emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c .
@@ -122,6 +124,7 @@ emmo:hasReferenceUnit owl:equivalentProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_3
 emmo:hasStringValue owl:equivalentProperty emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b .
 emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a .
 emmo:hasTemporaryParticipant owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 .
+emmo:hasUriValue owl:equivalentProperty emmo:EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 .
 
 ####### CHAMEO classes and properties:
 ### CharacterisationEnvironment
@@ -144,26 +147,27 @@ emmo:hasTemporaryParticipant owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8
 ### hasMeasurementParameter
 ### hasMeasurementSample
 
-####### Battery Domain Ontology mapping:
+####### Battery Domain Ontology classes and properties (with mapping):
 ### Battery
-domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
 ### BatteryMeasurement
-domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
-### BatteryMeasurementResult
-# domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
 ### BatteryTimeSeriesDataSet
+
+domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
+domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
+# domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
 domain-battery:BatteryTimeSeriesDataSet owl:equivalentClass domain-battery:battery_d9b99b14_44e8_473b_af8f_2a160429df69 .
 
-###### Electrochemistry Domain Ontology mapping:
+###### Electrochemistry Domain Ontology classes and properties (with mapping):
 ### Anode
+### Cathode
+### FormFactor
+### OutputCable
+
 domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electrochemistry_b6319c74_d2ce_48c0_a75a_63156776b302 ;
 	rdfs:subClassOf bto:BatteryComponent .
-### Cathode
 domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
 	rdfs:subClassOf bto:BatteryComponent .
-### FormFactor
 domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 .
-### OutputCable
 domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
 
 # ---------------------------------------------------------------------------

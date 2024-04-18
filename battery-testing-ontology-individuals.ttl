@@ -99,7 +99,8 @@ bto:BatterySamplePreparation1 a owl:NamedIndividual , bto:BatterySamplePreparati
 	emmo:hasTemporaryParticipant bto:BatterySample1 , bto:Fixture1 ;
 	emmo:hasNext bto:BatteryMeasurementProcess1 .
 	
-# bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
+bto:CurrentData1 a owl:NamedIndividual , bto:CurrentData ; 
+	chameo:hasDataset "http://www.computationalbiology.it/datasets/" .
 #	emmo:hasNumericalValue "1.477E-7"^^xsd:float .
 
 bto:CurrentSpecification1 a owl:NamedIndividual , bto:CurrentSpecification ;
@@ -145,8 +146,8 @@ bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
 bto:VoltageSpecification1 a owl:NamedIndividual , bto:VoltageSpecification ;
 	emmo:hasNumericalValue "1000" .
 
-# bto:TimeData1 a owl:NamedIndividual , bto:TimeData ;
+bto:TimeData1 a owl:NamedIndividual , bto:TimeData .
 #	emmo:hasNumericalValue 0.999899983406067 .
 	
-# bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData ;
+bto:VoltageData1 a owl:NamedIndividual , bto:VoltageData .
 #	emmo:hasNumericalValue 447.045999862166 .
