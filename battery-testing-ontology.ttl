@@ -1,17 +1,17 @@
 @prefix : <http://w3id.org/emmo-bto/bto#> .
 @prefix bto: <http://w3id.org/emmo-bto/bto#> .
-@prefix emmo: <https://w3id.org/emmo#> .
 @prefix chameo: <http://w3id.org/emmo-chameo/chameo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
 @prefix domain-electrochemistry: <https://w3id.org/emmo/domain/electrochemistry/electrochemistry#> .
+@prefix emmo: <https://w3id.org/emmo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://w3id.org/emmo-bto/bto> .
 
 <http://w3id.org/emmo-bto/bto> rdf:type owl:Ontology ;
@@ -196,6 +196,14 @@ bto:hasBatteryCharacterizationHardwareSpecification a owl:ObjectProperty ;
 	rdfs:subPropertyOf chameo:hasHardwareSpecification ;
 	rdfs:subPropertyOf bto:btoObjectProperty .
 
+bto:hasBatteryManufacturer a owl:ObjectProperty ;
+	rdfs:label "hasBatteryManufacturer"@en ;
+	skos:preflabel "hasBatteryManufacturer"@en ;
+	skos:altlabel "hasBatteryManufacturer"@en ;
+	rdfs:comment "A specific object property that connects either battery sample with its manufacturer."@en ;
+	rdfs:range bto:BatteryManufacturer ;
+	rdfs:subPropertyOf bto:hasBatterySampleProperty .
+
 bto:hasBatterySampleProperty a owl:ObjectProperty ;
 	rdfs:label "hasBatterySampleProperty"@en ;
 	skos:prefLabel "hasBatterySampleProperty" ;
@@ -247,13 +255,13 @@ bto:hasHardwareType a owl:ObjectProperty ;
 	rdfs:range bto:HardwareType ;
 	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
-bto:hasManufacturer a owl:ObjectProperty ;
-	rdfs:label "hasManufacturer"@en ;
-	skos:preflabel "hasManufacturer"@en ;
-	skos:altlabel "hasManufacturer"@en ;
-	rdfs:comment "A specific object property that connects either a battery sample or its characterization hardware with its manufacturer."@en ;
-	rdfs:range emmo:Manufacturer ;
-	rdfs:subPropertyOf bto:btoObjectProperty .
+bto:hasHardwareManufacturer a owl:ObjectProperty ;
+	rdfs:label "hasHardwareManufacturer"@en ;
+	skos:preflabel "hasHardwareManufacturer"@en ;
+	skos:altlabel "hasHardwareManufacturer"@en ;
+	rdfs:comment "A specific object property that connects a battery characterization hardware with its manufacturer."@en ;
+	rdfs:range bto:HardwareManufacturer ;
+	rdfs:subPropertyOf bto:hasBatteryCharacterizationHardwareSpecification .
 
 bto:hasPartNumber a owl:ObjectProperty ;
 	rdfs:label "hasPartNumber"@en ;
@@ -473,10 +481,11 @@ bto:BatteryHolderComponent a owl:Class ;
 	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf emmo:Component .
 
-bto:BatteryManufacturerName a owl:Class ;
-	rdfs:label "BatteryManufacturerName"@en ;
-	skos:prefLabel "BatteryManufacturerName"@en ;
-	rdfs:comment "The name of the manufacturer of a battery sample. It is a property of the sample."@en ;
+bto:BatteryManufacturer a owl:Class ;
+	rdfs:label "BatteryManufacturer"@en ;
+	skos:prefLabel "BatteryManufacturer"@en ;
+	rdfs:comment "The manufacturer of a battery sample. It is a property of the sample."@en ;
+	rdfs:subClassOf emmo:Manufacturer ;
 	rdfs:subClassOf bto:BatterySampleProperty .
 
 bto:BatteryMeasurementParameter a owl:Class ;
@@ -659,10 +668,11 @@ bto:Fixture a owl:Class ;
                owl:someValuesFrom bto:Cable ] ;
     owl:equivalentClass domain-electrochemistry:OutputCable .
 
-bto:HardwareManufacturerName a owl:Class ;
-	rdfs:label "HardwareManufacturerName"@en ;
-	skos:prefLabel "HardwareManufacturerName"@en ;
-	rdfs:comment "The name of the manufacturer of the hardware used for the measurement process."@en ;
+bto:HardwareManufacturer a owl:Class ;
+	rdfs:label "HardwareManufacturer"@en ;
+	skos:prefLabel "HardwareManufacturer"@en ;
+	rdfs:comment "The manufacturer of the hardware used for the measurement process."@en ;
+	rdfs:subClassOf emmo:Manufacturer ;
 	rdfs:subClassOf bto:BatteryCharacterizationHardwareSpecification .
 	
 bto:HardwareModel a owl:Class ;

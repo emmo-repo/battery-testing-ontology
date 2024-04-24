@@ -1,17 +1,17 @@
 @prefix : <http://w3id.org/emmo-bto/bto#> .
 @prefix bto: <http://w3id.org/emmo-bto/bto#> .
-@prefix emmo: <https://w3id.org/emmo#> .
 @prefix chameo: <http://w3id.org/emmo-chameo/chameo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
 @prefix domain-electrochemistry: <https://w3id.org/emmo/domain/electrochemistry/electrochemistry#> .
+@prefix emmo: <https://w3id.org/emmo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://w3id.org/emmo-bto/bto> .
 
 ######################################################################################
@@ -52,9 +52,9 @@ bto:BatteryCharacterizationHardware1 a owl:NamedIndividual, bto:BatteryCharacter
 	bto:hasCurrentSpecification bto:CurrentSpecification1 ;
 	bto:hasHardwareModel bto:HardwareModel1 ;
 	bto:hasHardwareType bto:HardwareType1 ;
-	bto:hasManufacturer bto:Manufacturer2 ;
+	bto:hasHardwareManufacturer bto:Manufacturer2 ;
 	bto:hasVoltageSpecification bto:VoltageSpecification1 ;
-	chameo:hasDateOfCalibration "25/01/2020"^^xsd:dateTime .
+	chameo:hasDateOfCalibration "2020-01-25T00:00:00"^^xsd:dateTime .
 
 bto:BatteryCharacterisationMethod1 a owl:NamedIndividual , bto:BatteryCharacterizationMethod ;
     emmo:hasTask bto:BatterySamplePreparation1 ;
@@ -76,7 +76,7 @@ bto:BatteryPartNumber1 a owl:NamedIndividual , bto:BatteryPartNumber ;
 	
 bto:BatterySample1 a owl:NamedIndividual , bto:BatterySample ;
 	bto:hasCellForm bto:FormFactor1 ;
-	bto:hasManufacturer bto:Manufacturer1 ;
+	bto:hasBatteryManufacturer bto:Manufacturer1 ;
 	bto:hasPartNumber bto:BatteryPartNumber1 ;
 	bto:hasProductionDate "04/12/2018" ;
 	emmo:hasProperty bto:BatterySampleHeight1 ;
@@ -116,7 +116,7 @@ bto:Fixture1 a owl:NamedIndividual , bto:Fixture ;
 bto:HardwareModel1 a owl:NamedIndividual, bto:HardwareModel ;
 	emmo:hasStringValue "B2985A" .
 
-bto:HarwareType1 a owl:NamedIndividual, bto:HardwareType ;
+bto:HardwareType1 a owl:NamedIndividual, bto:HardwareType ;
 	emmo:hasStringValue "Femto/Picoammeter and Electrometer/High Resistance Meter" .
 
 bto:HipotCable1 a owl:NamedIndividual , bto:HipotCable .
@@ -128,16 +128,16 @@ bto:Lab1 a owl:NamedIndividual , chameo:Lab ;
 bto:Location1 a owl:NamedIndividual , dcterms:Location ;
 	rdfs:label "Keysight Technologies"@en .
   
-bto:Manufacturer1 a owl:NamedIndividual , emmo:Manufacturer ;
+bto:Manufacturer1 a owl:NamedIndividual , emmo:BatteryManufacturer ;
 	foaf:name "Freudenberg" . 
 	
-bto:Manufacturer2 a owl:NamedIndividual , emmo:Manufacturer ;
+bto:Manufacturer2 a owl:NamedIndividual , emmo:HardwareManufacturer ;
 	foaf:name "Keysight Technologies" .
     
 bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
 	emmo:hasStringValue "nm" .
 	
-bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
+bto:MeasurementUnit2 a owl:NamedIndividual , emmo:LengthUnit ;
 	emmo:hasStringValue "μm" .
     
 bto:SamplingTime1 a owl:NamedIndividual , bto:SamplingTime ;
