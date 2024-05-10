@@ -1,6 +1,6 @@
 @prefix : <http://w3id.org/emmo-bto/bto#> .
 @prefix bto: <http://w3id.org/emmo-bto/bto#> .
-@prefix chameo: <http://w3id.org/emmo-chameo/chameo#> .
+@prefix chameo: <https://w3id.org/emmo/domain/characterisation-methodology/chameo#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix domain-battery: <https://w3id.org/emmo/domain/battery/battery#> .
 @prefix domain-electrochemistry: <https://w3id.org/emmo/domain/electrochemistry/electrochemistry#> .
@@ -17,7 +17,7 @@
 <http://w3id.org/emmo-bto/bto> rdf:type owl:Ontology ;
 	owl:versionIRI <http://w3id.org/emmo-bto/1.0.0-beta1/bto> ;
 	owl:imports 
-		<http://w3id.org/emmo-chameo/chameo> ,
+		<https://w3id.org/emmo/domain/characterisation-methodology/chameo> ,
 		<https://w3id.org/emmo/1.0.0-beta5/multiperspective/symbolic> ,
 		<https://w3id.org/emmo/domain/battery/battery> ,
 		<https://w3id.org/emmo/domain/battery/batteryquantities> ,
@@ -85,14 +85,22 @@
 ### Property                 -> perspectives-semiotics               EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba
 ### Width                    -> disciplines-isq                      EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0
 
-emmo:Component owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
-emmo:Height owl:equivalentClass emmo:EMMO_08bcf1d6_e719_46c8_bb21_24bc9bf34dba .
-emmo:Length owl:equivalentClass emmo:EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac .
-emmo:LengthUnit owl:equivalentClass emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc .
-emmo:Manufacturing owl:equivalentClass emmo:EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b .
-emmo:MeasurementUnit owl:equivalentClass emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
-emmo:Property owl:equivalentClass emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
-emmo:Width owl:equivalentClass emmo:EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0 .
+emmo:Component a owl:Class ;
+	owl:equivalentClass emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 .
+emmo:Height a owl:Class ;
+	owl:equivalentClass emmo:EMMO_08bcf1d6_e719_46c8_bb21_24bc9bf34dba .
+emmo:Length a owl:Class ;
+	owl:equivalentClass emmo:EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac .
+emmo:LengthUnit a owl:Class ;
+	owl:equivalentClass emmo:EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc .
+emmo:Manufacturing a owl:Class ;
+	owl:equivalentClass emmo:EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b .
+emmo:MeasurementUnit a owl:Class ;
+	owl:equivalentClass emmo:EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4 .
+emmo:Property a owl:Class ;
+	owl:equivalentClass emmo:EMMO_b7bcff25_ffc3_474e_9ab5_01b1664bd4ba .
+emmo:Width a owl:Class ;
+	owl:equivalentClass emmo:EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0 .
 
 ### hasBeginTask             -> multiperspective-workflow            EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296
 ### hasDataValue             -> perspectives-data                    EMMO_b6292331_94af_4f00_976b_ea55960c2f1c
@@ -110,21 +118,36 @@ emmo:Width owl:equivalentClass emmo:EMMO_e4de48b1_dabb_4490_ac2b_040f926c64f0 .
 ### hasTemporaryParticipant  -> multiperspective-persholistic        EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
 ### hasUriValue              -> disciplines-computerscience          EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925
 
-emmo:hasBeginTask owl:equivalentProperty emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 .
-emmo:hasDataValue owl:equivalentProperty emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c .
-emmo:hasEndTask owl:equivalentProperty emmo:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 .
-emmo:hasInput owl:equivalentProperty emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 .
-emmo:hasMeasurementUnit owl:equivalentProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 .
-emmo:hasNext owl:equivalentProperty emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d .
-emmo:hasNumericalValue owl:equivalentProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 .
-emmo:hasOutput owl:equivalentProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 .
-emmo:hasProperty owl:equivalentProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
-emmo:hasProperPart owl:equivalentProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 .
-emmo:hasReferenceUnit owl:equivalentProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 .
-emmo:hasStringValue owl:equivalentProperty emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b .
-emmo:hasTask owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a .
-emmo:hasTemporaryParticipant owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 .
-emmo:hasUriValue owl:equivalentProperty emmo:EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 .
+emmo:hasBeginTask a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_4ab7fb52_cec3_4c00_90c0_5648f01e3296 .
+emmo:hasDataValue a owl:DatatypeProperty ;
+	owl:equivalentProperty emmo:EMMO_b6292331_94af_4f00_976b_ea55960c2f1c .
+emmo:hasEndTask a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_92227f7f_22e9_4b19_a011_920eac3c7b75 .
+emmo:hasInput a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_36e69413_8c59_4799_946c_10b05d266e22 .
+emmo:hasMeasurementUnit a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 .
+emmo:hasNext a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_499e24a5_5072_4c83_8625_fe3f96ae4a8d .
+emmo:hasNumericalValue a owl:DatatypeProperty ;
+	owl:equivalentProperty emmo:EMMO_faf79f53_749d_40b2_807c_d34244c192f4 .
+emmo:hasOutput a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 .
+emmo:hasProperty a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_e1097637_70d2_4895_973f_2396f04fa204 .
+emmo:hasProperPart a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 .
+emmo:hasReferenceUnit a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296 .
+emmo:hasStringValue a owl:DatatypeProperty ;
+	owl:equivalentProperty emmo:EMMO_02face50_43a1_40ce_a909_dfe54d5e186b .
+emmo:hasTask a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_70da982d_1810_4b01_9630_a28e216ecd9a .
+emmo:hasTemporaryParticipant a owl:ObjectProperty ;
+	owl:equivalentProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 .
+emmo:hasUriValue a owl:DatatypeProperty ;
+	owl:equivalentProperty emmo:EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 .
 
 ####### CHAMEO classes and properties:
 ### CharacterisationEnvironment
@@ -152,10 +175,15 @@ emmo:hasUriValue owl:equivalentProperty emmo:EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c
 ### BatteryMeasurement
 ### BatteryTimeSeriesDataSet
 
-domain-battery:Battery owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
-domain-battery:BatteryMeasurement owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
+domain-battery:Battery a owl:Class ;
+	owl:equivalentClass domain-battery:battery_74ed2670_657d_4f0b_b0a6_3f13bc2e9c17 .
+domain-battery:BatteryMeasurement a owl:Class ;
+	owl:equivalentClass domain-battery:battery_6c481323_498b_42c6_915a_53490f409430 .
+domain-battery:BatteryTimeSeriesDataSet a owl:Class ;
+	owl:equivalentClass domain-battery:battery_d9b99b14_44e8_473b_af8f_2a160429df69 .
+
 # domain-battery:BatteryMeasurementResult owl:equivalentClass domain-battery:battery_14ea92c1_2682_4c52_83a5_632adcfdb1ce .
-domain-battery:BatteryTimeSeriesDataSet owl:equivalentClass domain-battery:battery_d9b99b14_44e8_473b_af8f_2a160429df69 .
+
 
 ###### Electrochemistry Domain Ontology classes and properties (with mapping):
 ### Anode
@@ -163,12 +191,16 @@ domain-battery:BatteryTimeSeriesDataSet owl:equivalentClass domain-battery:batte
 ### FormFactor
 ### OutputCable
 
-domain-electrochemistry:Anode owl:equivalentClass domain-electrochemistry:electrochemistry_b6319c74_d2ce_48c0_a75a_63156776b302 ;
+domain-electrochemistry:Anode a owl:Class ;
+	owl:equivalentClass domain-electrochemistry:electrochemistry_b6319c74_d2ce_48c0_a75a_63156776b302 ;
 	rdfs:subClassOf bto:BatteryComponent .
-domain-electrochemistry:Cathode owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
+domain-electrochemistry:Cathode a owl:Class ;
+	owl:equivalentClass domain-electrochemistry:electrochemistry_35c650ab_3b23_4938_b312_1b0dede2e6d5 ;
 	rdfs:subClassOf bto:BatteryComponent .
-domain-electrochemistry:FormFactor owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 .
-domain-electrochemistry:OutputCable owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
+domain-electrochemistry:FormFactor a owl:Class ;
+	owl:equivalentClass domain-electrochemistry:electrochemistry_1586ef26_6d30_49e3_ae32_b4c9fc181941 .
+domain-electrochemistry:OutputCable a owl:Class ;
+	owl:equivalentClass domain-electrochemistry:electrochemistry_76df6e7b_fc3b_4a1f_98b1_0ca9c0539e4c .
 
 # ---------------------------------------------------------------------------
 
