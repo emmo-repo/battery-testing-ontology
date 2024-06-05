@@ -444,6 +444,7 @@ bto:BatteryCharacterizationHardware a owl:Class ;
 	skos:prefLabel "BatteryCharacterizationHardware"@en ;
 	skos:altLabel "Hardware"@en ;
 	rdfs:comment "The physical apparatus of the battery testing procedure. It is required in a battery measurement process."@en ;
+	rdfs:subClassOf bto:BatteryTestingOntology ;
 	rdfs:subClassOf chameo:CharacterisationInstrument .
 
 bto:BatteryCharacterizationHardwareSpecification a owl:Class ;

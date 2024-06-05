@@ -877,7 +877,7 @@ bto:Manufacturer2 a owl:NamedIndividual , emmo:HardwareManufacturer ;
 	foaf:name "Keysight Technologies" .
     
 bto:MeasurementUnit1 a owl:NamedIndividual , emmo:LengthUnit ;
-	emmo:hasStringValue "nm" .
+	emmo:hasStringValue "mm" .
 	
 bto:MeasurementUnit2 a owl:NamedIndividual , emmo:LengthUnit ;
 	emmo:hasStringValue "μm" .
