@@ -732,7 +732,7 @@ bto:MaxVoltage a owl:Class ;
 	rdfs:comment "A parameter in the battery measurement step. It specifies the maximum voltage of the measurement."@en ;
 	rdfs:subClassOf bto:BatteryMeasurementParameter .
 
-bto:PreparedatterySample a owl:Class ;
+bto:PreparedBatterySample a owl:Class ;
 	rdfs:label "PreparedBatterySample"@en ;
 	skos:prefLabel "PreparedBatterySample"@en ;
 	rdfs:comment "A battery sample that has been prepared for testing. It is thus the output of the process of preparing a battery sample."@en ;
